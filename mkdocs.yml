@@ -1,0 +1,37 @@
+site_name: Karmada.io
+edit_uri: ./edit/main/docs
+nav:
+  - What's Karmada: 
+    - Karmada: /
+    - istio-on-karmada.md
+    - multi-cluster-ingress.md
+    - multi-cluster-service.md
+    - frequently-asked-questions.md
+    - reserved-namespaces.md
+    - object-association-map.md
+    - bash-auto-completion-on-linux.md
+  - User Guide:
+    - aggregated-api-endpoint: userguide/aggregated-api-endpoint.md
+    - cluster-registration: userguide/cluster-registration.md
+    - configure-controllers: userguide/configure-controllers.md
+    - customizing-resource-interpreter: userguide/customizing-resource-interpreter.md
+    - override-policy: userguide/override-policy.md
+    - promote-legacy-workload: userguide/promote-legacy-workload.md
+    - propagate-dependencies: userguide/propagate-dependencies.md
+    - resource-propagating: userguide/resource-propagating.md
+  - Installation: 
+    - Installation: installation/installation.md
+    - Install kubectl Karmada: installation/install-kubectl-karmada.md
+  - Upgrading: 
+    - upgrading: upgrading/
+  - Working With:
+    - working-with-anp.md
+    - working-with-argocd.md
+    - working-with-filebeat.md
+    - working-with-flux.md
+    - working-with-gatekeeper.md
+    - working-with-kyverno.md
+    - working-with-prometheus.md
+    - working-with-submariner.md
+    - working-with-velero.md
+  - troubleshooting: troubleshooting.md
