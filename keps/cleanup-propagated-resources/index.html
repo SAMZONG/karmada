@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Cleanup Member Cluster Resources - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#cleanup-propagated-resources" class="nav-link">Cleanup propagated resources</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#motivation" class="nav-link">Motivation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposals" class="nav-link">Proposals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="cleanup-propagated-resources">Cleanup propagated resources</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#cleanup-propagated-resources">Cleanup propagated resources</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#motivation">Motivation</a><ul>
+<li><a href="#goals">Goals</a></li>
+</ul>
+</li>
+<li><a href="#proposal">Proposals</a><ul>
+<li><a href="#implementation-details">Implementation Details</a></li>
+<li><a href="#best-effort-strategy">Best Effort Strategy</a></li>
+<li><a href="#required-strategy">Required Strategy</a></li>
+<li><a href="#additional-clusterconfigtypes-optional">Addition ClusterConditionTypes (optional)</a></li>
+<li><a href="#unjoining-clusterconfigurationtype">Unjoining ClusterConfigurationType</a></li>
+<li><a href="#failed-clusterconfigurationtype">Failed ClusterConfigurationType</a></li>
+</ul>
+</li>
+</ul>
+<p>This document proposes a mechanism to specify that a member cluster resource should be removed from a managed cluster when leaving.</p>
+<h2 id="motivation">Motivation</h2>
+<p>When a cluster is unjoined, karmada should provide a mechanism to cleanup the resources propagated by karmada. Currently, when unjoin a cluster, <code>Karamada</code> first try to remove propagated resource, and will skip remove if the cluster not ready.  </p>
+<h3 id="goals">Goals</h3>
+<ul>
+<li>Define how users can indicate that propagated resource should be removed when a cluster leaves</li>
+<li>Define cluster removal strategies</li>
+</ul>
+<h2 id="proposals">Proposals</h2>
+<p>The Cluster struct should be updated to contain a <code>RemoveStrategy</code> member. <code>RemoveStrategy</code> will initially support two values, <code>Needless</code> and  <code>Required</code>.</p>
+<ul>
+<li>The <code>Needless</code> strategy will not cleanup any propagated resources.</li>
+<li>The <code>Required</code> strategy will halt the unjoin process and set the <code>Cluster resource</code> in a failed state when encountering errors. Unjoining is blocked until all propagated resources have been removed successfully.</li>
+</ul>
+<p>By default, <code>RemoveStrategy</code> will be  <code>needless</code> on all cluster. A user must explicitly set a removal strategy on the join cluster.</p>
+<h3 id="implementation-details">Implementation details</h3>
+<ul>
+<li>Update cluster to add a new attribute:
+  <code>RemoveStrategy *RemoveStrategy `json:"removeStrategy,omitempty"`</code></li>
+</ul>
+<p>```
+    type RemoveStrategy string</p>
+<pre><code>const (
+  RemoveStrategyNeedless   RemoveStrategy = "Needless"
+  RemoveStrategyRequired   RemoveStrategy = "Required"
+)
+</code></pre>
+<p>```</p>
+<ul>
+<li>
+<p>Add a flag <code>remove-strategy</code> to <code>karmadactl join</code> , and set the value to <code>RemoveStrategy</code> attribute</p>
+</li>
+<li>
+<p>During unjoin cluster, <code>karmada</code> should consider remove strategy</p>
+</li>
+</ul>
+<p>In kubefed's propose, the author suggest add a <code>BestEffort</code> strategy, reviewers say we need a certain value, so we should not use it too. <code>Karamada</code> use the <code>BestEffort</code> strategy, currently.</p>
+<h4 id="needless-strategy">Needless Strategy</h4>
+<p>Not need cleanup propagated resources when unjoining cluster. <code>Karamada</code> should use this strategy as default value,  condsider the business risk.</p>
+<h4 id="required-strategy">Required Strategy</h4>
+<p>Clusters with the "required" removal strategy must remove execution namespaces successfully on unjoin. After removing the work resource, the client must verify that the propagated resource is no longer present. If a resource cannot be removed:</p>
+<ul>
+<li>UnjoinCluster should return a formatted error containing which <code>work</code> could not be removed</li>
+<li>A ClusterCondition should be added to the <code>cluster</code> status with a message indicating which resources could not be removed</li>
+<li>(optional) Set the ConditionType to <code>Failed</code></li>
+</ul>
+<h3 id="execution-controller">Execution Controller</h3>
+<p>When cluster is unjoined, <code>karmada</code> should process by <code>cluster</code> remove strategy:</p>
+<ul>
+<li><code>Needless</code> strategy ignore <code>work</code> delete event</li>
+<li><code>Required</code> strategy return true if the <code>work</code> delete success, and set clustercondition if delete fail</li>
+</ul>
+<h3 id="additional-clusterconditiontypes-optional">Additional ClusterConditionTypes (optional)</h3>
+<p>Presently, there are only two ClusterConditionTypes,  <code>Unjoining</code> and <code>UnjoinFailed</code>. Given the <code>required</code> remove strategy, a <code>Cluster</code> may end up in a state where the cluster is <code>Ready</code> but is in the process of "Unjoining". Adding additional conditions will make it easier to understand life cycle of cluster operator.</p>
+<pre><code class="language-yaml">status:
+  conditions:
+  - lastTransitionTime: &quot;2021-05-08T12:34:15Z&quot;
+    lastUpdateTime: &quot;2021-05-08T12:34:30Z&quot;
+    message: Unjoining resources.
+    reason: UnjoinCluster
+    status: &quot;True&quot;
+    type: Unjoining
+</code></pre>
+<h4 id="unjoining-clusterconditiontype">Unjoining ClusterConditionType</h4>
+<p>The <code>Unjoining</code> condition should be set on a cluster when exec  <code>karmadactl unjoin</code> command.</p>
+<h4 id="failed-clusterconditiontype">Failed ClusterConditionType</h4>
+<p>In the event of an error, such as failure to remove a resource with a <code>required</code> remove strategy, the cluster should enter a <code>UnjoinFailed</code> condition.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

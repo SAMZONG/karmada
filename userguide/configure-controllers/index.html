@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>configure-controllers - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../cluster-registration/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../customizing-resource-interpreter/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#configure-controllers" class="nav-link">Configure Controllers</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#karmada-controllers" class="nav-link">Karmada Controllers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#kubernetes-controllers" class="nav-link">Kubernetes Controllers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#configure-controllers">Configure Controllers</a></li>
+<li><a href="#karmada-controllers">Karmada Controllers</a><ul>
+<li><a href="#configure-karmada-controllers">Configure Karmada Controllers</a></li>
+</ul>
+</li>
+<li><a href="#kubernetes-controllers">Kubernetes Controllers</a><ul>
+<li><a href="#recommended-controllers">Recommended Controllers</a></li>
+<li><a href="#namespace">namespace</a></li>
+<li><a href="#garbagecollector">garbagecollector</a></li>
+<li><a href="#serviceaccount-token">serviceaccount-token</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h1 id="configure-controllers">Configure Controllers</h1>
+<p>Karmada maintains a bunch of controllers which are control loops that watch the state of your system, then make or
+request changes where needed. Each controller tries to move the current state closer to the desired state.
+See <a href="https://kubernetes.io/docs/concepts/architecture/controller/">Kubernetes Controller Concepts</a> for more details.</p>
+<h2 id="karmada-controllers">Karmada Controllers</h2>
+<p>The controllers are embedded into components of <code>karmada-controller-manager</code> or <code>karmada-agent</code> and will be launched<br />
+along with components startup. Some controllers may be shared by <code>karmada-controller-manager</code> and <code>karmada-agent</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Controller</th>
+<th>In karmada-controller-manager</th>
+<th>In karmada-agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>clusterStatus</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>binding</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>execution</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>workStatus</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>namespace</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>serviceExport</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>endpointSlice</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>serviceImport</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>unifiedAuth</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>hpa</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configure-karmada-controllers">Configure Karmada Controllers</h3>
+<p>You can use <code>--controllers</code> flag to specify the enabled controller list for <code>karmada-controller-manager</code> and
+<code>karmada-agent</code>, or disable some of them in addition to the default list.</p>
+<p>E.g. Specify a controller list:</p>
+<pre><code class="language-bash">--controllers=cluster,clusterStatus,binding,xxx
+</code></pre>
+<p>E.g. Disable some controllers(remember to keep <code>*</code> if you want to keep the rest controllers in the default list):</p>
+<pre><code class="language-bash">--controllers=-hpa,-unifiedAuth,*
+</code></pre>
+<p>Use <code>-foo</code> to disable the controller named <code>foo</code>.</p>
+<blockquote>
+<p>Note: The default controller list might be changed in the future releases. The controllers enabled in the last release
+might be disabled or deprecated and new controllers might be introduced too. Users who are using this flag should
+check the release notes before system upgrade.</p>
+</blockquote>
+<h2 id="kubernetes-controllers">Kubernetes Controllers</h2>
+<p>In addition to the controllers that are maintained by the Karmada community, Karmada also requires some controllers from
+Kubernetes. These controllers run as part of <code>kube-controller-manager</code> and are maintained by the Kubernetes community.</p>
+<p>Users are recommended to deploy the <code>kube-controller-manager</code> along with Karmada components. And the installation
+methods list in <a href="https://github.com/karmada-io/karmada/blob/master/docs/installation/installation.md">installation guide</a> would help you deploy it as well as Karmada components.</p>
+<h3 id="recommended-controllers">Recommended Controllers</h3>
+<p>Not all controllers in <code>kube-controller-manager</code> are necessary for Karmada, if you are deploying
+Karmada using other tools, you might have to configure the controllers by <code>--controllers</code> flag just like what we did in
+<a href="https://github.com/karmada-io/karmada/blob/master/artifacts/deploy/kube-controller-manager.yaml">example of kube-controller-manager deployment</a>.</p>
+<p>The following controllers are tested and recommended by Karmada.</p>
+<h4 id="namespace">namespace</h4>
+<p>The <code>namespace</code> controller runs as part of <code>kube-controller-manager</code>. It watches <code>Namespace</code> deletion and deletes 
+all resources in the given namespace.</p>
+<p>For the Karmada control plane, we inherit this behavior to keep a consistent user experience. More than that, we also
+rely on this feature in the implementation of Karmada controllers, for example, when un-registering a cluster,
+Karmada would delete the <code>execution namespace</code>(named <code>karmada-es-&lt;cluster name&gt;</code>) that stores all the resources 
+propagated to that cluster, to ensure all the resources could be cleaned up from both the Karmada control plane and the 
+given cluster.</p>
+<p>More details about the <code>namespace</code> controller, please refer to 
+<a href="https://github.com/kubernetes/kubernetes/blob/v1.23.4/pkg/controller/namespace/deletion/namespaced_resources_deleter.go#L82-L94">namespace controller sync logic</a>.</p>
+<h4 id="garbagecollector">garbagecollector</h4>
+<p>The <code>garbagecollector</code> controller runs as part of <code>kube-controller-manager</code>. It is used to clean up garbage resources.
+It manages <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/">owner reference</a> and
+deletes the resources once all owners are absent.</p>
+<p>For the Karmada control plane, we also use <code>owner reference</code> to link objects to each other. For example, each
+<code>ResourceBinding</code> has an owner reference that link to the <code>resource template</code>. Once the <code>resource template</code> is removed,
+the <code>ResourceBinding</code> will be removed by <code>garbagecollector</code> controller automatically.</p>
+<p>For more details about garbage collection mechanisms, please refer to
+<a href="https://kubernetes.io/docs/concepts/architecture/garbage-collection/">Garbage Collection</a>.</p>
+<h4 id="serviceaccount-token">serviceaccount-token</h4>
+<p>The <code>serviceaccount-token</code> controller runs as part of <code>kube-controller-manager</code>.
+It watches <code>ServiceAccount</code> creation and creates a corresponding ServiceAccount token Secret to allow API access.</p>
+<p>For the Karmada control plane, after a <code>ServiceAccount</code> object is created by the administrator, we also need
+<code>serviceaccount-token</code> controller to generate the ServiceAccount token <code>Secret</code>, which will be a relief for
+administrator as he/she doesn't need to manually prepare the token.</p>
+<p>More details please refer to:
+- <a href="https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#token-controller">service account token controller</a>
+- <a href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens">service account tokens</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>resource-propagating - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../propagate-dependencies/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../installation/installation/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#resource-propagating" class="nav-link">Resource Propagating</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#before-you-start" class="nav-link">Before you start</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#deploy-a-simplest-multi-cluster-deployment" class="nav-link">Deploy a simplest multi-cluster Deployment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#deploy-deployment-into-a-specified-set-of-target-clusters" class="nav-link">Deploy deployment into a specified set of target clusters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#configuring-multi-cluster-ha-for-deployment" class="nav-link">Configuring Multi-Cluster HA for Deployment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#multi-cluster-failover" class="nav-link">Multi-Cluster Failover</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#propagate-specified-resources-to-clusters" class="nav-link">Propagate specified resources to clusters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#adjusting-the-instance-propagation-policy-of-deployment-in-clusters" class="nav-link">Adjusting the instance propagation policy of Deployment in clusters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="resource-propagating">Resource Propagating</h1>
+<p>The <a href="https://github.com/karmada-io/karmada/blob/master/pkg/apis/policy/v1alpha1/propagation_types.go#L13">PropagationPolicy</a> and <a href="https://github.com/karmada-io/karmada/blob/master/pkg/apis/policy/v1alpha1/propagation_types.go#L292">ClusterPropagationPolicy</a> APIs are provided to propagate resources. For the differences between the two APIs, please see <a href="../../frequently-asked-questions/#what-is-the-difference-between-propagationpolicy-and-clusterpropagationpolicy">here</a>.</p>
+<p>Here, we use PropagationPolicy as an example to describe how to propagate resources.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p><a href="../../installation/installation/">Install Karmada</a> and prepare the <a href="../../installation/install-kubectl-karmada/">karmadactl command-line</a> tool.</p>
+<h2 id="deploy-a-simplest-multi-cluster-deployment">Deploy a simplest multi-cluster Deployment</h2>
+<h3 id="create-a-propagationpolicy-object">Create a PropagationPolicy object</h3>
+<p>You can propagate a Deployment by creating a PropagationPolicy object defined in a YAML file. For example, this YAML
+ file describes a Deployment object named nginx under default namespace need to be propagated to member1 cluster:</p>
+<pre><code class="language-yaml"># propagationpolicy.yaml
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: example-policy # The default namespace is `default`.
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: nginx # If no namespace is specified, the namespace is inherited from the parent object scope.
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+</code></pre>
+<ol>
+<li>Create a propagationPolicy base on the YAML file:</li>
+</ol>
+<pre><code class="language-shell">kubectl apply -f propagationpolicy.yaml
+</code></pre>
+<ol>
+<li>Create a Deployment nginx resource:</li>
+</ol>
+<pre><code class="language-shell">kubectl create deployment nginx --image nginx
+</code></pre>
+<blockquote>
+<p>Note: The resource exists only as a template in karmada. After being propagated to a member cluster, the behavior of the resource is the same as that of a single kubernetes cluster.</p>
+<p>Note: Resources and PropagationPolicy are created in no sequence.
+3. Display information of the deployment:</p>
+</blockquote>
+<pre><code class="language-shell">karmadactl get deployment
+</code></pre>
+<p>The output is similar to this:</p>
+<pre><code class="language-shell">The karmadactl get command now only supports the push mode. [ member3 ] is not running in push mode.
+
+NAME    CLUSTER   READY   UP-TO-DATE   AVAILABLE   AGE   ADOPTION
+nginx   member1   1/1     1            1           52s   Y
+</code></pre>
+<ol>
+<li>List the pods created by the deployment:</li>
+</ol>
+<pre><code class="language-shell">karmadactl get pod -l app=nginx
+</code></pre>
+<p>The output is similar to this:</p>
+<pre><code class="language-shell">The karmadactl get command now only supports the push mode. [ member3 ] is not running in push mode.
+
+NAME                     CLUSTER   READY   STATUS    RESTARTS   AGE
+nginx-6799fc88d8-s7vv9   member1   1/1     Running   0          52s
+</code></pre>
+<h3 id="update-propagationpolicy">Update PropagationPolicy</h3>
+<p>You can update the propagationPolicy by applying a new YAML file. This YAML file propagates the Deployment to the member2 cluster.</p>
+<pre><code class="language-yaml"># propagationpolicy-update.yaml
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: example-policy
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: nginx
+  placement:
+    clusterAffinity:
+      clusterNames: # Modify the selected cluster to propagate the Deployment.
+        - member2
+</code></pre>
+<ol>
+<li>Apply the new YAML file:</li>
+</ol>
+<pre><code class="language-shell">kubectl apply -f propagationpolicy-update.yaml
+</code></pre>
+<ol>
+<li>Display information of the deployment (the output is similar to this):</li>
+</ol>
+<pre><code class="language-shell">The karmadactl get command now only supports the push mode. [ member3 ] is not running in push mode.
+
+NAME    CLUSTER   READY   UP-TO-DATE   AVAILABLE   AGE   ADOPTION
+nginx   member2   1/1     1            1           5s    Y
+</code></pre>
+<ol>
+<li>List the pods of the deployment (the output is similar to this):</li>
+</ol>
+<pre><code class="language-shell">The karmadactl get command now only supports the push mode. [ member3 ] is not running in push mode.
+
+NAME                     CLUSTER   READY   STATUS    RESTARTS   AGE
+nginx-6799fc88d8-8t8cc   member2   1/1     Running   0          17s
+</code></pre>
+<blockquote>
+<p>Note: Updating the <code>.spec.resourceSelectors</code> field to change hit resources is currently not supported.</p>
+</blockquote>
+<h3 id="update-deployment">Update Deployment</h3>
+<p>You can update the deployment template. The changes will be automatically synchronized to the member clusters.</p>
+<ol>
+<li>Update deployment replicas to 2</li>
+<li>Display information of the deployment (the output is similar to this):</li>
+</ol>
+<pre><code class="language-shell">The karmadactl get command now only supports the push mode. [ member3 ] is not running in push mode.
+
+NAME    CLUSTER   READY   UP-TO-DATE   AVAILABLE   AGE     ADOPTION
+nginx   member2   2/2     2            2           7m59s   Y
+</code></pre>
+<ol>
+<li>List the pods of the deployment (the output is similar to this):</li>
+</ol>
+<pre><code class="language-shell">The karmadactl get command now only supports the push mode. [ member3 ] is not running in push mode.
+
+NAME                     CLUSTER   READY   STATUS    RESTARTS   AGE
+nginx-6799fc88d8-8t8cc   member2   1/1     Running   0          8m12s
+nginx-6799fc88d8-zpl4j   member2   1/1     Running   0          17s
+</code></pre>
+<h3 id="delete-a-propagationpolicy">Delete a propagationPolicy</h3>
+<p>Delete the propagationPolicy by name:</p>
+<pre><code class="language-shell">kubectl delete propagationpolicy example-policy
+</code></pre>
+<p>Deleting a propagationPolicy does not delete deployments propagated to member clusters. You need to delete deployments in the karmada control-plane:</p>
+<pre><code class="language-shell">kubectl delete deployment nginx
+</code></pre>
+<h2 id="deploy-deployment-into-a-specified-set-of-target-clusters">Deploy deployment into a specified set of target clusters</h2>
+<p><code>.spec.placement.clusterAffinity</code> field of PropagationPolicy represents scheduling restrictions on a certain set of clusters, without which any cluster can be scheduling candidates.</p>
+<p>It has four fields to set:
+- LabelSelector
+- FieldSelector
+- ClusterNames
+- ExcludeClusters</p>
+<h3 id="labelselector">LabelSelector</h3>
+<p>LabelSelector is a filter to select member clusters by labels. It uses <code>*metav1.LabelSelector</code> type. If it is non-nil and non-empty, only the clusters match this filter will be selected.</p>
+<p>PropagationPolicy can be configured as follows:</p>
+<pre><code class="language-yaml">apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: test-propagation
+spec:
+  ...
+  placement:
+    clusterAffinity:
+      labelSelector:
+        matchLabels:
+          location: us
+    ...
+</code></pre>
+<p>PropagationPolicy can also be configured as follows:</p>
+<pre><code class="language-yaml">apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: test-propagation
+spec:
+  ...
+  placement:
+    clusterAffinity:
+      labelSelector:
+        matchExpressions:
+        - key: location
+          operator: In
+          values:
+          - us
+    ...
+</code></pre>
+<p>For a description of <code>matchLabels</code> and <code>matchExpressions</code>, you can refer to <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#resources-that-support-set-based-requirements">Resources that support set-based requirements</a>.</p>
+<h3 id="fieldselector">FieldSelector</h3>
+<p>FieldSelector is a filter to select member clusters by fields. If it is non-nil and non-empty, only the clusters match this filter will be selected.</p>
+<p>PropagationPolicy can be configured as follows:</p>
+<pre><code class="language-yaml">apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: nginx-propagation
+spec:
+  ...
+  placement:
+    clusterAffinity:
+      fieldSelector:
+        matchExpressions:
+        - key: provider
+          operator: In
+          values:
+          - huaweicloud
+        - key: region
+          operator: NotIn
+          values:
+          - cn-south-1
+    ...
+</code></pre>
+<p>If multiple <code>matchExpressions</code> are specified in the <code>fieldSelector</code>, the cluster must match all <code>matchExpressions</code>.</p>
+<p>The <code>key</code> in <code>matchExpressions</code> now supports three values: <code>provider</code>, <code>region</code>, and <code>zone</code>, which correspond to the <code>.spec.provider</code>, <code>.spec.region</code>, and <code>.spec.zone</code> fields of the Cluster object, respectively.</p>
+<p>The <code>operator</code> in <code>matchExpressions</code> now supports <code>In</code> and <code>NotIn</code>.</p>
+<h3 id="clusternames">ClusterNames</h3>
+<p>Users can set the <code>ClusterNames</code> field to specify the selected clusters.</p>
+<p>PropagationPolicy can be configured as follows:</p>
+<pre><code class="language-yaml">apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: nginx-propagation
+spec:
+  ...
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+        - member2
+    ...
+</code></pre>
+<h3 id="excludeclusters">ExcludeClusters</h3>
+<p>Users can set the <code>ExcludeClusters</code> fields to specify the clusters to be ignored.</p>
+<p>PropagationPolicy can be configured as follows:</p>
+<pre><code class="language-yaml">apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: nginx-propagation
+spec:
+  ...
+  placement:
+    clusterAffinity:
+      exclude:
+        - member1
+        - member3
+    ...
+</code></pre>
+<h2 id="configuring-multi-cluster-ha-for-deployment">Configuring Multi-Cluster HA for Deployment</h2>
+<h2 id="multi-cluster-failover">Multi-Cluster Failover</h2>
+<p>Please refer to <a href="../failover/#failover-feature-of-karmada">Failover feature of Karmada</a>.</p>
+<h2 id="propagate-specified-resources-to-clusters">Propagate specified resources to clusters</h2>
+<h2 id="adjusting-the-instance-propagation-policy-of-deployment-in-clusters">Adjusting the instance propagation policy of Deployment in clusters</h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

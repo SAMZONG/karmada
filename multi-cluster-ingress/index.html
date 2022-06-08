@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Multi-cluster Ingress - Karmada.io</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../istio-on-karmada/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../multi-cluster-service/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#multi-cluster-ingress" class="nav-link">Multi-cluster Ingress</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#example" class="nav-link">Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="multi-cluster-ingress">Multi-cluster Ingress</h1>
+<p>Users can use <a href="https://github.com/karmada-io/karmada/blob/master/pkg/apis/networking/v1alpha1/ingress_types.go">MultiClusterIngress API</a> provided in Karmada to import external traffic to services in the member clusters.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="karmada-has-been-installed">Karmada has been installed</h3>
+<p>We can install Karmada by referring to <a href="https://github.com/karmada-io/karmada#quick-start">quick-start</a>, or directly run <code>hack/local-up-karmada.sh</code> script which is also used to run our E2E cases.</p>
+<h3 id="cluster-network">Cluster Network</h3>
+<p>Currently, we need to use the <a href="https://github.com/karmada-io/karmada/blob/master/docs/multi-cluster-service.md#the-serviceexport-and-serviceimport-crds-have-been-installed">MCS</a> feature to import external traffic.</p>
+<p>So we need to ensure that the container networks between the <strong>host cluster</strong> and member clusters are connected. The <strong>host cluster</strong> indicates the cluster where the Karmada control plane is deployed.</p>
+<ul>
+<li>If you use the <code>hack/local-up-karmada.sh</code> script to deploy Karmada, Karmada will have three member clusters, and the container networks between the <strong>host cluster</strong>, <code>member1</code> and <code>member2</code> are connected.</li>
+<li>You can use <code>Submariner</code> or other related open source projects to connected networks between clusters.</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="step-1-deploy-ingress-nginx-on-the-host-cluster">Step 1: Deploy ingress-nginx on the host cluster</h3>
+<p>We use <a href="https://github.com/karmada-io/multi-cluster-ingress-nginx">multi-cluster-ingress-nginx</a> as the demo for demonstration. We've made some changes based on the latest version(controller-v1.1.1) of <a href="https://github.com/kubernetes/ingress-nginx">ingress-nginx</a>.</p>
+<h4 id="download-code">Download code</h4>
+<pre><code>// for HTTPS
+git clone https://github.com/karmada-io/multi-cluster-ingress-nginx.git
+// for SSH
+git clone git@github.com:karmada-io/multi-cluster-ingress-nginx.git
+</code></pre>
+<h4 id="build-and-deploy-ingress-nginx">Build and deploy ingress-nginx</h4>
+<p>Using the existing <code>karmada-host</code> kind cluster to build and deploy the ingress controller.</p>
+<pre><code>export KIND_CLUSTER_NAME=karmada-host
+kubectl config use-context karmada-host
+make dev-env
+</code></pre>
+<h4 id="apply-kubeconfig-secret">Apply kubeconfig secret</h4>
+<p>Create a secret that contains the <code>karmada-apiserver</code> authentication credential in the following format:</p>
+<pre><code class="language-yaml"># karmada-kubeconfig-secret.yaml
+apiVersion: v1
+data:
+  kubeconfig: {data} # Base64-encoded
+kind: Secret
+metadata:
+  name: kubeconfig
+  namespace: ingress-nginx
+type: Opaque
+</code></pre>
+<p>You can get the authentication credential from the <code>/root/.kube/karmada.config</code> file, or use command:</p>
+<pre><code>kubectl -n karmada-system get secret kubeconfig -oyaml | grep kubeconfig | sed -n '1p' | awk '{print $2}'
+</code></pre>
+<p>Then apply yaml:</p>
+<pre><code>kubectl apply -f karmada-kubeconfig-secret.yaml
+</code></pre>
+<h4 id="edit-ingress-nginx-controller-deployment">Edit ingress-nginx-controller deployment</h4>
+<p>We want <code>nginx-ingress-controller</code> to access <code>karmada-apiserver</code> to listen to changes in resources(such as multiclusteringress, endpointslices, and service). Therefore, we need to mount the authentication credential of <code>karmada-apiserver</code> to the <code>nginx-ingress-controller</code>.</p>
+<pre><code>kubectl -n ingress-nginx edit deployment ingress-nginx-controller
+</code></pre>
+<p>Edit as follows:</p>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  ...
+spec:
+  ...
+  template:
+    spec:
+      containers:
+      - args:
+        - /nginx-ingress-controller
+        - --karmada-kubeconfig=/etc/kubeconfig  # new line
+        ...
+        volumeMounts:
+        ...
+        - mountPath: /etc/kubeconfig            # new line
+          name: kubeconfig                      # new line
+          subPath: kubeconfig                   # new line
+      volumes:
+      ...
+      - name: kubeconfig                        # new line
+        secret:                                 # new line
+          secretName: kubeconfig                # new line
+</code></pre>
+<h3 id="step-2-use-the-mcs-feature-to-discovery-service">Step 2: Use the MCS feature to discovery service</h3>
+<h4 id="install-serviceexport-and-serviceimport-crds">Install ServiceExport and ServiceImport CRDs</h4>
+<p>Refer to <a href="https://github.com/karmada-io/karmada/blob/master/docs/multi-cluster-service.md#the-serviceexport-and-serviceimport-crds-have-been-installed">here</a>.</p>
+<h4 id="deploy-web-on-member1-cluster">Deploy web on member1 cluster</h4>
+<p>deploy.yaml:</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: hello-app
+        image: gcr.io/google-samples/hello-app:1.0
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---      
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+spec:
+  ports:
+  - port: 81
+    targetPort: 8080
+  selector:
+    app: web
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: mcs-workload
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: web
+    - apiVersion: v1
+      kind: Service
+      name: web
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+</code></pre>
+
+
+</details>
+
+<pre><code>kubectl --context karmada-apiserver apply -f deploy.yaml
+</code></pre>
+<h4 id="export-web-service-from-member1-cluster">Export web service from member1 cluster</h4>
+<p>service_export.yaml:</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml">apiVersion: multicluster.x-k8s.io/v1alpha1
+kind: ServiceExport
+metadata:
+  name: web
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: web-export-policy
+spec:
+  resourceSelectors:
+    - apiVersion: multicluster.x-k8s.io/v1alpha1
+      kind: ServiceExport
+      name: web
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+</code></pre>
+
+
+</details>
+
+<pre><code>kubectl --context karmada-apiserver apply -f service_export.yaml
+</code></pre>
+<h4 id="import-web-service-to-member2-cluster">Import web service to member2 cluster</h4>
+<p>service_import.yaml:</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml">apiVersion: multicluster.x-k8s.io/v1alpha1
+kind: ServiceImport
+metadata:
+  name: web
+spec:
+  type: ClusterSetIP
+  ports:
+  - port: 81
+    protocol: TCP
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: web-import-policy
+spec:
+  resourceSelectors:
+    - apiVersion: multicluster.x-k8s.io/v1alpha1
+      kind: ServiceImport
+      name: web
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member2
+</code></pre>
+
+
+</details>
+
+<pre><code>kubectl --context karmada-apiserver apply -f service_import.yaml
+</code></pre>
+<h3 id="step-3-deploy-multiclusteringress-on-karmada-controlplane">Step 3: Deploy multiclusteringress on karmada-controlplane</h3>
+<p>mci-web.yaml:</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml">apiVersion: networking.karmada.io/v1alpha1
+kind: MultiClusterIngress
+metadata:
+  name: demo-localhost
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: demo.localdev.me
+    http:
+      paths:
+      - backend:
+          service:
+            name: web
+            port:
+              number: 81
+        path: /web
+        pathType: Prefix
+</code></pre>
+
+
+</details>
+
+<pre><code>kubectl --context karmada-apiserver apply -f 
+</code></pre>
+<h3 id="step-4-local-testing">Step 4: Local testing</h3>
+<p>Let's forward a local port to the ingress controller:</p>
+<pre><code>kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 8080:80
+</code></pre>
+<p>At this point, if you access http://demo.localdev.me:8080/web/, you should see an HTML page telling you:</p>
+<pre><code class="language-html">Hello, world!
+Version: 1.0.0
+Hostname: web-xxx-xxx
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

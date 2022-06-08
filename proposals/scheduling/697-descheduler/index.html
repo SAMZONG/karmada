@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Descheduler for Karmada - Karmada.io</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#descheduler-for-karmada" class="nav-link">Descheduler for Karmada</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#motivation" class="nav-link">Motivation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposal" class="nav-link">Proposal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#design-details" class="nav-link">Design Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="descheduler-for-karmada">Descheduler for Karmada</h1>
+<h2 id="summary">Summary</h2>
+<p>Scheduling in Karmada is the process of binding <code>ResourceBindings</code> to target clusters and assigning replicas, and is performed by a component of Karmada called karmada-scheduler. However, the scheduler's decisions are influenced by its view of Karmada at that point of time when a new <code>ResourceBinding</code> appears for scheduling. As Karmada multi-clusters are very dynamic and their state changes over time, there may be desire to move already running replicas to some other clusters for various reasons:</p>
+<ul>
+<li>Some clusters are under or over utilized.</li>
+<li>New clusters are added to clusters.</li>
+<li>Some nodes of a cluster failed and the cluster do not have enough resource to accommodate their pods.</li>
+</ul>
+<p>This KEP proposes a new component, Descheduler, which has a similar behavior with <a href="https://github.com/kubernetes-sigs/descheduler">Descheduler for Kubernetes</a>, based on its policy, finds some replicas that can be moved and evicts them from a cluster. Please note, in current implementation, descheduler does not reschedule evicted replicas but relies on the default karmada-scheduler for that. After evicting part of replicas, karmada-scheduler will start a <a href="https://github.com/karmada-io/karmada/blob/e6efe45d8974028ef30cf5f394126f768def9bd5/pkg/scheduler/scheduler.go#L51">ScaleSchedule</a>.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Now scheduler only selects clusters and assigns replicas based on the current state of Karmada control-plane and member clusters. But as the state changes over time, the scheduling result may not be optimal. Descheduler helps evict some replicas and trigger a <a href="https://github.com/karmada-io/karmada/blob/e6efe45d8974028ef30cf5f394126f768def9bd5/pkg/scheduler/scheduler.go#L51">ScaleSchedule</a> action of karmada-scheduler.</p>
+<h3 id="goals">Goals</h3>
+<ul>
+<li>Provide some strategies to evict replicas of target scheduled clusters, i.e., reduce the number of replica in some target clusters.</li>
+</ul>
+<h3 id="non-goals">Non-Goals</h3>
+<ul>
+<li>Make some adaptation of karmada-scheduler-estimator for estimating the evicting replicas.</li>
+</ul>
+<h2 id="proposal">Proposal</h2>
+<p>This proposal introduces a new component to evicting some replicas of a workload. After scheduling, the relevant <code>ResourceBinding</code> would have a scheduling result in <code>resourcebindings.spec.clusters</code>. This field is an array, consisting of the target scheduled cluster and its assigned replicas. The only thing the descheduler have to do is detect and evict some replicas that match some strategies, i.e., reduce the number of replica in some target clusters.</p>
+<h3 id="user-stories-optional">User Stories (Optional)</h3>
+<h4 id="story-1">Story 1</h4>
+<p>Imagine that we have a deployment with <code>spec.replicas=10</code>. It has been scheduled towards three clusters:</p>
+<ul>
+<li>member1: <code>spec.replicas=5</code></li>
+<li>member2: <code>spec.replicas=3</code></li>
+<li>member3: <code>spec.replicas=2</code></li>
+</ul>
+<p>Now some nodes of member1 failed, leading to 3 replicas eviction after timeout. However, the cluster does not have any more idle resource to accommodate the new pending pods. Descheduler helps detect these pods and evict them, as a result of member1 <code>spec.replicas=2</code>. After that, karmada-scheduler will start a scale scheduling.</p>
+<h4 id="story-2">Story 2</h4>
+<p>Imagine that we have a deployment with <code>spec.replicas=12</code>. It has been scheduled towards three clusters:</p>
+<ul>
+<li>member1: <code>spec.replicas=4</code></li>
+<li>member2: <code>spec.replicas=4</code></li>
+<li>member3: <code>spec.replicas=4</code></li>
+</ul>
+<p>Now we add a new cluster member4. We may want to reschedule some replicas towards member4 to balance the load. Descheduler helps evict some replicas in member1, member2 and member3.</p>
+<h2 id="design-details">Design Details</h2>
+<h3 id="architecture">Architecture</h3>
+<p>It is noticed that this design only focus on User Story 1, which means that only unscheduable pods are included for descheduling, usually happening when cluster resources are insufficient. Other stragety is not considered in this proposal because it needs more discussion.</p>
+<p>Here is the descheduler workflow. </p>
+<p><img alt="descheduler" src="descheduler.png" /></p>
+<ul>
+<li>Descheduler: Start and load the strategy file.</li>
+<li>Descheduler: Watch <code>ResourceBinding</code> and <code>Cluster</code>.</li>
+<li>Descheduler: Establish connections with all <a href="https://github.com/karmada-io/karmada/pull/580">scheduler-estimators</a>.</li>
+<li>Descheduler: Run regularly in a fixed interval.</li>
+<li>List all <code>ResourceBindings</code>.</li>
+<li>Find the non-desired ones, i.e., whose desired replicas are less than ready replicas, and then request scheduler-estimator to get the replicas that need to be evicted.</li>
+<li>Get the unscheduable pods number from every cluster scheduler-estimator.</li>
+<li>Modify scheduling result in <code>resourcebindings.spec.clusters</code> for eviction, i.e., substract unscheduable pods number in the relevant field <code>resourcebindings.spec.clusters</code>.</li>
+<li>Scheduler: Watch the <code>ResourceBinding</code> and begin to scale scheduling.</li>
+</ul>
+<h3 id="api-change">API Change</h3>
+<p>Add a new field in <code>propagationpolicy.spec.placement.replicaScheduling</code> to represent which strategy the workload wants to use. If not specified, the workload should never be rescheduled.</p>
+<pre><code class="language-go">
+type ReschedulingPolicy string
+
+const (
+    // ReschedulingPolicyUnscheduable means rescheduling replicas when unscheduable.
+    ReschedulingPolicyUnscheduable ReschedulingPolicy = &quot;OnUnscheduable&quot;
+    // ReschedulingPolicyNever means never rescheduling replicas between member clusters.
+    ReschedulingPolicyNever      ReschedulingPolicy = &quot;Never&quot;
+)
+
+// ReplicaSchedulingStrategy represents the assignment strategy of replicas.
+type ReplicaSchedulingStrategy struct {
+    // ReplicaSchedulingType determines how the replicas is scheduled when karmada propagating
+    // a resource. Valid options are Duplicated and Divided.
+    // &quot;Duplicated&quot; duplicates the same replicas to each candidate member cluster from resource.
+    // &quot;Divided&quot; divides replicas into parts according to number of valid candidate member
+    // clusters, and exact replicas for each cluster are determined by ReplicaDivisionPreference.
+    // +kubebuilder:validation:Enum=Duplicated;Divided
+    // +optional
+    ReplicaSchedulingType ReplicaSchedulingType `json:&quot;replicaSchedulingType,omitempty&quot;`
+
+    // ReplicaDivisionPreference determines how the replicas is divided
+    // when ReplicaSchedulingType is &quot;Divided&quot;. Valid options are Aggregated and Weighted.
+    // &quot;Aggregated&quot; divides replicas into clusters as few as possible,
+    // while respecting clusters' resource availabilities during the division.
+    // &quot;Weighted&quot; divides replicas by weight according to WeightPreference.
+    // +kubebuilder:validation:Enum=Aggregated;Weighted
+    // +optional
+    ReplicaDivisionPreference ReplicaDivisionPreference `json:&quot;replicaDivisionPreference,omitempty&quot;`
+
+    // WeightPreference describes weight for each cluster or for each group of cluster
+    // If ReplicaDivisionPreference is set to &quot;Weighted&quot;, and WeightPreference is not set, scheduler will weight all clusters the same.
+    // +optional
+    WeightPreference *ClusterPreferences `json:&quot;weightPreference,omitempty&quot;`
+
+    // ReschedulingPolicy describes which rescheduling strategies the workload wants to apply.
+    // If not specified, the workload should never be rescheduled.
+    // +optional
+    ReschedulingPolicy ReschedulingPolicy `json:&quot;reschedulingPolicy,omitempty&quot;`
+}
+</code></pre>
+<h3 id="scheduler-estimator">Scheduler Estimator</h3>
+<p>The descheduler has a close relationship with scheduler-estimator. In this case, the scheduler estimator should add a new service interface to estimate the unscheduable replicas that belong to a workload.</p>
+<p>The gRPC interface shows below.</p>
+<pre><code class="language-go">// UnschedulableReplicasRequest represents the request that sent by gRPC client to calculate unschedulable replicas.
+type UnschedulableReplicasRequest struct {
+    // Cluster represents the cluster name.
+    // +required
+    Cluster string `json:&quot;cluster&quot; protobuf:&quot;bytes,1,opt,name=cluster&quot;`
+    // Resource represents the Kubernetes resource to be propagated.
+    // +required
+    Resource ObjectReference `json:&quot;resource&quot; protobuf:&quot;bytes,2,opt,name=resource&quot;`
+    // UnscheduableThreshold represents the threshold period to distinguish whether the replica is unschedulable.
+    // +optional
+    UnscheduableThreshold time.Duration `json:&quot;unscheduableThreshold,omitempty&quot; protobuf:&quot;varint,3,opt,name=unscheduableThreshold,casttype=time.Duration&quot;`
+}
+
+// UnschedulableReplicasResponse represents the response that sent by gRPC server to calculate unscheduable replicas.
+type UnschedulableReplicasResponse struct {
+    // UnschedulableReplicas represents the unscheduable replicas that the object manages.
+    // +required
+    UnschedulableReplicas int32 `json:&quot;unschedulableReplicas&quot; protobuf:&quot;varint,1,opt,name=maxReplicas&quot;`
+}
+</code></pre>
+<p>And the RPC function will be like this:</p>
+<pre><code class="language-proto">rpc UnschedulableReplicas(UnschedulableReplicasRequest) returns (UnschedulableReplicasResponse) {}
+</code></pre>
+<h3 id="test-plan">Test Plan</h3>
+<ul>
+<li>Unit Test covering:</li>
+<li>Core changes in karmada-scheduler-estimator that consists of estimating the unschedulable replicas of a workload correctly.</li>
+<li>Core changes in karmada-descheduler that consists of evicting unschedulable replicas when a workload needs reschedule.</li>
+<li>E2E Test covering:</li>
+<li>Deploy karmada-descheduler.</li>
+<li>Rescheduling replicas when resources are insufficient.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

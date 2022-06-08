@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Overview - Karmada.io</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#what-kind-of-prs-are-good-for-cherry-picks" class="nav-link">What Kind of PRs are Good for Cherry Picks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#initiate-a-cherry-pick" class="nav-link">Initiate a Cherry Pick</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cherry-pick-review" class="nav-link">Cherry Pick Review</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#troubleshooting-cherry-picks" class="nav-link">Troubleshooting Cherry Picks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cherry-picks-for-unsupported-releases" class="nav-link">Cherry Picks for Unsupported Releases</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="overview">Overview</h1>
+<p>This document explains how cherry picks are managed on release branches within
+the <code>karmada-io/karmada</code> repository.
+A common use case for this task is backporting PRs from master to release
+branches.</p>
+<blockquote>
+<p>This doc is lifted from <a href="https://github.com/kubernetes/community/blob/master/contributors/devel/sig-release/cherry-picks.md">Kubernetes cherry-pick</a>.</p>
+</blockquote>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#what-kind-of-prs-are-good-for-cherry-picks">What Kind of PRs are Good for Cherry Picks</a></li>
+<li><a href="#initiate-a-cherry-pick">Initiate a Cherry Pick</a></li>
+<li><a href="#cherry-pick-review">Cherry Pick Review</a></li>
+<li><a href="#troubleshooting-cherry-picks">Troubleshooting Cherry Picks</a></li>
+<li><a href="#cherry-picks-for-unsupported-releases">Cherry Picks for Unsupported Releases</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A pull request merged against the <code>master</code> branch.</li>
+<li>The release branch exists (example: <a href="https://github.com/karmada-io/karmada/tree/release-1.0"><code>release-1.0</code></a>)</li>
+<li>The normal git and GitHub configured shell environment for pushing to your
+  karmada <code>origin</code> fork on GitHub and making a pull request against a
+  configured remote <code>upstream</code> that tracks
+  <code>https://github.com/karmada-io/karmada.git</code>, including <code>GITHUB_USER</code>.</li>
+<li>Have GitHub CLI (<code>gh</code>) installed following <a href="https://github.com/cli/cli#installation">installation instructions</a>.</li>
+<li>A github personal access token which has permissions "repo" and "read:org".
+  Permissions are required for <a href="https://cli.github.com/manual/gh_auth_login">gh auth login</a>
+  and not used for anything unrelated to cherry-pick creation process
+  (creating a branch and initiating PR).</li>
+</ul>
+<h2 id="what-kind-of-prs-are-good-for-cherry-picks">What Kind of PRs are Good for Cherry Picks</h2>
+<p>Compared to the normal master branch's merge volume across time,
+the release branches see one or two orders of magnitude less PRs.
+This is because there is an order or two of magnitude higher scrutiny.
+Again, the emphasis is on critical bug fixes, e.g.,</p>
+<ul>
+<li>Loss of data</li>
+<li>Memory corruption</li>
+<li>Panic, crash, hang</li>
+<li>Security</li>
+</ul>
+<p>A bugfix for a functional issue (not a data loss or security issue) that only
+affects an alpha feature does not qualify as a critical bug fix.</p>
+<p>If you are proposing a cherry pick and it is not a clear and obvious critical
+bug fix, please reconsider. If upon reflection you wish to continue, bolster
+your case by supplementing your PR with e.g.,</p>
+<ul>
+<li>
+<p>A GitHub issue detailing the problem</p>
+</li>
+<li>
+<p>Scope of the change</p>
+</li>
+<li>
+<p>Risks of adding a change</p>
+</li>
+<li>
+<p>Risks of associated regression</p>
+</li>
+<li>
+<p>Testing performed, test cases added</p>
+</li>
+<li>
+<p>Key stakeholder reviewers/approvers attesting to their confidence in the
+  change being a required backport</p>
+</li>
+</ul>
+<p>It is critical that our full community is actively engaged on enhancements in
+the project. If a released feature was not enabled on a particular provider's
+platform, this is a community miss that needs to be resolved in the <code>master</code>
+branch for subsequent releases. Such enabling will not be backported to the
+patch release branches.</p>
+<h2 id="initiate-a-cherry-pick">Initiate a Cherry Pick</h2>
+<ul>
+<li>Run the <a href="https://github.com/karmada-io/karmada/blob/master/hack/cherry_pick_pull.sh">cherry pick script</a></li>
+</ul>
+<p>This example applies a master branch PR #1206 to the remote branch
+  <code>upstream/release-1.0</code>:</p>
+<p><code>shell
+  hack/cherry_pick_pull.sh upstream/release-1.0 1206</code></p>
+<ul>
+<li>
+<p>Be aware the cherry pick script assumes you have a git remote called
+    <code>upstream</code> that points at the Karmada github org.</p>
+</li>
+<li>
+<p>You will need to run the cherry pick script separately for each patch
+    release you want to cherry pick to. Cherry picks should be applied to all
+    active release branches where the fix is applicable.</p>
+</li>
+<li>
+<p>If <code>GITHUB_TOKEN</code> is not set you will be asked for your github password:
+    provide the github <a href="https://github.com/settings/tokens">personal access token</a> rather than your actual github
+    password. If you can securely set the environment variable <code>GITHUB_TOKEN</code>
+    to your personal access token then you can avoid an interactive prompt.
+    Refer <a href="https://github.com/github/hub/issues/2655#issuecomment-735836048">https://github.com/github/hub/issues/2655#issuecomment-735836048</a></p>
+</li>
+</ul>
+<h2 id="cherry-pick-review">Cherry Pick Review</h2>
+<p>As with any other PR, code OWNERS review (<code>/lgtm</code>) and approve (<code>/approve</code>) on
+cherry pick PRs as they deem appropriate.</p>
+<p>The same release note requirements apply as normal pull requests, except the
+release note stanza will auto-populate from the master branch pull request from
+which the cherry pick originated.</p>
+<h2 id="troubleshooting-cherry-picks">Troubleshooting Cherry Picks</h2>
+<p>Contributors may encounter some of the following difficulties when initiating a
+cherry pick.</p>
+<ul>
+<li>
+<p>A cherry pick PR does not apply cleanly against an old release branch. In
+  that case, you will need to manually fix conflicts.</p>
+</li>
+<li>
+<p>The cherry pick PR includes code that does not pass CI tests. In such a case
+  you will have to fetch the auto-generated branch from your fork, amend the
+  problematic commit and force push to the auto-generated branch.
+  Alternatively, you can create a new PR, which is noisier.</p>
+</li>
+</ul>
+<h2 id="cherry-picks-for-unsupported-releases">Cherry Picks for Unsupported Releases</h2>
+<p>The community supports &amp; patches releases need to be discussed.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

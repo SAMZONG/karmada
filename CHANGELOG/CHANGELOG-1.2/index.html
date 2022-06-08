@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>CHANGELOG 1.2 - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#v120" class="nav-link">v1.2.0</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#downloads-for-v120" class="nav-link">Downloads for v1.2.0</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#karmada-v12-release-notes" class="nav-link">Karmada v1.2 Release Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<ul>
+<li><a href="#v120">v1.2.0</a></li>
+<li><a href="#downloads-for-v120">Downloads for v1.2.0</a></li>
+<li><a href="#karmada-v12-release-notes">Karmada v1.2 Release Notes</a><ul>
+<li><a href="#whats-new">1.2 What's New</a></li>
+<li><a href="#other-notable-changes">Other Notable Changes</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="v120">v1.2.0</h1>
+<h2 id="downloads-for-v120">Downloads for v1.2.0</h2>
+<p>Download v1.2.0 in the <a href="https://github.com/karmada-io/karmada/releases/tag/v1.2.0">v1.2.0 release page</a>.</p>
+<h2 id="karmada-v12-release-notes">Karmada v1.2 Release Notes</h2>
+<h3 id="whats-new">What's New</h3>
+<h4 id="significant-improvement-on-scheduling-capability-and-scalability">Significant improvement on scheduling capability and scalability</h4>
+<h5 id="1-karmada-descheduler">1. Karmada Descheduler</h5>
+<p>A new component <code>karmada-descheduler</code> was introduced, for rebalancing the scheduling decisions over time.</p>
+<p>One example use case is: it helps evict pending replicas (Pods) from resource-starved clusters so that <code>karmada-scheduler</code>
+can "reschedule" these replicas (Pods) to a cluster with sufficient resources.</p>
+<p>For more details please refer to <a href="../../docs/descheduler.md">Descheduler user guide.</a></p>
+<h5 id="2-multi-region-ha-support">2. Multi region HA support</h5>
+<p>By leveraging the newly added <code>spread-by-region</code> constraint, users are now able to deploy workloads across <code>regions</code>, 
+e.g. people may want their workloads always running on different regions for HA purposes.</p>
+<p>We also introduced two plugins to <code>karmada-scheduler</code>, which add to accurate scheduling.</p>
+<ul>
+<li><code>ClusterLocality</code> is a scoring plugin that favors clusters already assigned.</li>
+<li><code>SpreadConstraint</code> is a filter plugin that filters clusters as per spread constraints.</li>
+</ul>
+<p>We are also in the progress of enhancing the multi-cluster failover mechanism. Part of the work has been included in this release.
+For example:</p>
+<ul>
+<li>A new flag(<code>--cluster-failure-threshold</code>) has been added to both <code>karmada-controller-manager</code> and <code>karmada-agent</code>, 
+  which specifies the cluster failure threshold (defaults to 30s). A cluster will be considered <code>not-ready</code> 
+  only when it stays unhealthy longer than supposed.</li>
+<li>A new flag(<code>--failover-eviction-timeout</code>) has been added to <code>karmada-controller-manager</code>, which specifies the grace period 
+  of eviction (defaults to 5 minutes). If a cluster stays <code>not-ready</code> longer than supposed, the controller taints the cluster. 
+  (Note: The taint is essentially the eviction order and the implementation is planned for the next release.)</li>
+</ul>
+<h4 id="fully-adopted-aggregated-api">Fully adopted aggregated API</h4>
+<p>The <code>Aggregated API</code> was initially introduced in Release 1.0, which allows users to access clusters through Karmada by 
+a single aggregated API endpoint. By leveraging this feature, we introduced a lot of interesting features to <code>karmadactl</code> and <code>kubectl-karmada</code>.</p>
+<ol>
+<li>The get sub-command now supports clusters both in push and pull mode.</li>
+</ol>
+<pre><code class="language-shell"># karmadactl get deployment -n default
+NAME      CLUSTER   READY   UP-TO-DATE   AVAILABLE   AGE     ADOPTION
+nginx     member1   2/2     2            2           33h     N
+nginx     member2   1/1     1            1           4m38s   Y
+podinfo   member3   2/2     2            2           27h     N
+</code></pre>
+<ol>
+<li>The newly added logs command prints the container logs in a specific cluster.</li>
+</ol>
+<pre><code class="language-shell"># ./karmadactl logs nginx-6799fc88d8-9mpxn -c nginx  -C member1
+/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+...
+</code></pre>
+<ol>
+<li>We also added <code>watch</code> and <code>exec</code> commands to <code>karmadactl</code>, in addition to <code>get</code> and <code>logs</code>. They all use the aggregated API.</li>
+</ol>
+<h4 id="distributed-search-and-analytics-engine-for-kubernetes-resources-alpha">Distributed search and analytics engine for Kubernetes resources (<code>alpha</code>)</h4>
+<p>The newly introduced <code>karmada-search</code> caches resources in clusters and allows users to search for resources without directly touching real clusters.</p>
+<pre><code class="language-shell"># kubectl get --raw /apis/search.karmada.io/v1alpha1/search/cache/apis/apps/v1/deployments
+{
+    &quot;apiVersion&quot;: &quot;v1&quot;,
+    &quot;kind&quot;: &quot;List&quot;,
+    &quot;metadata&quot;: {},
+    &quot;items&quot;: [{
+        &quot;apiVersion&quot;: &quot;apps/v1&quot;,
+        &quot;kind&quot;: &quot;Deployment&quot;,
+        &quot;metadata&quot;: {
+            &quot;annotations&quot;: {
+                &quot;cluster.karmada.io/name&quot;: &quot;member1&quot;,
+            },
+        }
+    },
+    ]
+}
+</code></pre>
+<p>The <code>karmada-search</code> also supports syncing cached resources to backend stores like <a href="https://en.wikipedia.org/wiki/Elasticsearch">Elasticsearch</a>
+or <a href="https://github.com/opensearch-project/OpenSearch">OpenSearch</a>. By leveraging the search engine, you can perform 
+full-text searches with all desired features, by field, and by indice; rank results by score, sort results by field, and aggregate results.</p>
+<h4 id="resource-interpreter-webhook-enhancement">Resource Interpreter Webhook enhancement</h4>
+<p>Introduced <code>InterpretStatus</code> for the <code>Resource Interpreter Webhook</code> framework, which enables customized resource status collection.</p>
+<p>Karmada can thereby learn how to collect status for your resources, especially custom resources. For example, a custom resource 
+may have many status fields and only Karmada can collect only those you want.</p>
+<p>Refer to <a href="../../docs/userguide/customizing-resource-interpreter.md">Customizing Resource Interpreter</a> for more details.</p>
+<h4 id="integrating-verification-with-the-ecosystem">Integrating verification with the ecosystem</h4>
+<p>Benefiting from the Kubernetes native APIs, Karmada can easily integrate the Kubernetes ecosystem. The following components are verified by the Karmada community:</p>
+<ul>
+<li><code>Kyverno</code>: policy engine. Refer to <a href="../../docs/working-with-kyverno.md">working with kyverno</a> for more details.</li>
+<li><code>Gatekeeper</code>: another policy engine. Refer to <a href="../../docs/working-with-gatekeeper.md">working with gatekeeper</a> for more details.</li>
+<li><code>fluxcd</code>: GitOps tooling for helm chart. Refer to <a href="../../docs/working-with-flux.md">working with fluxcd</a> for more details.</li>
+</ul>
+<h3 id="other-notable-changes">Other Notable Changes</h3>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li>karmadactl: Fixed the cluster joining failures in the case of legacy secrets. (<a href="https://github.com/karmada-io/karmada/pull/1306">#1306</a>)</li>
+<li>karmadactl: Fixed the issue that you cannot use the '-v 6' log level. (<a href="https://github.com/karmada-io/karmada/pull/1426">#1426</a>)</li>
+<li>karmadactl: Fixed the issue that the --namespace flag of init command did not work. (<a href="https://github.com/karmada-io/karmada/pull/1416">#1416</a>)</li>
+<li>karmadactl: Allowed namespaces to be customized. (<a href="https://github.com/karmada-io/karmada/pull/1449">#1449</a>)</li>
+<li>karmadactl: Fixed the init failure due to data path not clean. (<a href="https://github.com/karmada-io/karmada/pull/1455">#1455</a>)</li>
+<li>karmadactl: Fixed the init failure to read the KUBECONFIG environment variable. (<a href="https://github.com/karmada-io/karmada/pull/1437">#1437</a>)</li>
+<li>karmadactl: Fixed the init command failure to select the default release version. (<a href="https://github.com/karmada-io/karmada/pull/1456">#1456</a>)</li>
+<li>karmadactl: Fixed the issue that the karmada-system namespace already exists when deploying karmada-agent. (<a href="https://github.com/karmada-io/karmada/pull/1604">#1604</a>)</li>
+<li>karmadactl: Fixed the issue that the karmada-controller-manager args did not honor customized namespaces.` (<a href="https://github.com/karmada-io/karmada/pull/1683">#1683</a>)</li>
+<li>karmadactl: Fixed a panic due to nil annotation when promoting resources to Karmada.` (<a href="https://github.com/karmada-io/karmada/pull/1759">#1759</a>)</li>
+<li>karmadactl: Fixed the promote command failure to migrate cluster-scoped resources. (<a href="https://github.com/karmada-io/karmada/pull/1766">#1766</a>)</li>
+<li>karmadactl: fixed the karmadactl taint failure while the karmada control plane config is not located in the default path. (<a href="https://github.com/karmada-io/karmada/pull/1825">#1825</a>)</li>
+<li>helm-chart: Fixed the karmada-agent installation failure due to the lack of permission. (<a href="https://github.com/karmada-io/karmada/pull/1457">#1457</a>))</li>
+<li>helm-chart: Fixed the issue that version constraints skip pre-releases. (<a href="https://github.com/karmada-io/karmada/pull/1444">#1444</a>)</li>
+<li>karmada-controller-manager: Fixed the issue that ResourceBinding may hinder en-queue in the case of schedule failures. (<a href="https://github.com/karmada-io/karmada/pull/1499">#1499</a>)</li>
+<li>karmada-controller-manager: Fixed the panic when the interpreter webhook returns nil patch. (<a href="https://github.com/karmada-io/karmada/pull/1584">#1584</a>)</li>
+<li>karmada-controller-manager: Fixed the RB/CRB controller failure to aggregate status in the case of work condition update. (<a href="https://github.com/karmada-io/karmada/pull/1513">#1513</a>)</li>
+<li>karmada-aggregate-apiserver: Fixed timeout issue when requesting cluster/proxy with options -w or logs -f from karmadactl get. (<a href="https://github.com/karmada-io/karmada/pull/1620">#1620</a>)</li>
+<li>karmada-aggregate-apiserver: Fixed exec failed: error: unable to upgrade connection: you must specify at least 1 of stdin, stdout, stderr. (<a href="https://github.com/karmada-io/karmada/pull/1632">#1632</a>)</li>
+</ul>
+<h4 id="features-enhancements">Features &amp; Enhancements</h4>
+<ul>
+<li>karmada-controller-manager: Introduced several flags to specify controller's concurrent capacities(--rate-limiter-base-delay, --rate-limiter-max-delay, --rate-limiter-qps, --rate-limiter-bucket-size). (<a href="https://github.com/karmada-io/karmada/pull/1399">#1399</a>)</li>
+<li>karmada-controller-manager: The klog flags now have been grouped for better readability. (<a href="https://github.com/karmada-io/karmada/pull/1468">#1468</a>)</li>
+<li>karmada-controller-manager: Fixed the FullyApplied condition of ResourceBinding/ClusterResourceBinding mislabeling issue in the case of non-scheduling. (<a href="https://github.com/karmada-io/karmada/pull/1512">#1512</a>)</li>
+<li>karmada-controller-manager: Added default AggregateStatus webhook for DaemonSet and StatefulSet. (<a href="https://github.com/karmada-io/karmada/pull/1586">#1586</a>)</li>
+<li>karmada-controller-manager: OverridePolicy with empty ResourceSelector will be considered to match all resources just like nil. (<a href="https://github.com/karmada-io/karmada/pull/1706">#1706</a>)</li>
+<li>karmada-controller-manager: Introduced --failover-eviction-timeout to specify the grace period of eviction. Tants(cluster.karmada.io/not-ready or cluster.karmada.io/unreachable) will be set on unhealthy clusters after the period. (<a href="https://github.com/karmada-io/karmada/pull/1781">#1781</a>)</li>
+<li>karmada-controller-manager/karmada-agent: Introduced --cluster-failure-threshold flag to specify cluster failure threshold. (<a href="https://github.com/karmada-io/karmada/pull/1829">#1829</a>)</li>
+<li>karmada-scheduler: Workloads can now be rescheduled after the cluster is unregistered. (<a href="https://github.com/karmada-io/karmada/pull/1383">#1383</a>)</li>
+<li>karmada-scheduler: The klog flags now have been grouped for better readability. (<a href="https://github.com/karmada-io/karmada/pull/1491">#1491</a>)</li>
+<li>karmada-scheduler: Added a scoring plugin ClusterLocality to favor clusters already requested. (<a href="https://github.com/karmada-io/karmada/pull/1334">#1334</a>)</li>
+<li>karmada-scheduler: Introduced filter plugin SpreadConstraint to filter clusters that do not meet the spread constraints. (<a href="https://github.com/karmada-io/karmada/pull/1570">#1570</a>)</li>
+<li>karmada-scheduler: Supported spread constraints by region strategy. (<a href="https://github.com/karmada-io/karmada/pull/1646">#1646</a>)</li>
+<li>karmada-webhook: Introduced --tls-cert-file-name and --tls-private-key-file-name flags to specify the server certificate and private key. (<a href="https://github.com/karmada-io/karmada/pull/1464">#1464</a>)</li>
+<li>karmada-agent: The klog flags now have been grouped for better readability. (<a href="https://github.com/karmada-io/karmada/pull/1389">#1389</a>)</li>
+<li>karmada-agent: Introduced several flags to specify controller's concurrent capacities(--rate-limiter-base-delay, --rate-limiter-max-delay, --rate-limiter-qps, --rate-limiter-bucket-size). (<a href="https://github.com/karmada-io/karmada/pull/1505">#1505</a>)</li>
+<li>karmada-scheduler-estimator: The klog flags now have been grouped for better readability. (<a href="https://github.com/karmada-io/karmada/pull/1493">#1493</a>)</li>
+<li>karmadactl: Introduced --context flag to specify the context name to use. (<a href="https://github.com/karmada-io/karmada/pull/1748">#1748</a>)</li>
+<li>karmadactl: Introduced --kube-image-mirror-country and --kube-image-registry flags to init subcommand for Chinese mainland users. (<a href="https://github.com/karmada-io/karmada/pull/1764">#1764</a>)</li>
+<li>karmadactl: Introduced deinit sub-command to uninstall Karmada. (<a href="https://github.com/karmada-io/karmada/pull/1337">#1337</a>)</li>
+<li>Introduced Swagger docs for Karmada API. (<a href="https://github.com/karmada-io/karmada/pull/1401">#1401</a>)</li>
+</ul>
+<h4 id="other-dependencies">Other (Dependencies)</h4>
+<p>The base image alpine has been promoted to v3.15.1. (<a href="https://github.com/karmada-io/karmada/pull/1519">#1519</a>)</p>
+<h4 id="deprecation">Deprecation</h4>
+<ul>
+<li>karmada-controller-manager: The hpa controller is disabled by default now. (<a href="https://github.com/karmada-io/karmada/pull/1580">#1580</a>)</li>
+<li>karmada-aggregated-apiserver: The deprecated flags --karmada-config and --master in v1.1 have been removed from the codebase. (<a href="https://github.com/karmada-io/karmada/pull/1834">#1834</a>)</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

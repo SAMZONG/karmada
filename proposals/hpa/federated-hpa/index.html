@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Federated HPA - Karmada.io</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#federated-hpa" class="nav-link">Federated HPA</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#motivation" class="nav-link">Motivation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposal" class="nav-link">Proposal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#design-details" class="nav-link">Design Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#alternatives" class="nav-link">Alternatives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="federated-hpa">Federated HPA</h1>
+<h2 id="summary">Summary</h2>
+<p>HPA is a widely used approach to improve the stability of apps dealing with burst of request and resource utility. We can run our apps on multiple clusters as easy as a single cluster with Karmada, but Karmada lacks the HPA support now. 
+This proposal introduces a new component FederatedHPA to Karmada and enables Karmada to autoscale workloads across clusters. It also tries to minimize the differences of the user experience between HPA on a single cluster.</p>
+<h2 id="motivation">Motivation</h2>
+<!--
+This section is for explicitly listing the motivation, goals, and non-goals of
+this KEP.  Describe why the change is important and the benefits to users.
+-->
+
+<h3 id="goals">Goals</h3>
+<ol>
+<li>Bring HPA from single cluster to multiple clusters.</li>
+<li>Compatible with the HPA related resources in the single cluster.</li>
+<li>Tolerate the disaster of member cluster or karmada control plane.</li>
+<li>It is better to integrate well with the scenarios such as workloads shifting and cloud burst.</li>
+<li>It is better to support both Kubernetes HPA and customized HPA.</li>
+</ol>
+<h3 id="non-goals">Non-Goals</h3>
+<ol>
+<li>Deal the workloads with different subset of services.</li>
+</ol>
+<h2 id="proposal">Proposal</h2>
+<!--
+This is where we get down to the specifics of what the proposal actually is.
+This should have enough detail that reviewers can understand exactly what
+you're proposing, but should not include things like API designs or
+implementation. What is the desired outcome and how do we measure success?.
+The "Design Details" section below is for the real
+nitty-gritty.
+-->
+
+<h3 id="user-stories-optional">User Stories (Optional)</h3>
+<!--
+Detail the things that people will be able to do if this KEP is implemented.
+Include as much detail as possible so that people can understand the "how" of
+the system. The goal here is to make this feel real for users without getting
+bogged down.
+-->
+
+<h4 id="story-1">Story 1</h4>
+<p>For a platform developer using Kubernetes, now I want to use Karmada to run apps on multiclusters. But the CD ecosystem is built based on the single cluster and the original HPA is heavilly used. So I want to migrate the HPA resources to multiclusters without too much efforts. It is better to be compatible with the schema of HPA used in single cluster. </p>
+<h4 id="story-2">Story 2</h4>
+<p>For an application developer, I create a HPA CR for the application running on Karmada with FederatedHPA enabled.</p>
+<pre><code>target cpu util 30%
+min replica 3
+max replica 100
+</code></pre>
+<p>Suddenly, one of the member clusters which my application running on stops working and can't scale up new pods. Unfortunately, a request burst is comming into the application. The CPU util of pods becomes higher than 30%. It will need 100 Pods totally to take the request burst. I hope the Karmada FederatedHPA can scale up new pods in other healthy clusters.</p>
+<h4 id="story-3">Story 3</h4>
+<p>As an administrator of the Karmada&amp;Kubernetes platform, I receive an alert that the Karmada control plane stops working and any requests to the Karmada control plane are failed. There are many applications running on the platform heavilly depend on the HPA to handle the unpredictable burst of requests. The chance of RCA occurred becomes really high if the system can't tolerate the failure of federation control plane. So I hope the Karmada FederatedHPA can scale in the member clusters even if the Karmada control plane is down.</p>
+<h3 id="notesconstraintscaveats-optional">Notes/Constraints/Caveats (Optional)</h3>
+<ol>
+<li>The workloads/pods in different member clusters selected by the same HPA CR/resource share the load of the application equally. For example, 10 pods of the application are spread into two member clusters with distribution <code>cluster1: 3 pods, cluster2: 7 pods</code>, so the 3 pods in cluster1 take 3/10 of total requests and 7 pods in cluster2 take 7/10 of total requests. Scenarios don't meet the restriction are not considered in this proposal.</li>
+</ol>
+<!--
+What are the caveats to the proposal?
+What are some important details that didn't come across above?
+Go in to as much detail as necessary here.
+This might be a good place to talk about core concepts and how they relate.
+-->
+
+<h3 id="risks-and-mitigations">Risks and Mitigations</h3>
+<!--
+What are the risks of this proposal, and how do we mitigate? 
+
+How will security be reviewed, and by whom?
+
+How will UX be reviewed, and by whom?
+
+Consider including folks who also work outside the SIG or subproject.
+-->
+
+<h2 id="design-details">Design Details</h2>
+<h3 id="architecture">Architecture</h3>
+<p><img alt="Karmada FederatedHPA Architecture" src="../statics/karmadafederatedhpa-arch.drawio.png" /></p>
+<p>There are no new CRDs or resources introduced in this design. All the core functions are implemented in the <code>FederatedHPAController</code>.
+1. The Kubernetes HPA components are still used in the member cluster and can work standalone.
+1. The FederatedHPAController is responsible for the purposes
+   1. Watch the HPA resource and <code>PropagationPolicy/ResourceBinding</code> corresponding to the <code>Workload</code>, to learn which clusters the HPA resource should propagated to and what weight the workloads should be spread between clusters.
+   1. Create <code>Work</code> corresponding to HPA resource to spread the HPA to clusters. Distribute <code>min/max</code> fields of the HPA resources between member clusters based on the weight learned.
+   1. Redistribute 'some' fields of the HPA resources after <code>PropagationPolicy/ResourceBinding</code> corresponding to <code>Workload</code> is changed.
+1. There will be <code>ResourceInterpreterWebhook</code>s provided for different types of <code>Workload</code>. They are responsible for retaining the <code>replicas</code> in the member clusters and aggregate statuses.</p>
+<h3 id="how-federatedhpacontroller-learn-the-propagation-information-corresponding-to-the-workload">How FederatedHPAController learn the propagation information corresponding to the Workload</h3>
+<p>When a new HPA resource created or changed, the <code>FederatedHPAController</code> should know the propagation and weight information of the corresponding <code>Workload</code>. How does the <code>FederatedHPAController</code> know it? The <code>FederatedHPAController</code> will easily find the corresponding <code>Workload</code> based on the field <code>ScaleTargetRef</code> and then will find the <code>PropagationPolicy</code> resource based on the matching of <code>ResourceSelectors</code>. </p>
+<p>For the weight information, because the karmada scheduler already plays the role to schedule the replicas, the <code>FederatedHPAController</code> can simplely reuse the scheduling result to learn the weight. The <code>HPAController</code> in the member cluster scale the <code>Workload</code> in the member cluster directly, it will conflict between the karmada scheduler. We can retain <code>replicas</code> in the member cluster by using feature <a href="https://github.com/karmada-io/karmada/tree/master/docs/proposals/resource-interpreter-webhook">resource interpreter webhook</a>. </p>
+<h3 id="how-to-deal-with-the-specreplicas-of-the-workload-in-the-control-plane">How to deal with the <code>spec.replicas</code> of the Workload in the control plane</h3>
+<p>In the original Kubernetes HPA and Workload(Deployment, for example), HPA scale the workload through the <code>scale</code> subresource of Workload. Then, the field <code>replicas</code> will be modified to the desired number. But in this design, HPAController in the member cluster work standalone and don't scale workloads through control plane so that the actual number of pods in the member clusters don't match the <code>spec.replicas</code> of Workload in the control plane. This mismatch would cause incident when <code>spec.replicas</code> in control plane is much smaller than in member clusters and user delete the HPA resource. To solve this problem, <code>FederatedHPAController</code> can collect the sum of <code>spec.replicas</code> values from member clusters and set it to the <code>scale</code> subresource of Workload in the control plane.</p>
+<p>Even the <code>spec.replicas</code> of Workload in the control plane matches the actual total replicas in the member clusers, every time the <code>spec.replicas</code> of Workload in the control plane is modified, the replicas distribution in the <code>Work</code> re-calculated by Karmada scheduler most probably don't match the actual distribution in the member clusters. The mismatch also would cause incident mentioned above. To solve this problem, we can split it into two sub-problems
+* How to gracefully shift workload in member clusters when desired distribution calculated by the karmada scheduler and actual distribution among member clusters differ substaintially. This may caused by modification of the <code>PropagationPolicy</code> or the remove of HPA resources controlled by the FederatedHPAController. Without the graceful shifting progress, the service may get out of capacity. In the future, features such as <code>Federated Pod Disruption Budget</code> may are needed to solve the problem here.
+* How to control the difference between the actual distribution in member clusters and the desired state the karmada scheduler calculated even the FederatedHPA is enabled. But this problem will not be too critical if the first problem is solved.</p>
+<p>It is better to solve the first sub-problem in another proposal. So we will leave this problem until the first one is solved.</p>
+<h3 id="how-to-deal-with-the-situation-that-specreplicas-is-1">How to deal with the situation that <code>spec.replicas</code> is <code>1</code></h3>
+<p>The workload can be spread into multiple member clusters when the <code>spec.replicas</code> in the control plane is greater than <code>1</code>. The disaster of one member cluster and control plane can be tolerated because the workload can be scaled in other member clusters. But if the <code>spec.replicas</code> is <code>1</code>, the workload and HPA resource would only be spread into one member cluster. If the member cluster and control plane are out of service in the same time, the workload can't be scaled.</p>
+<h3 id="how-to-integrate-with-and-migrate-from-existing-hpa-resources">How to integrate with and migrate from existing HPA resources</h3>
+<p>For some scenarios, people may want a friendly mechanism to control what HPA resources can be controled by <code>FederatedHPAController</code>
+1. There are already many HPA resources in the control plane managed by <code>PropagationPolicy</code> and <code>OverridePolicy</code> before the Karmada support FederatedHPA natively. For some risk concerns, the administrator of the platform wants to migrate these HPA resources to be managed by the FederatedHPAController step by step. 
+1. There are already many HPA resources in the control plane managed by <code>PropagationPolicy</code> and <code>OverridePolicy</code> before the Karmada support FederatedHPA natively. But in the same Karmada control plane, some users want to use the native FederatedHPA but others want to remain the old ways. The FederatedHPA should not conflict with the HPA resources managed by the old ways.</p>
+<p>To meet the requirements of above scenarios mentioned, a label <code>federatedhpa.karmada.io/enabled=true/false</code> for HPA resources will be introduced.</p>
+<h3 id="how-user-stories-are-addressed">How user stories are addressed</h3>
+<h4 id="story1">Story1</h4>
+<p>Suppose platform administrator create a <code>ClusterPropagationPolicy</code> as a global default propagation for the <code>Workload</code> resources inside namespace <code>apps</code> in advance. According to the <code>default</code> <code>ClusterPropagationPolicy</code>, the weight between <code>clustera</code> and <code>clusterb</code> should be <code>4:1</code>.
+ <br />
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code>apiVersion: policy.karmada.io/v1alpha1
+kind: ClusterPropagationPolicy
+metadata:
+  name: default
+spec:
+  placement:
+    clusterAffinity:
+      clusterNames:
+      - clustera
+      - clusterb
+    replicaScheduling:
+      replicaDivisionPreference: Weighted
+      replicaSchedulingType: Divided
+      weightPreference:
+        staticWeightList:
+        - targetCluster:
+            clusterNames:
+            - clustera
+          weight: 4
+        - targetCluster:
+            clusterNames:
+            - clusterb
+          weight: 1
+  resourceSelectors:
+  - apiVersion: workload.example.io/v1alpha1
+    kind: Workload
+</code></pre>
+
+</details>
+</p>
+<p>In the term of user story 1, suppose a user create a <code>Workload</code> and an <code>HPA</code> in the <code>apps</code> namespace</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code>apiVersion: workload.example.io/v1alpha1
+kind: Workload
+metadata:
+  name: nginx
+  namespace: apps
+  labels:
+    app: nginx
+spec:
+  replicas: 5
+  paused: false
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+------------------
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx
+  namespace: apps
+spec:
+  scaleTargetRef:
+    apiVersion: workload.example.io/v1alpha1
+    kind: Workload
+    name: nginx
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+</code></pre>
+
+
+</details>
+
+<p>Then, <code>ClusterResourceBinding</code> resources will be created and scheduled by the Karmada scheduler</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code>apiVersion: work.karmada.io/v1alpha2
+kind: ClusterResourceBinding
+metadata:
+  name: xxx
+spec:
+  resource:
+    apiVersion: workload.example.io/v1alpha1
+    kind: Workload
+    name: nginx
+  ...
+  clusters:
+  - name: clustera
+    replicas: 4
+  - name: clusterb
+    replicas: 1
+</code></pre>
+
+
+</details>
+
+<p>The <code>FederatedHPAController</code> continuously watchs the events of HPA and Karmada relevant resources(<code>ClusterPropagationPolicy/PropagationPolicy</code> or <code>ClusterResourceBinding/ResourceBinding</code>) to learn 
+* Which clusters the HPA resources should be propagated to
+* What weight the workload should be spreaded to clusters. The weight will be used to spread the <code>min/max</code> of HPA to clusters</p>
+<p>Then, <code>FederatedHPAController</code> create/update <code>Work</code> resources for HPA resource. Finally, the HPA resource will be spread to <code>clustera</code> and <code>clusterb</code>. The <code>min/max</code> of HPA resource in <code>clustera</code> and <code>clusterb</code> will be <code>1/8</code> and <code>1/2</code>.</p>
+<h3 id="high-availability">High Availability</h3>
+<h3 id="integration">Integration</h3>
+<h3 id="test-plan">Test Plan</h3>
+<!--
+**Note:** *Not required until targeted at a release.*
+
+Consider the following in developing a test plan for this enhancement:
+- Will there be e2e and integration tests, in addition to unit tests?
+- How will it be tested in isolation vs with other components?
+
+No need to outline all of the test cases, just the general strategy. Anything
+that would count as tricky in the implementation, and anything particularly
+challenging to test, should be called out.
+
+-->
+
+<h2 id="alternatives">Alternatives</h2>
+<!--
+What other approaches did you consider, and why did you rule them out? These do
+not need to be as detailed as the proposal, but should include enough
+information to express the idea and why it was not acceptable.
+-->
+
+<!--
+Note: This is a simplified version of kubernetes enhancement proposal template.
+https://github.com/kubernetes/enhancements/tree/3317d4cb548c396a430d1c1ac6625226018adf6a/keps/NNNN-kep-template
+--></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

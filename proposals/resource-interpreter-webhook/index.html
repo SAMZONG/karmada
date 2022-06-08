@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Resource Interpreter Webhook - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#resource-interpreter-webhook" class="nav-link">Resource Interpreter Webhook</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#motivation" class="nav-link">Motivation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposal" class="nav-link">Proposal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#design-details" class="nav-link">Design Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#alternatives" class="nav-link">Alternatives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="resource-interpreter-webhook">Resource Interpreter Webhook</h1>
+<h2 id="summary">Summary</h2>
+<p>In the progress of a resource(as known as <code>resource template</code>) propagating to cluster, Karmada take actions according to
+the resource definition. For example, at the phase of building <code>ResourceBinding</code>, the <code>karmada-controller</code> will parse 
+the <code>replicas</code> from resource templates like <code>deployments</code> but do nothing for resources that don't have <code>replicas</code>. </p>
+<p>For the Kubernetes native resources, Karmada knows how to parse them. But for custom resource type, as lack of the 
+knowledge of the structure, Karmada treat the custom resource type as a general resource.</p>
+<p>This proposal aims to provide a solution for users to teach Karmada to learn their custom resources.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Nowadays, lots of people or projects extend Kubernetes by <code>Custom Resource Defination</code>. In order to propagate the 
+custom resources, Karmada has to learn the structure of the custom resource.</p>
+<h3 id="goals">Goals</h3>
+<ul>
+<li>Provide a solution to support custom resources by teaching Karmada the resource structure.</li>
+</ul>
+<h3 id="non-goals">Non-Goals</h3>
+<h2 id="proposal">Proposal</h2>
+<h3 id="user-stories">User Stories</h3>
+<h4 id="as-a-user-i-want-to-propagate-my-custom-resourceworkload-type-with-replicas-to-leverage-the-karmada-replica-scheduling-capabilities">As a user, I want to propagate my custom resource(workload type with replicas) to leverage the Karmada replica scheduling capabilities.</h4>
+<p>I have a custom resource which extremely similar with <code>deployments</code>, it has a <code>replica</code> field as well, I want to <code>divide</code>
+the replicas to multiple clusters by declaring a <code>ReplicaScheduling</code> rule.</p>
+<blockquote>
+<p>Without this framework, as lack of knowledge of the custom resource, Karmada can't grab it's <code>replica</code>.</p>
+</blockquote>
+<h4 id="as-a-user-i-want-to-customize-the-retain-method-for-my-crd-resources">As a user, I want to customize the retain method for my CRD resources.</h4>
+<p>I have a custom resource which reconciling by a controller running in member clusters. The controllers would make changes
+to the resource(such as update some fields in .spec), I wish Karmada could retain the changes made by my controller.</p>
+<blockquote>
+<p>Without this framework, as lack of knowledge of the custom resource, Karmada might can't retain the custom resource correctly.
+Thus, the resource might be changed back and forth by Karmada and it's controller.</p>
+</blockquote>
+<h3 id="notesconstraintscaveats-optional">Notes/Constraints/Caveats (Optional)</h3>
+<h3 id="risks-and-mitigations">Risks and Mitigations</h3>
+<h2 id="design-details">Design Details</h2>
+<p>Inspire of the <a href="https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/">Kubernetes Admission webhook</a>, we propose a webhook called <code>ResourceInterpreterWebhook</code> which contains:
+- A configuration API <code>ResourceInterpreterWebhookConfiguration</code> to declare the enabled webhooks.
+- A message API <code>ResourceInterpreterContext</code> to declare the request and response between Karmada and webhooks.</p>
+<p>In the <code>ResourceInterpreterWebhookConfiguration</code> API, the <code>InterpreterOperation</code> represents the request that Karmada 
+might call the webhooks in the whole propagating process.</p>
+<p><img alt="operations" src="resource-interpreter-webhook.png" /></p>
+<h3 id="new-resourceinterpreterwebhookconfiguration-api">New ResourceInterpreterWebhookConfiguration API</h3>
+<p>We propose a new CR in <code>config.karmada.io</code> group.</p>
+<pre><code class="language-golang">// ResourceInterpreterWebhookConfiguration describes the configuration of webhooks which take the responsibility to
+// tell karmada the details of the resource object, especially for custom resources.
+type ResourceInterpreterWebhookConfiguration struct {
+    metav1.TypeMeta   `json:&quot;,inline&quot;`
+    metav1.ObjectMeta `json:&quot;metadata,omitempty&quot;`
+
+    // Webhooks is a list of webhooks and the affected resources and operations.
+    // +required
+    Webhooks []ResourceInterpreterWebhook `json:&quot;webhooks&quot;`
+}
+
+// ResourceInterpreterWebhook describes the webhook as well as the resources and operations it applies to.
+type ResourceInterpreterWebhook struct {
+    // Name is the full-qualified name of the webhook.
+    // +required
+    Name string `json:&quot;name&quot;`
+
+    // ClientConfig defines how to communicate with the hook.
+    // +required
+    ClientConfig admissionregistrationv1.WebhookClientConfig `json:&quot;clientConfig&quot;`
+
+    // Rules describes what operations on what resources the webhook cares about.
+    // The webhook cares about an operation if it matches any Rule.
+    // +optional
+    Rules []RuleWithOperations `json:&quot;rules,omitempty&quot;`
+
+    // TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+    // the webhook call will be ignored or the API call will fail based on the
+    // failure policy.
+    // The timeout value must be between 1 and 30 seconds.
+    // Default to 10 seconds.
+    // +optional
+    TimeoutSeconds *int32 `json:&quot;timeoutSeconds,omitempty&quot;`
+
+    // InterpreterContextVersions is an ordered list of preferred `ResourceInterpreterContext`
+    // versions the Webhook expects. Karmada will try to use first version in
+    // the list which it supports. If none of the versions specified in this list
+    // supported by Karmada, validation will fail for this object.
+    // If a persisted webhook configuration specifies allowed versions and does not
+    // include any versions known to the Karmada, calls to the webhook will fail
+    // and be subject to the failure policy.
+    InterpreterContextVersions []string `json:&quot;interpreterContextVersions&quot;`
+}
+
+// RuleWithOperations is a tuple of Operations and Resources. It is recommended to make
+// sure that all the tuple expansions are valid.
+type RuleWithOperations struct {
+    // Operations is the operations the hook cares about.
+    // If '*' is present, the length of the slice must be one.
+    // +required
+    Operations []InterpreterOperation `json:&quot;operations&quot;`
+
+    // Rule is embedded, it describes other criteria of the rule, like
+    // APIGroups, APIVersions, Kinds, etc.
+    Rule `json:&quot;,inline&quot;`
+}
+
+// InterpreterOperation specifies an operation for a request.
+type InterpreterOperation string
+
+const (
+    // InterpreterOperationAll indicates math all InterpreterOperation.
+    InterpreterOperationAll InterpreterOperation = &quot;*&quot;
+
+    // InterpreterOperationInterpretReplica indicates that karmada want to figure out the replica declaration of a specific object.
+    // Only necessary for those resource types that have replica declaration, like Deployment or similar custom resources.
+    InterpreterOperationInterpretReplica InterpreterOperation = &quot;InterpretReplica&quot;
+
+    // InterpreterOperationReviseReplica indicates that karmada request webhook to modify the replica.
+    InterpreterOperationReviseReplica InterpreterOperation = &quot;ReviseReplica&quot;
+
+    // InterpreterOperationInterpretStatus indicates that karmada want to figure out how to get the status.
+    // Only necessary for those resource types that define their status in a special path(not '.status').
+    InterpreterOperationInterpretStatus InterpreterOperation = &quot;InterpretStatus&quot;
+
+    // InterpreterOperationPrune indicates that karmada want to figure out how to package resource template to Work.
+    InterpreterOperationPrune InterpreterOperation = &quot;Prune&quot;
+
+    // InterpreterOperationRetain indicates that karmada request webhook to retain the desired resource template.
+    // Only necessary for those resources which specification will be updated by their controllers running in member cluster.
+    InterpreterOperationRetain InterpreterOperation = &quot;Retain&quot;
+
+    // InterpreterOperationAggregateStatus indicates that karmada want to figure out how to aggregate status to resource template.
+    // Only necessary for those resource types that want to aggregate status to resource template.
+    InterpreterOperationAggregateStatus InterpreterOperation = &quot;AggregateStatus&quot;
+
+    // InterpreterOperationInterpretHealthy indicates that karmada want to figure out the healthy status of a specific object.
+    // Only necessary for those resource types that have and want to reflect their healthy status.
+    InterpreterOperationInterpretHealthy InterpreterOperation = &quot;InterpretHealthy&quot;
+
+    // InterpreterOperationInterpretDependency indicates that karmada want to figure out the dependencies of a specific object.
+    // Only necessary for those resource types that have dependencies resources and expect the dependencies be propagated
+    // together, like Deployment depends on ConfigMap/Secret.
+    InterpreterOperationInterpretDependency InterpreterOperation = &quot;InterpretDependency&quot;
+)
+
+// Rule is a tuple of APIGroups, APIVersion, and Kinds.
+type Rule struct {
+    // APIGroups is the API groups the resources belong to. '*' is all groups.
+    // If '*' is present, the length of the slice must be one.
+    // For example:
+    //  [&quot;apps&quot;, &quot;batch&quot;, &quot;example.io&quot;] means matches 3 groups.
+    //  [&quot;*&quot;] means matches all group
+    //
+    // Note: The group cloud be empty, e.g the 'core' group of kubernetes, in that case use [&quot;&quot;].
+    // +required
+    APIGroups []string `json:&quot;apiGroups&quot;`
+
+    // APIVersions is the API versions the resources belong to. '*' is all versions.
+    // If '*' is present, the length of the slice must be one.
+    // For example:
+    //  [&quot;v1alpha1&quot;, &quot;v1beta1&quot;] means matches 2 versions.
+    //  [&quot;*&quot;] means matches all versions.
+    // +required
+    APIVersions []string `json:&quot;apiVersions&quot;`
+
+    // Kinds is a list of resources this rule applies to.
+    // If '*' is present, the length of the slice must be one.
+    // For example:
+    //  [&quot;Deployment&quot;, &quot;Pod&quot;] means matches Deployment and Pod.
+    //  [&quot;*&quot;] means apply to all resources.
+    // +required
+    Kinds []string `json:&quot;kinds&quot;`
+}
+</code></pre>
+<h3 id="new-resourceinterpretercontext-api">New ResourceInterpreterContext API</h3>
+<pre><code class="language-golang">// ResourceInterpreterContext describes an interpreter context request and response.
+type ResourceInterpreterContext struct {
+    metav1.TypeMeta `json:&quot;,inline&quot;`
+
+    // Request describes the attributes for the interpreter request.
+    // +optional
+    Request *ResourceInterpreterRequest `json:&quot;request,omitempty&quot;`
+
+    // Response describes the attributes for the interpreter response.
+    // +optional
+    Response *ResourceInterpreterResponse `json:&quot;response,omitempty&quot;`
+}
+
+// ResourceInterpreterRequest describes the interpreter.Attributes for the interpreter request.
+type ResourceInterpreterRequest struct {
+    // UID is an identifier for the individual request/response.
+    // The UID is meant to track the round trip (request/response) between the karmada and the WebHook, not the user request.
+    // It is suitable for correlating log entries between the webhook and karmada, for either auditing or debugging.
+    // +required
+    UID types.UID `json:&quot;uid&quot;`
+
+    // Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+    // +required
+    Kind metav1.GroupVersionKind `json:&quot;kind&quot;`
+
+    // Name is the name of the object as presented in the request.
+    // +required
+    Name string `json:&quot;name&quot;`
+
+    // Namespace is the namespace associated with the request (if any).
+    // +optional
+    Namespace string `json:&quot;namespace,omitempty&quot;`
+
+    // Operation is the operation being performed.
+    // +required
+    Operation InterpreterOperation `json:&quot;operation&quot;`
+
+    // Object is the object from the incoming request.
+    // +optional
+    Object runtime.RawExtension `json:&quot;object,omitempty&quot;`
+
+    // ObservedObject is the object observed from the kube-apiserver of member clusters.
+    // Not nil only when InterpreterOperation is InterpreterOperationRetain.
+    // +optional
+    ObservedObject *runtime.RawExtension `json:&quot;observedObject,omitempty&quot;`
+
+    // DesiredReplicas represents the desired pods number which webhook should revise with.
+    // It'll be set only if InterpreterOperation is InterpreterOperationReviseReplica.
+    // +optional
+    DesiredReplicas *int32 `json:&quot;replicas,omitempty&quot;`
+
+    // AggregatedStatus represents status list of the resource running in each member cluster.
+    // +optional
+    AggregatedStatus []workv1alpha1.AggregatedStatusItem `json:&quot;aggregatedStatus,omitempty&quot;`
+}
+
+// ResourceInterpreterResponse describes an interpreter response.
+type ResourceInterpreterResponse struct {
+    // UID is an identifier for the individual request/response.
+    // This must be copied over from the corresponding ResourceInterpreterRequest.
+    // +required
+    UID types.UID `json:&quot;uid&quot;`
+
+    // Successful indicates whether the request be processed successfully.
+    // +required
+    Successful bool `json:&quot;successful&quot;`
+
+    // Status contains extra details information about why the request not successful.
+    // This filed is not consulted in any way if &quot;Successful&quot; is &quot;true&quot;.
+    // +optional
+    Status *RequestStatus `json:&quot;status,omitempty&quot;`
+
+    // The patch body. We only support &quot;JSONPatch&quot; currently which implements RFC 6902.
+    // +optional
+    Patch []byte `json:&quot;patch,omitempty&quot;`
+
+    // The type of Patch. We only allow &quot;JSONPatch&quot; currently.
+    // +optional
+    PatchType *PatchType `json:&quot;patchType,omitempty&quot; protobuf:&quot;bytes,5,opt,name=patchType&quot;`
+
+    // ReplicaRequirements represents the requirements required by each replica.
+    // Required if InterpreterOperation is InterpreterOperationInterpretReplica.
+    // +optional
+    ReplicaRequirements *workv1alpha2.ReplicaRequirements `json:&quot;replicaRequirements,omitempty&quot;`
+
+    // Replicas represents the number of desired pods. This is a pointer to distinguish between explicit
+    // zero and not specified.
+    // Required if InterpreterOperation is InterpreterOperationInterpretReplica.
+    // +optional
+    Replicas *int32 `json:&quot;replicas,omitempty&quot;`
+
+    // Dependencies represents the reference of dependencies object.
+    // Required if InterpreterOperation is InterpreterOperationInterpretDependency.
+    // +optional
+    Dependencies []DependentObjectReference `json:&quot;dependencies,omitempty&quot;`
+
+    // RawStatus represents the referencing object's status.
+    // +optional
+    RawStatus *runtime.RawExtension `json:&quot;rawStatus,omitempty&quot;`
+
+    // Healthy represents the referencing object's healthy status.
+    // +optional
+    Healthy *bool `json:&quot;healthy,omitempty&quot;`
+}
+
+// RequestStatus holds the status of a request.
+type RequestStatus struct {
+    // Message is human-readable description of the status of this operation.
+    // +optional
+    Message string `json:&quot;message,omitempty&quot;`
+
+    // Code is the HTTP return code of this status.
+    // +optional
+    Code int32 `json:&quot;code,omitempty&quot;`
+}
+
+// PatchType is the type of patch being used to represent the mutated object
+type PatchType string
+
+const (
+    // PatchTypeJSONPatch represents the JSONType.
+    PatchTypeJSONPatch PatchType = &quot;JSONPatch&quot;
+)
+
+// DependentObjectReference contains enough information to locate the referenced object inside current cluster.
+type DependentObjectReference struct {
+    // APIVersion represents the API version of the referent.
+    // +required
+    APIVersion string `json:&quot;apiVersion&quot;`
+
+    // Kind represents the Kind of the referent.
+    // +required
+    Kind string `json:&quot;kind&quot;`
+
+    // Namespace represents the namespace for the referent.
+    // For non-namespace scoped resources(e.g. 'ClusterRole')，do not need specify Namespace,
+    // and for namespace scoped resources, Namespace is required.
+    // If Namespace is not specified, means the resource is non-namespace scoped.
+    // +optional
+    Namespace string `json:&quot;namespace,omitempty&quot;`
+
+    // Name represents the name of the referent.
+    // +required
+    Name string `json:&quot;name&quot;`
+}
+</code></pre>
+<h3 id="example">Example</h3>
+<h4 id="configuration">Configuration</h4>
+<p>The example below show two webhooks configuration.
+The <code>foo.example.com</code> webhook serves for <code>foos</code> under <code>foo.example.com</code> group and implemented <code>Retain</code> and 
+<code>InterpretHealthy</code> operations.
+The <code>bar.example.com</code> webhook serves for <code>bars</code> under <code>bar.example.com</code> group and implemented <code>InterpretDependency</code> and 
+<code>InterpretHealthy</code> operations.</p>
+<pre><code class="language-yaml">apiVersion: config.karmada.io/v1alpha1
+kind: ResourceInterpreterWebhookConfiguration
+metadata:
+  name: example
+webhooks:
+  - name: foo.example.com
+    rules:
+      - operations: [&quot;Retain&quot;, &quot;InterpretHealthy&quot;]
+        apiGroups: [&quot;foo.example.com&quot;]
+        apiVersions: [&quot;*&quot;]
+        kinds: [&quot;Foo&quot;]
+        scope: &quot;Namespaced&quot;
+    clientConfig:
+      url: https://xxx:443/explore-foo
+      caBundle: {{caBundle}}
+    exploreReviewVersions: [&quot;v1alpha1&quot;]
+    timeoutSeconds: 3
+  - name: bar.example.com
+    rules:
+      - operations: [&quot;InterpretDependency&quot;, &quot;InterpretHealthy&quot;]
+        apiGroups: [&quot;bar.example.com&quot;]
+        apiVersions: [&quot;*&quot;]
+        kinds: [&quot;Bar&quot;]
+        scope: &quot;Cluster&quot;
+    clientConfig:
+      url: https://xxx:443/explore-bar
+      caBundle: {{caBundle}}
+    exploreReviewVersions: [&quot;v1alpha1&quot;]
+    timeoutSeconds: 3
+</code></pre>
+<h4 id="request-and-response">Request and Response</h4>
+<p>Take <code>InterpretHealthy</code> for example, Karmada will send the request like:</p>
+<pre><code class="language-yaml">apiVersion: config.karmada.io/v1alpha1
+kind: ResourceInterpreterContext
+request:
+  - uid: xxx
+  - Kind:
+    - group: foo.example.com
+      version: v1alpha1
+      Kind: Foo
+  - name: foo
+  - namespace: default
+  - operation: InterpretHealthy
+  - object: &lt;raw data of the object&gt;
+</code></pre>
+<p>And the response like:</p>
+<pre><code class="language-yaml">apiVersion: config.karmada.io/v1alpha1
+kind: ResourceInterpreterContext
+response:
+  - uid: xxx(same uid in the request)
+  - healthy: true
+</code></pre>
+<h3 id="test-plan">Test Plan</h3>
+<ul>
+<li>Propose E2E test cases according the operations described above.</li>
+</ul>
+<h2 id="alternatives">Alternatives</h2>
+<p>The proposal <a href="https://github.com/karmada-io/karmada/tree/master/docs/proposals/configurable-local-value-retention">Configurable Local Value Retention</a> described a solution to retain custom resource, but the 
+configuration would be a little complex to users.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

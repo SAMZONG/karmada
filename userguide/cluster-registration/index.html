@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>cluster-registration - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../aggregated-api-endpoint/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../configure-controllers/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#cluster-registration" class="nav-link">Cluster Registration</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#overview-of-cluster-mode" class="nav-link">Overview of cluster mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#register-cluster-with-push-mode" class="nav-link">Register cluster with 'Push' mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#register-cluster-with-pull-mode" class="nav-link">Register cluster with 'Pull' mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#cluster-registration">Cluster Registration</a></li>
+<li><a href="#overview-of-cluster-mode">Overview of cluster mode</a><ul>
+<li><a href="#push-mode">Push mode</a></li>
+<li><a href="#pull-mode">Pull mode</a></li>
+</ul>
+</li>
+<li><a href="#register-cluster-with-push-mode">Register cluster with 'Push' mode</a><ul>
+<li><a href="#register-cluster-by-cli">Register cluster by CLI</a></li>
+<li><a href="#check-cluster-status">Check cluster status</a></li>
+<li><a href="#unregister-cluster-by-cli">Unregister cluster by CLI</a></li>
+</ul>
+</li>
+<li><a href="#register-cluster-with-pull-mode">Register cluster with 'Pull' mode</a><ul>
+<li><a href="#register-cluster">Register cluster</a></li>
+<li><a href="#check-cluster-status-1">Check cluster status</a></li>
+<li><a href="#unregister-cluster">Unregister cluster</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h1 id="cluster-registration">Cluster Registration</h1>
+<h2 id="overview-of-cluster-mode">Overview of cluster mode</h2>
+<p>Karmada supports both <code>Push</code> and <code>Pull</code> modes to manage the member clusters.
+The main difference between <code>Push</code> and <code>Pull</code> modes is the way access to member clusters when deploying manifests.</p>
+<h3 id="push-mode">Push mode</h3>
+<p>Karmada control plane will access member cluster's <code>kube-apiserver</code> directly to get cluster status and deploy manifests.</p>
+<h3 id="pull-mode">Pull mode</h3>
+<p>Karmada control plane will not access member cluster but delegate it to an extra component named <code>karmada-agent</code>.</p>
+<p>Each <code>karmada-agent</code> serves for a cluster and take responsibility for:
+- Register cluster to Karmada(creates the <code>Cluster</code> object)
+- Maintains cluster status and reports to Karmada(updates the status of <code>Cluster</code> object)
+- Watch manifests from Karmada execution space(namespace, <code>karmada-es-&lt;cluster name&gt;</code>) and deploy to the cluster which serves for.</p>
+<h2 id="register-cluster-with-push-mode">Register cluster with 'Push' mode</h2>
+<p>You can use the <a href="../../installation/install-kubectl-karmada/">kubectl-karmada</a> CLI to <code>join</code>(register) and <code>unjoin</code>(unregister) clusters.</p>
+<h3 id="register-cluster-by-cli">Register cluster by CLI</h3>
+<p>Join cluster with name <code>member1</code> to Karmada by using the following command.</p>
+<pre><code>kubectl karmada join member1 --kubeconfig=&lt;karmada kubeconfig&gt; --cluster-kubeconfig=&lt;member1 kubeconfig&gt;
+</code></pre>
+<p>Repeat this step to join any additional clusters.</p>
+<p>The <code>--kubeconfig</code> specifies the Karmada's <code>kubeconfig</code> file and the CLI infers <code>karmada-apiserver</code> context
+from the <code>current-context</code> field of the <code>kubeconfig</code>. If there are more than one context is configured in
+the <code>kubeconfig</code> file, it is recommended to specify the context by the <code>--karmada-context</code> flag. For example:</p>
+<pre><code>kubectl karmada join member1 --kubeconfig=&lt;karmada kubeconfig&gt; --karmada-context=karmada --cluster-kubeconfig=&lt;member1 kubeconfig&gt;
+</code></pre>
+<p>The <code>--cluster-kubeconfig</code> specifies the member cluster's <code>kubeconfig</code> and the CLI infers the member cluster's context
+by the cluster name. If there is more than one context is configured in the <code>kubeconfig</code> file, or you don't want to use
+the context name to register, it is recommended to specify the context by the <code>--cluster-context</code> flag. For example:</p>
+<pre><code>kubectl karmada join member1 --kubeconfig=&lt;karmada kubeconfig&gt; --karmada-context=karmada \
+--cluster-kubeconfig=&lt;member1 kubeconfig&gt; --cluster-context=member1
+</code></pre>
+<blockquote>
+<p>Note: The registering cluster name can be different from the context with <code>--cluster-context</code> specified.</p>
+</blockquote>
+<h3 id="check-cluster-status">Check cluster status</h3>
+<p>Check the status of the joined clusters by using the following command.</p>
+<pre><code>kubectl get clusters
+
+NAME      VERSION   MODE   READY   AGE
+member1   v1.20.7   Push   True    66s
+</code></pre>
+<h3 id="unregister-cluster-by-cli">Unregister cluster by CLI</h3>
+<p>You can unjoin clusters by using the following command.</p>
+<pre><code>kubectl karmada unjoin member1 --kubeconfig=&lt;karmada kubeconfig&gt; --cluster-kubeconfig=&lt;member1 kubeconfig&gt;
+</code></pre>
+<p>During unjoin process, the resources propagated to <code>member1</code> by Karmada will be cleaned up.
+And the <code>--cluster-kubeconfig</code> is used to clean up the secret created at the <code>join</code> phase.</p>
+<p>Repeat this step to unjoin any additional clusters.</p>
+<h2 id="register-cluster-with-pull-mode">Register cluster with 'Pull' mode</h2>
+<h3 id="register-cluster">Register cluster</h3>
+<p>After <code>karmada-agent</code> be deployed, it will register cluster automatically at the start-up phase.</p>
+<h3 id="check-cluster-status_1">Check cluster status</h3>
+<p>Check the status of the registered clusters by using the same command above.</p>
+<pre><code>kubectl get clusters
+NAME      VERSION   MODE   READY   AGE
+member3   v1.20.7   Pull   True    66s
+</code></pre>
+<h3 id="unregister-cluster">Unregister cluster</h3>
+<p>Undeploy the <code>karmada-agent</code> and then remove the <code>cluster</code> manually from Karmada.</p>
+<pre><code>kubectl delete cluster member3
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

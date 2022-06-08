@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Integrate Velero to back up and restore Karmada resources - Karmada.io</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../working-with-submariner/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../troubleshooting/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#integrate-velero-to-back-up-and-restore-karmada-resources" class="nav-link">Integrate Velero to back up and restore Karmada resources</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#start-up-karamda-clusters" class="nav-link">Start up Karamda clusters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#install-minio" class="nav-link">Install MinIO</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#install-velero" class="nav-link">Install Velero</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reference" class="nav-link">Reference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="integrate-velero-to-back-up-and-restore-karmada-resources">Integrate Velero to back up and restore Karmada resources</h1>
+<p><a href="https://github.com/vmware-tanzu/velero">Velero</a> gives you tools to back up and restore 
+your Kubernetes cluster resources and persistent volumes. You can run Velero with a public
+cloud platform or on-premises.</p>
+<p>Velero lets you:</p>
+<ul>
+<li>Take backups of your cluster and restore in case of loss.</li>
+<li>Migrate cluster resources to other clusters.</li>
+<li>Replicate your production cluster to development and testing clusters.</li>
+</ul>
+<p>This document gives an example to demonstrate how to use the <code>Velero</code> to back up and restore Kubernetes cluster resources
+and persistent volumes. Following example backups resources in cluster <code>member1</code>, and then restores those to cluster <code>member2</code>.</p>
+<h2 id="start-up-karamda-clusters">Start up Karamda clusters</h2>
+<p>You just need to clone Karamda repo, and run the following script in Karamda directory.</p>
+<pre><code class="language-shell">hack/local-up-karmada.sh
+</code></pre>
+<p>And then run the below command to switch to the member cluster <code>member1</code>.</p>
+<pre><code class="language-shell">export KUBECONFIG=/root/.kube/members.config
+kubectl config use-context member1
+</code></pre>
+<h2 id="install-minio">Install MinIO</h2>
+<p>Velero uses Object Storage Services from different cloud providers to support backup and snapshot operations.
+For simplicity, here takes, one object storage that runs locally on k8s clusters, for an example.</p>
+<p>Download the binary from the official site:</p>
+<pre><code class="language-shell">wget https://dl.min.io/server/minio/release/linux-amd64/minio
+chmod +x minio
+</code></pre>
+<p>Run the below command to set <code>MinIO</code> username and password:</p>
+<pre><code class="language-shell">export MINIO_ROOT_USER=minio
+export MINIO_ROOT_PASSWORD=minio123
+</code></pre>
+<p>Run this command to start <code>MinIO</code>:</p>
+<pre><code class="language-shell">./minio server /data --console-address=&quot;0.0.0.0:20001&quot; --address=&quot;0.0.0.0:9000&quot;
+</code></pre>
+<p>Replace <code>/data</code> with the path to the drive or directory in which you want <code>MinIO</code> to store data. And now we can visit 
+<code>http://{SERVER_EXTERNAL_IP}/20001</code> in the browser to visit <code>MinIO</code> console UI. And <code>Velero</code> can use
+<code>http://{SERVER_EXTERNAL_IP}/9000</code> to connect <code>MinIO</code>. The two configuration will make our follow-up work easier and more convenient.</p>
+<p>Please visit <code>MinIO</code> console to create region <code>minio</code> and bucket <code>velero</code>, these will be used by <code>Velero</code>.</p>
+<p>For more details about how to install <code>MinIO</code>, please run <code>minio server --help</code> for help, or you can visit
+<a href="https://github.com/minio/minio">MinIO Github Repo</a>.</p>
+<h2 id="install-velero">Install Velero</h2>
+<p>Velero consists of two components:
+- ### A command-line client that runs locally.
+  1. Download the <a href="https://github.com/vmware-tanzu/velero/releases">release</a> tarball for your client platform
+  <code>shell
+  wget https://github.com/vmware-tanzu/velero/releases/download/v1.7.0/velero-v1.7.0-linux-amd64.tar.gz</code></p>
+<ol>
+<li>
+<p>Extract the tarball:
+  <code>shell
+  tar -zxvf velero-v1.7.0-linux-amd64.tar.gz</code></p>
+</li>
+<li>
+<p>Move the extracted velero binary to somewhere in your $PATH (/usr/local/bin for most users).
+  <code>shell
+  cp velero-v1.7.0-linux-amd64/velero /usr/local/bin/</code></p>
+</li>
+<li>
+<h3 id="a-server-that-runs-on-your-cluster">A server that runs on your cluster</h3>
+<p>We will use <code>velero install</code> to set up server components.</p>
+</li>
+</ol>
+<p>For more details about how to use <code>MinIO</code> and <code>Velero</code> to backup resources, please ref: https://velero.io/docs/v1.7/contributions/minio/</p>
+<ol>
+<li>
+<p>Create a Velero-specific credentials file (credentials-velero) in your local directory:
+   <code>shell
+   [default]
+   aws_access_key_id = minio
+   aws_secret_access_key = minio123</code>
+   The two values should keep the same with <code>MinIO</code> username and password that we set when we install <code>MinIO</code></p>
+</li>
+<li>
+<p>Start the server.</p>
+</li>
+</ol>
+<p>We need to install <code>Velero</code> in both <code>member1</code> and <code>member2</code>, so we should run the below command in shell for both two clusters,
+   this will start Velero server. Please run <code>kubectl config use-context member1</code> and <code>kubectl config use-context member2</code>
+   to switch to the different member clusters: <code>member1</code> or <code>member2</code>.
+   <code>shell
+   velero install \
+   --provider aws \
+   --plugins velero/velero-plugin-for-aws:v1.2.1 \
+   --bucket velero \
+   --secret-file ./credentials-velero \
+   --use-volume-snapshots=false \
+   --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://{SERVER_EXTERNAL_IP}:9000</code>
+   Replace <code>{SERVER_EXTERNAL_IP}</code> with your own server external IP.</p>
+<ol>
+<li>Deploy the nginx application to cluster <code>member1</code>: </li>
+</ol>
+<p>Run the below command in the Karmada directory.
+   <code>shell
+   kubectl apply -f samples/nginx/deployment.yaml</code></p>
+<p>And then you will find nginx is deployed successfully.
+   <code>shell
+   # kubectl get deployment.apps
+   NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+   nginx   2/2     2            2           17s</code></p>
+<h3 id="back-up-and-restore-karmada-resources">Back up and restore Karmada resources</h3>
+<p>Create a backup in <code>member1</code>:</p>
+<pre><code class="language-shell">velero backup create nginx-backup --selector app=nginx
+</code></pre>
+<p>Restore the backup in <code>member2</code></p>
+<p>Run this command to switch to <code>member2</code></p>
+<pre><code class="language-shell">export KUBECONFIG=/root/.kube/members.config
+kubectl config use-context member2
+</code></pre>
+<p>In <code>member2</code>, we can also get the backup that we created in <code>member1</code>:</p>
+<pre><code class="language-shell"># velero backup get
+NAME           STATUS      ERRORS   WARNINGS   CREATED                         EXPIRES   STORAGE LOCATION   SELECTOR
+nginx-backup   Completed   0        0          2021-12-10 15:16:46 +0800 CST   29d       default            app=nginx
+</code></pre>
+<p>Restore <code>member1</code> resources to <code>member2</code>:</p>
+<pre><code class="language-shell"># velero restore create --from-backup nginx-backup
+Restore request &quot;nginx-backup-20211210151807&quot; submitted successfully.
+</code></pre>
+<p>Watch restore result, you'll find that the status is Completed.</p>
+<pre><code class="language-shell"># velero restore get
+NAME                          BACKUP         STATUS      STARTED                         COMPLETED                       ERRORS   WARNINGS   CREATED                         SELECTOR
+nginx-backup-20211210151807   nginx-backup   Completed   2021-12-10 15:18:07 +0800 CST   2021-12-10 15:18:07 +0800 CST   0        0          2021-12-10 15:18:07 +0800 CST   &lt;none&gt;
+</code></pre>
+<p>And then you can find deployment nginx will be restored successfully. </p>
+<pre><code class="language-shell"># kubectl get deployment.apps/nginx
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   2/2     2            2           21s
+</code></pre>
+<h2 id="reference">Reference</h2>
+<p>The above introductions about <code>Velero</code> and <code>MinIO</code> are only a summary from the official website and repos, for more details please refer to:
+- Velero: https://velero.io/
+- MinIO: https://min.io/</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Index - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#resourcequota" class="nav-link">ResourceQuota</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#motivation" class="nav-link">Motivation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposal" class="nav-link">Proposal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#design-details" class="nav-link">Design Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#more-information" class="nav-link">More information</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<hr />
+<p>title: ResourceQuota
+authors:
+- "@aven-ai"
+  reviewers:
+- "@TBD"
+  approvers:
+- "@TBD"</p>
+<p>creation-date: 2021-08-20</p>
+<hr />
+<h1 id="resourcequota">ResourceQuota</h1>
+<h2 id="summary">Summary</h2>
+<p>With the widespread used of multi-clusters, the single-cluster quota management <code>ResourceQuota</code> in Kubernetes can no longer meet the administrator's resource management and restriction requirements for federated clusters. Resource administrators often need to stand on the global dimension to manage and control the total consumption of resources by each business.</p>
+<p>Creating a corresponding <code>namespace</code> and <code>ResourceQuotas</code> under each Kubernetes is the usual practice, and then Kubernetes will limit the resources by <code>ResourceQuotas</code>. However, with the growth of the number of businesses, the expansion and contraction of sub-clusters, the number of available resources and resource types of each cluster are different, which brings many problems to the administrator.</p>
+<p>In addition, Karmada supports the propagation of <code>ResourceQuota</code> objects to Kubernetes clusters through PropagationPolicy, so as to achieve the purpose of creating quotas on multi-clusters by k8s native interfaces. However, it is impossible to freely adjust and limit the global resource usage of a business by PropagationPolicy, and it is quite troublesome to expand such a requirement ont it. We need a global quota for Karmada, not just <code>ResourceQuota</code> on sub-clusters.</p>
+<p>This document describes a quota system <strong><code>KarmadaQuota</code></strong> for Karmada. As a part of admission control, the <strong><code>KarmadaQuota</code></strong> enforcing hard resource usage limits per namespace.</p>
+<p>The following design documents partially refer to the Kubernetes ResourceQuota design.</p>
+<h2 id="motivation">Motivation</h2>
+<h3 id="goals">Goals</h3>
+<ul>
+<li>Supports the global quota management for multi-clusters on Karmada.</li>
+<li>Allows administrators to perform quota management on Karmada to balance multi-clusters resources allocation, monitor usage, and control billing for different businesses.</li>
+</ul>
+<h3 id="non-goals">Non-Goals</h3>
+<ul>
+<li>Provide complex quotas to meet various business scenarios.</li>
+</ul>
+<h2 id="proposal">Proposal</h2>
+<h3 id="function-overview">Function overview</h3>
+<ol>
+<li>Ability to enumerate resource usage limits per namespace.</li>
+<li>Ability to monitor resource usage for tracked resources.</li>
+<li>Ability to reject resource usage exceeding hard quotas.</li>
+</ol>
+<h3 id="user-stories">User Stories</h3>
+<h4 id="story-1">Story 1</h4>
+<p>As a Karmada administrator, I want to create a resource limit of 100 core CPUs for business A.</p>
+<p>The available resources on clusters:
+ - cluster1: 20C
+ - cluster2: 50C
+ - cluster3: 100C
+ - ...</p>
+<p>Generally, administrators have two methods. 
+ - In each cluster, manually divide a small quota for business A. 
+ - Or use Karmada PropagationPolicy to propagate the same quota to sub-clusters.</p>
+<p>Neither of these two methods can meet the needs of administrators. </p>
+<p>Now, the administrator can directly create a 100 core CPUs Quota in Karmada for business A by Karmada's <strong>KarmadaQuota</strong>. The Quota can control all the available resources of the sub-clusters, administrators no longer need to operate <code>ResourceQouota</code> in the sub-clusters.</p>
+<h4 id="story-2">Story 2</h4>
+<p>As a business user, I want to know how many quotas I have in total and how many quotas I currently used.</p>
+<p>Business users usually pay attention to the total resource usage of Quota that they have applied for, rather than how many resources are used in a specific cluster. </p>
+<p>Now we can create a total quota for business A (business representative) on karmada, and Karmada itself can monitor the resource usage of the tracked resource, not the monitor of sub-clusters quota.</p>
+<h3 id="notesconstraintscaveats-optional">Notes/Constraints/Caveats (Optional)</h3>
+<h3 id="risks-and-mitigations">Risks and Mitigations</h3>
+<ol>
+<li>
+<p>If a customer create a pod in member cluster itself, karmada is not able to perceive them, and then KarmadaQuota will not limit them too. It reverts the usage of single cluster.</p>
+</li>
+<li>
+<p>If a customer use karmada to propagate a controller which can create pods in the member clusters, as the quota webhook can not check these pods's resources, these pod will be created in the member clusters lead to a customer may use resources more than the quota limit. There are currently no mitigation measures yet, please try to avoid this usage, and continue to pay attention to the karmada community.
+See <a href="https://github.com/karmada-io/karmada/pull/632">discuss about this situation</a>.</p>
+</li>
+</ol>
+<h2 id="design-details">Design Details</h2>
+<h3 id="general-idea">General Idea</h3>
+<ol>
+<li>The quota management of multi-cluster Karmada is expected to a centralized design,  all quota management information and resource verification will be closed-loop within karmada. Do not have too much coupling with the outside world or sub-clusters.</li>
+<li>The sub-clusters do not need to create ResourceQuotas to manage its own resources. Quota information is stored in Karmada etcd, and cluster resources are managed by Karmada. The subordinate clusters of Karmada is equivalent to the node of Kubernetes.</li>
+</ol>
+<h3 id="data-model-api">Data Model API</h3>
+<p>In order to distinguish the functions and positioning of Karmada's multi-cluster management quota and the <code>ResourceQuota</code> of k8s, the quota API on Karmada is defined as <strong><code>KarmadaQuota</code></strong>.</p>
+<p>The <strong>KarmadaQuota</strong> object is scoped to a <strong>Namespace</strong>.</p>
+<pre><code class="language-go">// KarmadaQuota sets aggregate quota restrictions enforced per namespace
+type KarmadaQuota struct {
+    metav1.TypeMeta   `json:&quot;,inline&quot;`
+    metav1.ObjectMeta `json:&quot;metadata,omitempty&quot; protobuf:&quot;bytes,1,opt,name=metadata&quot;`
+
+    // Spec defines the desired quota.
+    // +optional
+    Spec corev1.ResourceQuotaSpec `json:&quot;spec,omitempty&quot; protobuf:&quot;bytes,2,opt,name=spec&quot;`
+
+    // Status defines the actual enforced quota and its current usage.
+    // +optional
+    Status corev1.ResourceQuotaStatus `json:&quot;status,omitempty&quot; protobuf:&quot;bytes,3,opt,name=status&quot;`
+}
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+// KarmadaQuotaList is a list of KarmadaQuota resources.
+type KarmadaQuotaList struct {
+    metav1.TypeMeta `json:&quot;,inline&quot;`
+    metav1.ListMeta `json:&quot;metadata,omitempty&quot; protobuf:&quot;bytes,1,opt,name=metadata&quot;`
+
+    Items []KarmadaQuota `json:&quot;items&quot; protobuf:&quot;bytes,2,rep,name=items&quot;`
+}
+
+</code></pre>
+<h3 id="quota-tracked-resources">Quota Tracked Resources</h3>
+<p><strong><code>KarmadaQuota</code></strong> supports resources almost similar to k8s native <strong><code>ResourceQuota</code></strong>. But unlike k8s, KarmadaQuota only supports objects and resources that can be distributed to sub-clusters through <strong><code>PropagationPolicy</code></strong>. If an object or resource does not need to be distributed to sub-clusters, then the KarmadaQuota does not track it.</p>
+<p>The following example resources are supported by the quota system:</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu</td>
+<td>Total requested cpu usage</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>Total requested memory usage</td>
+</tr>
+<tr>
+<td>pods</td>
+<td>Total number of active pods where phase is pending or active.</td>
+</tr>
+<tr>
+<td>services</td>
+<td>Total number of services</td>
+</tr>
+<tr>
+<td>secrets</td>
+<td>Total number of secrets</td>
+</tr>
+</tbody>
+</table>
+<p>If a third-party wants to track additional resources, it must follow the
+resource naming conventions prescribed by Kubernetes. This means the resource must have a fully-qualified name (i.e. mycompany.org/shinynewresource)</p>
+<h3 id="resource-requirements-requests-vs-limits">Resource Requirements: Requests vs. Limits</h3>
+<p>The admission check and resource consumption deduction of <code>KarmadaQuota</code> are achieved by tracking <strong><code>Resourcebinding</code></strong>. Resourcebinding of karmada is designed to only support ResourceRequest, and the <code>limit</code> of pod Container does not be distributed to the sub-cluster, so KarmadaQuota only supports Request type resources</p>
+<p>The following is the API definition of ResourceBinding's replicaRequirements, the <code>resourceRequest</code> is the resource Request that karmada will distribute to the sub-cluster by PropagationPolicy.</p>
+<pre><code class="language-go">// ReplicaRequirements represents the requirements required by each replica.
+type ReplicaRequirements struct {
+    // A node selector represents the union of the results of one or more label queries
+    // over a set of nodes; that is, it represents the OR of the selectors represented
+    // by the node selector terms.
+    // +optional
+    NodeAffinity *corev1.NodeSelector `json:&quot;nodeAffinity,omitempty&quot;`
+
+    // NodeSelector is a selector which must be true for the pod to fit on a node.
+    // Selector which must match a node's labels for the pod to be scheduled on that node.
+    // +optional
+    NodeSelector map[string]string `json:&quot;nodeSelector,omitempty&quot;`
+
+    // If specified, the pod's tolerations.
+    // +optional
+    Tolerations []corev1.Toleration `json:&quot;tolerations,omitempty&quot;`
+
+    // ResourceRequest represents the resources required by each replica.
+    // +optional
+    ResourceRequest corev1.ResourceList `json:&quot;resourceRequest,omitempty&quot;`
+}
+````
+
+### Scopes in ResourceQuota
+
+Each quota can have an associated set of scopes. A quota will only measure usage for a resource if it matches the intersection of enumerated scopes.
+
+When a scope is added to the quota, it limits the number of resources it supports to those that pertain to the scope. Resources specified on the quota outside of the allowed set results in a validation error.
+
+| Scope | Description |
+| --- | --------- | 
+| PriorityClass | Match pods that references the specified priority class. |
+
+The scopeSelector supports the following values in the operator field:
+
+ - In
+ - NotIn
+ - Exists
+ - DoesNotExist
+
+If the operator is In or NotIn, the values field must have at least one value. For example:
+
+```go
+scopeSelector:
+  matchExpressions:
+    - scopeName: PriorityClass
+      operator: In
+      values:
+        - middle
+</code></pre>
+<h3 id="karmada-quota-controller">karmada Quota Controller</h3>
+<p>A resource quota controller monitors observed usage for tracked resources in the
+<strong>Namespace</strong>.</p>
+<p>If there is observed difference between the current usage stats versus the
+current <strong>KarmadaQuota.Status</strong>, the controller posts an update of the
+currently observed usage metrics to the <strong>KarmadaQuota</strong> via the /status
+endpoint.</p>
+<p>The resource quota controller is the only component capable of monitoring and recording usage updates after a DELETE operation since admission control is incapable of guaranteeing a DELETE request actually succeeded.</p>
+<h3 id="karmada-quota-webhook">karmada Quota webhook</h3>
+<p>The <strong>KarmadaQuota</strong> plug-in introspects all incoming admission requests.</p>
+<p>It makes decisions by evaluating the incoming object against all defined
+<strong>KarmadaQuota.Status.Hard</strong> resource limits in the request namespace. If
+acceptance of the resource would cause the total usage of a named resource to exceed its hard limit, the request is denied.</p>
+<p>If the incoming request does not cause the total usage to exceed any of the enumerated hard resource limits, the plug-in will post a
+<strong>KarmadaQuota.Status</strong> document to the server to atomically update the
+observed usage based on the previously read <strong>KarmadaQuota.ResourceVersion</strong>.
+This keeps incremental usage atomically consistent, but does introduce a
+bottleneck (intentionally) into the system.</p>
+<p>To optimize system performance, it is encouraged that all resource quotas are
+tracked on the same <strong>KarmadaQuota</strong> document in a <strong>Namespace</strong>. As a result,
+it is encouraged to impose a cap on the total number of individual quotas that
+are tracked in the <strong>Namespace</strong> to 1 in the <strong>KarmadaQuota</strong> document.</p>
+<h3 id="test-plan">Test Plan</h3>
+<ul>
+<li>Propose E2E test cases according to our use cases above:</li>
+<li>Test we can enumerate resource usage limits per namespace.</li>
+<li>Test we can monitor resource usage for tracked resources.</li>
+<li>
+<p>Test we can reject resource usage exceeding hard quotas.</p>
+</li>
+<li>
+<p>Propose a tool that people can test the script.</p>
+</li>
+</ul>
+<h2 id="more-information">More information</h2>
+<p>See <a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">k8s resource quota document</a> and the <a href="https://kubernetes.io/docs/tasks/administer-cluster/quota-api-object/">example of Resource Quota</a> for more information.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

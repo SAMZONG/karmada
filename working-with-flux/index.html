@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Use Flux to support Helm chart propagation - Karmada.io</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../working-with-filebeat/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../working-with-gatekeeper/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#use-flux-to-support-helm-chart-propagation" class="nav-link">Use Flux to support Helm chart propagation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#start-up-karmada-clusters" class="nav-link">Start up Karmada clusters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#start-up-flux" class="nav-link">Start up Flux</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#helm-chart-propagation" class="nav-link">Helm chart propagation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#kustomize-propagation" class="nav-link">Kustomize propagation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reference" class="nav-link">Reference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="use-flux-to-support-helm-chart-propagation">Use Flux to support Helm chart propagation</h1>
+<p><a href="https://fluxcd.io/">Flux</a> is most useful when used as a deployment tool at the end of a Continuous Delivery pipeline. Flux will make sure that your new container images and config changes are propagated to the cluster. With Flux, Karmada can easily realize the ability to distribute applications packaged by helm across clusters. Not only that, with Karmada's OverridePolicy, users can customize applications for specific clusters and manage cross-cluster applications on the unified Karmada control plane.</p>
+<h2 id="start-up-karmada-clusters">Start up Karmada clusters</h2>
+<p>You just need to clone the Karmada repo, and run the following script in the <code>karmada</code> directory. </p>
+<pre><code>hack/local-up-karmada.sh
+</code></pre>
+<h2 id="start-up-flux">Start up Flux</h2>
+<p>Install the <code>flux</code> binary:</p>
+<pre><code>curl -s https://fluxcd.io/install.sh | sudo bash 
+</code></pre>
+<p>Install the toolkit controllers in the <code>flux-system</code> namespace:</p>
+<pre><code>flux install
+</code></pre>
+<p>Tips:</p>
+<ol>
+<li>
+<p>The Flux toolkit controllers need to be installed on each cluster using the <code>flux install</code> command.</p>
+</li>
+<li>
+<p>If the Flux toolkit controllers are successfully installed, you should see the following Pods:</p>
+</li>
+</ol>
+<pre><code>$ kubectl get pod -n flux-system
+NAME                                       READY   STATUS    RESTARTS   AGE
+helm-controller-55896d6ccf-dlf8b           1/1     Running   0          15d
+kustomize-controller-76795877c9-mbrsk      1/1     Running   0          15d
+notification-controller-7ccfbfbb98-lpgjl   1/1     Running   0          15d
+source-controller-6b8d9cb5cc-7dbcb         1/1     Running   0          15d
+</code></pre>
+<h2 id="helm-chart-propagation">Helm chart propagation</h2>
+<p>If you want to propagate helm applications to member clusters, you can refer to the guide below.</p>
+<ol>
+<li>Define a HelmRepository source</li>
+</ol>
+<pre><code class="language-yaml">apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: podinfo
+spec:
+  interval: 1m
+  url: https://stefanprodan.github.io/podinfo     
+--- 
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: helm-repo
+spec:
+  resourceSelectors:
+    - apiVersion: source.toolkit.fluxcd.io/v1beta2
+      kind: HelmRepository
+      name: podinfo
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+        - member2
+</code></pre>
+<ol>
+<li>Define a HelmRelease source</li>
+</ol>
+<pre><code class="language-yaml">apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: podinfo
+      version: 5.0.3
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: helm-release
+spec:
+  resourceSelectors:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: podinfo
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+        - member2
+</code></pre>
+<ol>
+<li>Apply those YAMLs to the karmada-apiserver</li>
+</ol>
+<pre><code>$ kubectl apply -f ../helm/
+helmrelease.helm.toolkit.fluxcd.io/podinfo created
+helmrepository.source.toolkit.fluxcd.io/podinfo created
+propagationpolicy.policy.karmada.io/helm-release created
+propagationpolicy.policy.karmada.io/helm-repo created
+</code></pre>
+<ol>
+<li>Switch to the distributed cluster</li>
+</ol>
+<pre><code>helm --kubeconfig=/root/.kube/members.config --kube-context member1 list
+NAME    NAMESPACE   REVISION    UPDATED                                 STATUS      CHART           APP VERSION
+podinfo default     1           2022-05-27 01:44:35.24229175 +0000 UTC  deployed    podinfo-5.0.3   5.0.3
+</code></pre>
+<p>Also, you can use Karmada's OverridePolicy to customize applications for specific clusters. For example, if you just want to change replicas in member1, you can refer to the overridePolicy below.</p>
+<pre><code class="language-yaml">apiVersion: policy.karmada.io/v1alpha1
+kind: OverridePolicy
+metadata:
+name: example-override
+namespace: default
+spec:
+resourceSelectors:
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: podinfo
+overrideRules:
+  - targetCluster:
+      clusterNames:
+        - member1
+    overriders:
+      plaintext:
+        - path: &quot;/spec/values&quot;
+          operator: add
+          value:
+            replicaCount: 2
+</code></pre>
+<p>After that, you can find that replicas in member1 has changed.</p>
+<pre><code>$ kubectl --kubeconfig ~/.kube/members.config --context member1 get po
+NAME                       READY   STATUS    RESTARTS   AGE
+podinfo-68979685bc-6wz6s   1/1     Running   0          6m28s
+podinfo-68979685bc-dz9f6   1/1     Running   0          7m42s
+</code></pre>
+<h2 id="kustomize-propagation">Kustomize propagation</h2>
+<p>Kustomize propagation is basically the same as helm chart propagation above. You can refer to the guide below.</p>
+<ol>
+<li>Define a Git repository source</li>
+</ol>
+<pre><code class="language-yaml">apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+name: podinfo
+spec:
+  interval: 1m
+  url: https://github.com/stefanprodan/podinfo
+  ref:
+    branch: master
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+name: kust-git
+spec:
+resourceSelectors:
+  - apiVersion: source.toolkit.fluxcd.io/v1beta1
+    kind: GitRepository
+    name: podinfo
+placement:
+  clusterAffinity:
+    clusterNames:
+      - member1
+      - member2
+</code></pre>
+<ol>
+<li>Define a kustomization</li>
+</ol>
+<pre><code class="language-yaml">apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: podinfo-dev
+spec:
+  interval: 5m
+  path: &quot;./deploy/overlays/dev/&quot;
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: podinfo
+  validation: client
+  timeout: 80s
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: kust-release
+spec:
+  resourceSelectors:
+    - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+      kind: Kustomization
+      name: podinfo-dev
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+        - member2
+</code></pre>
+<ol>
+<li>Apply those YAMLs to the karmada-apiserver</li>
+</ol>
+<pre><code>$ kubectl apply -f kust/
+gitrepository.source.toolkit.fluxcd.io/podinfo created
+kustomization.kustomize.toolkit.fluxcd.io/podinfo-dev created
+propagationpolicy.policy.karmada.io/kust-git created
+propagationpolicy.policy.karmada.io/kust-release created
+</code></pre>
+<ol>
+<li>Switch to the distributed cluster</li>
+</ol>
+<pre><code>$ kubectl get pod -n dev
+NAME                        READY   STATUS    RESTARTS   AGE
+backend-69c7655cb-rbtrq     1/1     Running   0          15s
+cache-bdff5c8dc-mmnbm       1/1     Running   0          15s
+frontend-7f98bf6f85-dw4vq   1/1     Running   0          15s
+</code></pre>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>https://fluxcd.io</li>
+<li>https://github.com/fluxcd</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>aggregated-api-endpoint - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../bash-auto-completion-on-linux/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../cluster-registration/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#aggregated-kubernetes-api-endpoint" class="nav-link">Aggregated Kubernetes API Endpoint</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#quick-start" class="nav-link">Quick start</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#unified-authentication" class="nav-link">Unified authentication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="aggregated-kubernetes-api-endpoint">Aggregated Kubernetes API Endpoint</h1>
+<p>The newly introduced <a href="https://github.com/karmada-io/karmada/blob/master/cmd/aggregated-apiserver/main.go">karmada-aggregated-apiserver</a> component aggregates all registered clusters and allows users to access member clusters through Karmada by the proxy endpoint,</p>
+<p>For detailed discussion topic, see <a href="https://github.com/karmada-io/karmada/discussions/1077">here</a>.</p>
+<p>Here's a quick start.</p>
+<h2 id="quick-start">Quick start</h2>
+<p>To quickly experience this feature, we experimented with karmada-apiserver certificate.</p>
+<h3 id="step1-obtain-the-karmada-apiserver-certificate">Step1: Obtain the karmada-apiserver Certificate</h3>
+<p>For karmada deployed using <code>hack/local-up-karmada.sh</code>, you can directly copy it from the <code>/root/.kube/</code> directory.</p>
+<pre><code>cp /root/.kube/karmada.config karmada-apiserver.config
+</code></pre>
+<h3 id="step2-grant-permission-to-user-systemadmin">Step2: Grant permission to user <code>system:admin</code></h3>
+<p><code>system:admin</code> is the user for karmada-apiserver certificate. We need to grant the <code>clusters/proxy</code> permission to it explicitly.</p>
+<p>Apply the following yaml file:</p>
+<p>cluster-proxy-rbac.yaml:</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml">apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-proxy-clusterrole
+rules:
+- apiGroups:
+  - 'cluster.karmada.io'
+  resources:
+  - clusters/proxy
+  resourceNames:
+  - member1
+  - member2
+  - member3
+  verbs:
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-proxy-clusterrolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-proxy-clusterrole
+subjects:
+  - kind: User
+    name: &quot;system:admin&quot;
+</code></pre>
+
+
+</details>
+
+<pre><code>kubectl --kubeconfig /root/.kube/karmada.config --context karmada-apiserver apply -f cluster-proxy-rbac.yaml
+</code></pre>
+<h3 id="step3-access-member-clusters">Step3: Access member clusters</h3>
+<p>Run the below command (replace <code>{clustername}</code> with your actual cluster name):</p>
+<pre><code>kubectl --kubeconfig karmada-apiserver.config get --raw /apis/cluster.karmada.io/v1alpha1/clusters/{clustername}/proxy/api/v1/nodes
+</code></pre>
+<p>Or append <code>/apis/cluster.karmada.io/v1alpha1/clusters/{clustername}/proxy</code> to the server address of karmada-apiserver.config, and then you can directly use:</p>
+<pre><code>kubectl --kubeconfig karmada-apiserver.config get node
+</code></pre>
+<blockquote>
+<p>Note: For a member cluster that joins karmada in pull mode and allows only cluster-to-karmada access, we can <a href="../../working-with-anp/">deploy apiserver-network-proxy (ANP)</a> to access it.</p>
+</blockquote>
+<h2 id="unified-authentication">Unified authentication</h2>
+<p>For one or a group of user subjects (users, groups, or service accounts) in a member cluster, we can import them into karmada control plane and grant them the <code>clusters/proxy</code> permission, so that we can access the member cluster with permission of the user subject through karmada.</p>
+<p>In this section, we use a serviceaccount named <code>tom</code> for the test.</p>
+<h3 id="step1-create-serviceaccount-in-member1-cluster-optional">Step1: Create ServiceAccount in member1 cluster (optional)</h3>
+<p>If the serviceaccount has been created in your environment, you can skip this step.</p>
+<p>Create a serviceaccount that does not have any permission:</p>
+<pre><code>kubectl --kubeconfig /root/.kube/members.config --context member1 create serviceaccount tom
+</code></pre>
+<h3 id="step2-create-serviceaccount-in-karmada-control-plane">Step2: Create ServiceAccount in karmada control plane</h3>
+<pre><code>kubectl --kubeconfig /root/.kube/karmada.config --context karmada-apiserver create serviceaccount tom
+</code></pre>
+<p>In order to grant serviceaccount the <code>clusters/proxy</code> permission, apply the following rbac yaml file:</p>
+<p>cluster-proxy-rbac.yaml:</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml">apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-proxy-clusterrole
+rules:
+- apiGroups:
+  - 'cluster.karmada.io'
+  resources:
+  - clusters/proxy
+  resourceNames:
+  - member1
+  verbs:
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-proxy-clusterrolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-proxy-clusterrole
+subjects:
+  - kind: ServiceAccount
+    name: tom
+    namespace: default
+  # The token generated by the serviceaccount can parse the group information. Therefore, you need to specify the group information below.
+  - kind: Group
+    name: &quot;system:serviceaccounts&quot;
+  - kind: Group
+    name: &quot;system:serviceaccounts:default&quot;
+</code></pre>
+
+
+</details>
+
+<pre><code>kubectl --kubeconfig /root/.kube/karmada.config --context karmada-apiserver apply -f cluster-proxy-rbac.yaml
+</code></pre>
+<h3 id="step3-access-member1-cluster">Step3: Access member1 cluster</h3>
+<p>Obtain token of serviceaccount <code>tom</code>:</p>
+<pre><code>kubectl get secret `kubectl get sa tom -oyaml | grep token | awk '{print $3}'` -oyaml | grep token: | awk '{print $2}' | base64 -d
+</code></pre>
+<p>Then construct a kubeconfig file <code>tom.config</code> for <code>tom</code> serviceaccount:</p>
+<pre><code class="language-yaml">apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: {karmada-apiserver-address} # Replace {karmada-apiserver-address} with karmada-apiserver-address. You can find it in /root/.kube/karmada.config file.
+  name: tom
+contexts:
+- context:
+    cluster: tom
+    user: tom
+  name: tom
+current-context: tom
+kind: Config
+users:
+- name: tom
+  user:
+    token: {token} # Replace {token} with the token obtain above.
+</code></pre>
+<p>Run the command below to access member1 cluster:</p>
+<pre><code>kubectl --kubeconfig tom.config get --raw /apis/cluster.karmada.io/v1alpha1/clusters/member1/proxy/apis
+</code></pre>
+<p>We can found that we were able to access, but run the command below:</p>
+<pre><code>kubectl --kubeconfig tom.config get --raw /apis/cluster.karmada.io/v1alpha1/clusters/member1/proxy/api/v1/nodes
+</code></pre>
+<p>It will fail because serviceaccount <code>tom</code> does not have any permissions in the member1 cluster.</p>
+<h3 id="step4-grant-permission-to-serviceaccount-in-member1-cluster">Step4: Grant permission to Serviceaccount in member1 cluster</h3>
+<p>Apply the following YAML file:</p>
+<p>member1-rbac.yaml</p>
+<details>
+
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: tom
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tom
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: tom
+subjects:
+  - kind: ServiceAccount
+    name: tom
+    namespace: default
+</code></pre>
+
+
+</details>
+
+<pre><code>kubectl --kubeconfig /root/.kube/members.config --context member1 apply -f member1-rbac.yaml
+</code></pre>
+<p>Run the command that failed in the previous step again:</p>
+<pre><code>kubectl --kubeconfig tom.config get --raw /apis/cluster.karmada.io/v1alpha1/clusters/member1/proxy/api/v1/nodes
+</code></pre>
+<p>The access will be successful.</p>
+<p>Or we can append <code>/apis/cluster.karmada.io/v1alpha1/clusters/member1/proxy</code> to the server address of tom.config , and then you can directly use:</p>
+<pre><code>kubectl --kubeconfig tom.config get node
+</code></pre>
+<blockquote>
+<p>Note: For a member cluster that joins karmada in pull mode and allows only cluster-to-karmada access, we can <a href="../../working-with-anp/">deploy apiserver-network-proxy (ANP)</a> to access it.</p>
+</blockquote></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>customizing-resource-interpreter - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../configure-controllers/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../override-policy/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#customizing-resource-interpreter" class="nav-link">Customizing Resource Interpreter</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#resource-interpreter-framework" class="nav-link">Resource Interpreter Framework</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#built-in-interpreter" class="nav-link">Built-in Interpreter</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#customized-interpreter" class="nav-link">Customized Interpreter</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#customizing-resource-interpreter">Customizing Resource Interpreter</a></li>
+<li><a href="#resource-interpreter-framework">Resource Interpreter Framework</a><ul>
+<li><a href="#interpreter-operations">Interpreter Operations</a></li>
+</ul>
+</li>
+<li><a href="#built-in-interpreter">Built-in Interpreter</a><ul>
+<li><a href="#interpretreplica">InterpretReplica</a></li>
+<li><a href="#revisereplica">ReviseReplica</a></li>
+<li><a href="#retain">Retain</a></li>
+<li><a href="#aggregatestatus">AggregateStatus</a></li>
+<li><a href="#interpretstatus">InterpretStatus</a></li>
+<li><a href="#interpretdependency">InterpretDependency</a></li>
+</ul>
+</li>
+<li><a href="#customized-interpreter">Customized Interpreter</a><ul>
+<li><a href="#what-are-interpreter-webhooks">What are interpreter webhooks?</a></li>
+<li><a href="#write-an-interpreter-webhook-server">Write an interpreter webhook server</a></li>
+<li><a href="#deploy-the-admission-webhook-service">Deploy the admission webhook service</a></li>
+<li><a href="#configure-webhook-on-the-fly">Configure webhook on the fly</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h1 id="customizing-resource-interpreter">Customizing Resource Interpreter</h1>
+<h2 id="resource-interpreter-framework">Resource Interpreter Framework</h2>
+<p>In the progress of propagating a resource from <code>karmada-apiserver</code> to member clusters, Karmada needs to know the 
+resource definition. Take <code>Propagating Deployment</code> as an example, at the phase of building <code>ResourceBinding</code>, the 
+<code>karmada-controller-manager</code> will parse the <code>replicas</code> from the deployment object.</p>
+<p>For Kubernetes native resources, Karmada knows how to parse them, but for custom resources defined by <code>CRD</code>(or extended
+by something like <code>aggregated-apiserver</code>), as lack of the knowledge of the resource structure, they can only be treated 
+as normal resources. Therefore, the advanced scheduling algorithms cannot be used for them.</p>
+<p>The <a href="https://github.com/karmada-io/karmada/tree/master/docs/proposals/resource-interpreter-webhook">Resource Interpreter Framework</a> is designed for interpreting resource structure. It consists of <code>built-in</code> and 
+<code>customized</code> interpreters:
+- built-in interpreter: used for common Kubernetes native or well-known extended resources.
+- customized interpreter: interprets custom resources or overrides the built-in interpreters.</p>
+<blockquote>
+<p>Note: The major difference between <code>built-in</code> and <code>customized</code> interpreters is that the <code>built-in</code> interpreter is 
+implemented and maintained by Karmada community and will be built into Karmada components, such as 
+<code>karmada-controller-manager</code>. On the contrary, the <code>customized</code> interpreter is implemented and maintained by users.
+It should be registered to Karmada as an <code>Interpreter Webhook</code> (see below for more details).</p>
+</blockquote>
+<h3 id="interpreter-operations">Interpreter Operations</h3>
+<p>When interpreting resources, we often get multiple pieces of information extracted. The <code>Interpreter Operations</code>
+defines the interpreter request type, and the <code>Resource Interpreter Framework</code> provides services for each operation 
+type. </p>
+<p>For all operations designed by <code>Resource Interpreter Framework</code>, please refer to <a href="https://github.com/karmada-io/karmada/blob/master/pkg/apis/config/v1alpha1/resourceinterpreterwebhook_types.go#L71-L108">Interpreter Operations</a>.</p>
+<blockquote>
+<p>Note: Not all the designed operations are supported (see below for supported operations).</p>
+<p>Note: At most one interpreter will be consulted to when interpreting a resource with specific <code>interpreter operation</code>
+and the <code>customized</code> interpreter has higher priority than <code>built-in</code> interpreter if they are both interpreting the same 
+resource. 
+For example, the <code>built-in</code> interpreter serves <code>InterpretReplica</code> for <code>Deployment</code> with version <code>apps/v1</code>. If there 
+is a customized interpreter registered to Karmada for interpreting the same resource, the <code>customized</code> interpreter wins and the 
+<code>built-in</code> interpreter will be ignored.</p>
+</blockquote>
+<h2 id="built-in-interpreter">Built-in Interpreter</h2>
+<p>For the common Kubernetes native or well-known extended resources, the interpreter operations are built-in, which means
+the users usually don't need to implement customized interpreters. If you want more resources to be built-in,
+please feel free to <a href="https://github.com/karmada-io/karmada/issues/new?assignees=&amp;labels=kind%2Ffeature&amp;template=enhancement.md">file an issue</a> to let us know your user case.</p>
+<p>The built-in interpreter now supports following interpreter operations:</p>
+<h3 id="interpretreplica">InterpretReplica</h3>
+<p>Supported resources:
+- Deployment(apps/v1)
+- Job(batch/v1)</p>
+<h3 id="revisereplica">ReviseReplica</h3>
+<p>Supported resources:
+- Deployment(apps/v1)
+- Job(batch/v1)</p>
+<h3 id="retain">Retain</h3>
+<p>Supported resources:
+- Pod(v1)
+- Service(v1)
+- ServiceAccount(v1)
+- PersistentVolumeClaim(v1)
+- Job(batch/v1)</p>
+<h3 id="aggregatestatus">AggregateStatus</h3>
+<p>Supported resources:
+- Deployment(apps/v1)
+- Service(v1)
+- Ingress(extensions/v1beta1)
+- Job(batch/v1)
+- DaemonSet(apps/v1)
+- StatefulSet(apps/v1)</p>
+<h3 id="interpretstatus">InterpretStatus</h3>
+<p>Supported resources:
+- Deployment(apps/v1)
+- Service(v1)
+- Ingress(extensions/v1beta1)
+- Job(batch/v1)
+- DaemonSet(apps/v1)
+- StatefulSet(apps/v1)</p>
+<h3 id="interpretdependency">InterpretDependency</h3>
+<p>Supported resources:
+- Deployment(apps/v1)
+- Job(batch/v1)
+- Pod(v1)
+- DaemonSet(apps/v1)
+- StatefulSet(apps/v1)</p>
+<h2 id="customized-interpreter">Customized Interpreter</h2>
+<p>The customized interpreter is implemented and maintained by users, it developed as extensions and 
+run as webhooks at runtime.</p>
+<h3 id="what-are-interpreter-webhooks">What are interpreter webhooks?</h3>
+<p>Interpreter webhooks are HTTP callbacks that receive interpret requests and do something with them.</p>
+<h3 id="write-an-interpreter-webhook-server">Write an interpreter webhook server</h3>
+<p>Please refer to the implementation of the <a href="https://github.com/karmada-io/karmada/tree/master/examples/customresourceinterpreter">Example of Customize Interpreter</a> that is validated 
+in Karmada E2E test. The webhook handles the <code>ResourceInterpreterRequest</code> request sent by the 
+Karmada components (such as <code>karmada-controller-manager</code>), and sends back its decision as an 
+<code>ResourceInterpreterResponse</code>.</p>
+<h3 id="deploy-the-admission-webhook-service">Deploy the admission webhook service</h3>
+<p>The <a href="https://github.com/karmada-io/karmada/tree/master/examples/customresourceinterpreter">Example of Customize Interpreter</a> is deployed in the host cluster for E2E and exposed by 
+a service as the front-end of the webhook server.</p>
+<p>You may also deploy your webhooks outside the cluster. You will need to update your webhook 
+configurations accordingly.</p>
+<h3 id="configure-webhook-on-the-fly">Configure webhook on the fly</h3>
+<p>You can configure what resources and supported operations are subject to what interpreter webhook 
+via <a href="https://github.com/karmada-io/karmada/blob/master/pkg/apis/config/v1alpha1/resourceinterpreterwebhook_types.go#L16">ResourceInterpreterWebhookConfiguration</a>. </p>
+<p>The following is an example <code>ResourceInterpreterWebhookConfiguration</code>:</p>
+<pre><code class="language-yaml">apiVersion: config.karmada.io/v1alpha1
+kind: ResourceInterpreterWebhookConfiguration
+metadata:
+  name: examples
+webhooks:
+  - name: workloads.example.com
+    rules:
+      - operations: [ &quot;InterpretReplica&quot;,&quot;ReviseReplica&quot;,&quot;Retain&quot;,&quot;AggregateStatus&quot; ]
+        apiGroups: [ &quot;workload.example.io&quot; ]
+        apiVersions: [ &quot;v1alpha1&quot; ]
+        kinds: [ &quot;Workload&quot; ]
+    clientConfig:
+      url: https://karmada-interpreter-webhook-example.karmada-system.svc:443/interpreter-workload
+      caBundle: {{caBundle}}
+    interpreterContextVersions: [ &quot;v1alpha1&quot; ]
+    timeoutSeconds: 3
+</code></pre>
+<p>You can config more than one webhook in a <code>ResourceInterpreterWebhookConfiguration</code>, each webhook
+serves at least one operation.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

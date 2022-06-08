@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Use Filebeat to collect logs of Karmada member clusters - Karmada.io</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../working-with-argocd/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../working-with-flux/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#use-filebeat-to-collect-logs-of-karmada-member-clusters" class="nav-link">Use Filebeat to collect logs of Karmada member clusters</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#start-up-karmada-clusters" class="nav-link">Start up Karmada clusters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#start-filebeat" class="nav-link">Start Filebeat</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reference" class="nav-link">Reference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="use-filebeat-to-collect-logs-of-karmada-member-clusters">Use Filebeat to collect logs of Karmada member clusters</h1>
+<p><a href="https://github.com/elastic/beats/tree/master/filebeat">Filebeat</a>  is a lightweight shipper for forwarding and centralizing log data. Installed as an agent on your servers, Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> or <a href="https://github.com/apache/kafka">kafka</a> for indexing. </p>
+<p>This document gives an example to demonstrate how to use the <code>Filebeat</code> to collect logs of karmada member clusters. </p>
+<h2 id="start-up-karmada-clusters">Start up Karmada clusters</h2>
+<p>You just need to clone Karmada repo, and run the following script in Karmada directory. </p>
+<pre><code>hack/local-up-karmada.sh
+</code></pre>
+<h2 id="start-filebeat">Start Filebeat</h2>
+<ol>
+<li>Create resource objects of Filebeat, the content is as follows. You can specify a list of inputs in the <code>filebeat.inputs</code> section of the <code>filebeat.yml</code>. Inputs specify how Filebeat locates and processes input data. also you can configure Filebeat to write to a specific output by setting options in the <code>Outputs</code> section of the <code>filebeat.yml</code> config file. The example will collect the log information of each container and write the collected logs to a file. More detailed information about the input and output configuration, please refer to: https://github.com/elastic/beats/tree/master/filebeat/docs</li>
+</ol>
+<p>```
+   apiVersion: v1
+   kind: Namespace
+   metadata:
+     name: logging</p>
+<hr />
+<p>apiVersion: v1
+   kind: ServiceAccount
+   metadata:
+     name: filebeat
+     namespace: logging
+     labels:
+       k8s-app: filebeat</p>
+<hr />
+<p>apiVersion: rbac.authorization.k8s.io/v1
+   kind: ClusterRole
+   metadata:
+     name: filebeat
+   rules:
+   - apiGroups: [""] # "" indicates the core API group
+     resources:
+     - namespaces
+     - pods
+     verbs:
+     - get
+     - watch
+     - list</p>
+<hr />
+<p>apiVersion: rbac.authorization.k8s.io/v1
+   kind: ClusterRoleBinding
+   metadata:
+     name: filebeat
+   subjects:
+   - kind: ServiceAccount
+     name: filebeat
+     namespace: kube-system
+   roleRef:
+     kind: ClusterRole
+     name: filebeat
+     apiGroup: rbac.authorization.k8s.io</p>
+<hr />
+<p>apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: filebeat-config
+     namespace: logging
+     labels:
+       k8s-app: filebeat
+       kubernetes.io/cluster-service: "true"
+   data:
+     filebeat.yml: |-
+       filebeat.inputs:
+       - type: container
+         paths:
+           - /var/log/containers/<em>.log
+         processors:
+           - add_kubernetes_metadata:
+               host: ${NODE_NAME}
+               matchers:
+               - logs_path:
+                   logs_path: "/var/log/containers/"
+       # To enable hints based autodiscover, remove <code>filebeat.inputs</code> configuration and uncomment this:
+       #filebeat.autodiscover:
+       #  providers:
+       #    - type: kubernetes
+       #      node: ${NODE_NAME}
+       #      hints.enabled: true
+       #      hints.default_config:
+       #        type: container
+       #        paths:
+       #          - /var/log/containers/</em>${data.kubernetes.container.id}.log</p>
+<pre><code>   processors:
+     - add_cloud_metadata:
+     - add_host_metadata:
+
+   #output.elasticsearch:
+   #  hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}']
+   #  username: ${ELASTICSEARCH_USERNAME}
+   #  password: ${ELASTICSEARCH_PASSWORD}
+   output.file:
+       path: "/tmp/filebeat"
+       filename: filebeat
+</code></pre>
+<hr />
+<p>apiVersion: apps/v1
+   kind: DaemonSet
+   metadata:
+     name: filebeat
+     namespace: logging
+     labels:
+       k8s-app: filebeat
+   spec:
+     selector:
+       matchLabels:
+         k8s-app: filebeat
+     template:
+       metadata:
+         labels:
+           k8s-app: filebeat
+       spec:
+         serviceAccountName: filebeat
+         terminationGracePeriodSeconds: 30
+         tolerations:
+         - effect: NoSchedule
+           key: node-role.kubernetes.io/master
+         containers:
+         - name: filebeat
+           image: docker.elastic.co/beats/filebeat:8.0.0-beta1-amd64
+           imagePullPolicy: IfNotPresent
+           args: [  "-c", "/usr/share/filebeat/filebeat.yml",  "-e",]
+           env:
+           - name: NODE_NAME
+             valueFrom:
+               fieldRef:
+                 fieldPath: spec.nodeName
+           securityContext:
+             runAsUser: 0
+           resources:
+             limits:
+               memory: 200Mi
+             requests:
+               cpu: 100m
+               memory: 100Mi
+           volumeMounts:
+           - name: config
+             mountPath: /usr/share/filebeat/filebeat.yml
+             readOnly: true
+             subPath: filebeat.yml
+           - name: inputs
+             mountPath: /usr/share/filebeat/inputs.d
+             readOnly: true
+           - name: data
+             mountPath: /usr/share/filebeat/data
+           - name: varlibdockercontainers
+             mountPath: /var/lib/docker/containers
+             readOnly: true
+           - name: varlog
+             mountPath: /var/log
+             readOnly: true
+         volumes:
+         - name: config
+           configMap:
+             defaultMode: 0600
+             name: filebeat-config
+         - name: varlibdockercontainers
+           hostPath:
+             path: /var/lib/docker/containers
+         - name: varlog
+           hostPath:
+             path: /var/log
+         - name: inputs
+           configMap:
+             defaultMode: 0600
+             name: filebeat-config
+         # data folder stores a registry of read status for all files, so we don't send everything again on a Filebeat pod restart
+         - name: data
+           hostPath:
+             path: /var/lib/filebeat-data
+             type: DirectoryOrCreate
+   ```</p>
+<ol>
+<li>Run the below command to execute karmada PropagationPolicy and ClusterPropagationPolicy. </li>
+</ol>
+<p><code>cat &lt;&lt;EOF | kubectl apply -f -
+   apiVersion: policy.karmada.io/v1alpha1
+   kind: PropagationPolicy
+   metadata:
+     name: filebeat-propagation
+     namespace: logging
+   spec:
+     resourceSelectors:
+       - apiVersion: v1
+         kind: Namespace
+         name: logging
+       - apiVersion: v1
+         kind: ServiceAccount
+         name: filebeat
+         namespace: logging
+       - apiVersion: v1
+         kind: ConfigMap
+         name: filebeat-config
+         namespace: logging
+       - apiVersion: apps/v1
+         kind: DaemonSet
+         name: filebeat
+         namespace: logging
+     placement:
+       clusterAffinity:
+         clusterNames:
+           - member1
+           - member2
+           - member3
+   EOF
+   cat &lt;&lt;EOF | kubectl apply -f -
+   apiVersion: policy.karmada.io/v1alpha1
+   kind: ClusterPropagationPolicy
+   metadata:
+     name: filebeatsrbac-propagation
+   spec:
+     resourceSelectors:
+       - apiVersion: rbac.authorization.k8s.io/v1
+         kind: ClusterRole
+         name: filebeat
+       - apiVersion: rbac.authorization.k8s.io/v1
+         kind: ClusterRoleBinding
+         name: filebeat
+     placement:
+       clusterAffinity:
+         clusterNames:
+         - member1
+         - member2
+         - member3
+   EOF</code></p>
+<ol>
+<li>Obtain the collected logs according to the <code>output</code> configuration of the <code>filebeat.yml</code>.</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>https://github.com/elastic/beats/tree/master/filebeat</li>
+<li>https://github.com/elastic/beats/tree/master/filebeat/docs</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

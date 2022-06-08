@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Dependencies Automatically Propagation - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#dependencies-automatically-propagation" class="nav-link">Dependencies Automatically Propagation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#motivation" class="nav-link">Motivation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposal" class="nav-link">Proposal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#design-details" class="nav-link">Design Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#alternatives" class="nav-link">Alternatives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="dependencies-automatically-propagation">Dependencies Automatically Propagation</h1>
+<h2 id="summary">Summary</h2>
+<p>Secrets or ConfigMaps can be mounted as data volumes or exposed as environment variables to be used by containers in a Pod.
+Meanwhile, users can expose the application running on a set of Pods by Service.</p>
+<p>Thus, it is necessary to propagate the relevant resource into the same member clusters when deploying a Pod by Karmada, i.e,
+Pod dependencies(ConfigMaps and Secrets) and dependents(Services and Ingresses) should "follow" the delegate pods.</p>
+<p>Usually, users don't create Pods directly. Instead, create them using workload resources such as Deployment, StatefulSet, or Job.
+So I take Deployment as an example. The dependencies of deployment include ConfigMaps, Secrets, PVCs, Services, etc.</p>
+<p><img alt="dependencies" src="dependenciesOfDeployment.png" /></p>
+<p>Till now, Karmada provides two ways to propagate dependent resources for a Deployment:
+- All dependent resources share the same propagation policy with the Deployment.
+- Create individual propagation policy for each dependent resource, but users need to make sure the resource scheduled to needed clusters.</p>
+<p>These methods work for most cases, but still has disadvantages:
+- For the first method, the dependencies(like configmaps and secrets) will be bound with one Deployment which means it can't be mounted by other Deployments.
+- For the second method, users should keep watching the scheduling result of the Deployment.</p>
+<p>This proposal aims to provide a strategy to intelligently propagate dependencies for workload resources such as Deployment.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Users need to deploy dependent resources manually when deploying Pods or workload resources by Karmada. It is a heavy burden to maintain target clusters for
+dependent resources.</p>
+<h3 id="goals">Goals</h3>
+<ul>
+<li>Provide a strategy to automatically propagate dependent resources of workload resources to needed clusters.</li>
+</ul>
+<h3 id="non-goals">Non-Goals</h3>
+<ul>
+<li>Deprecate the default propagate process for dependent resources.</li>
+<li>Relevant resources like ConfigMap, Secret, and Service can be propagated by propagation policy as usual.</li>
+</ul>
+<h2 id="proposal">Proposal</h2>
+<p>This proposal introduces a new controller to intelligently propagate dependent resources.
+When the user propagates a deployment, the corresponding Karmada Controllers will propagate the dependencies.</p>
+<p>This proposal is divided into several steps, see below:</p>
+<ul>
+<li><code>PropagationPolicy</code> API changes to add <code>PropagateDeps</code>.</li>
+<li><code>ResourceBinding</code> API changes to add <code>PropagateDeps</code> and <code>RequiredBy</code>.</li>
+<li>New controllers to intelligently propagate dependent resources(named dependencies distributor).</li>
+<li>New ResourceInterpreter to parse the dependent resources of the given object.</li>
+<li>Associated docs and architecture diagram as a supplement.</li>
+</ul>
+<h3 id="user-stories">User Stories</h3>
+<h4 id="story-1">Story 1</h4>
+<p>Imagine that user creates a deployment and a PropagationPolicy, and the <code>PropagateDeps</code> is <code>True</code>.
+- Condition:
+  - The deployment references a ConfigMap and a Secret.
+- Result:
+  - When the referred ConfigMap and Secret are created, they will be propagated to the same clusters as the deployment.</p>
+<h2 id="design-details">Design Details</h2>
+<p>For better illustration, I classify resource binding into two categories, independent resource binding, and attached resource binding.</p>
+<p>An independent resource binding will be created when a resource is matched by a propagation policy.</p>
+<p>Attached resource bindings will be created when the controller propagates dependent resources.</p>
+<p>Here's the architecture design diagram.</p>
+<p><img alt="propagateDeps" src="propagateDeps.png" /></p>
+<p><strong>Note:</strong>
+- To enable auto-propagating dependencies, users need to turn on the <code>PropagateDeps</code> feature gate in <code>karmada-controller-manager</code> by <code>--feature-gates=PropagateDeps=true</code>
+- Each dependent resource has an individual attached resource binding.
+- The controller parses dependencies from the raw resource template, which means the dependencies introduced by the override policy can't be identified.</p>
+<h3 id="api-changes">API Changes</h3>
+<p>We propose to extend the <code>PropagationPolicy</code> and <code>ResourceBinding</code> API. (The <code>ClusterPropagationPolicy</code> and <code>ClusterResourceBining</code> should be extended accordingly.)</p>
+<pre><code class="language-go">
+// PropagationSpec represents the desired behavior of PropagationPolicy.
+type PropagationSpec struct {
+// PropagateDeps tells if relevant resources should be propagated automatically.
+// Take 'Deployment' which referencing 'ConfigMap' and 'Secret' as an example, when 'propagateDeps' is 'true',
+// the referencing resources could be omitted(for saving config effort) from 'resourceSelectors' as they will be
+// propagated along with the Deployment. In addition to the propagating process, the referencing resources will be
+// migrated along with the Deployment in the fail-over scenario.
+//
+// Defaults to false.
+// +optional
+PropagateDeps bool `json:&quot;propagateDeps,omitempty&quot;`
+}
+</code></pre>
+<pre><code class="language-go">// ResourceBindingSpec represents the expectation of ResourceBinding.
+type ResourceBindingSpec struct {
+// PropagateDeps tells if relevant resources should be propagated automatically.
+// It is inherited from PropagationPolicy or ClusterPropagationPolicy.
+// default false.
+// +optional
+PropagateDeps bool `json:&quot;propagateDeps,omitempty&quot;`
+
+// RequiredBy represents the list of Bindings that depend on the referencing resource.
+// +optional
+RequiredBy []BindingSnapshot `json:&quot;requiredBy,omitempty&quot;`
+}
+
+// BindingSnapshot is a snapshot of a ResourceBinding or ClusterResourceBinding.
+type BindingSnapshot struct {
+// Namespace represents the namespace of the Binding.
+// It is required for ResourceBinding.
+// If Namespace is not specified, means the referencing is ClusterResourceBinding.
+// +optional
+Namespace string `json:&quot;namespace,omitempty&quot;`
+
+// Name represents the name of the Binding.
+// +required
+Name string `json:&quot;name&quot;`
+
+// Clusters represents the scheduled result.
+// +optional
+Clusters []TargetCluster `json:&quot;clusters,omitempty&quot;`
+}
+</code></pre>
+<h3 id="example">Example</h3>
+<p>Suppose we create a deployment named <code>myapp</code> which references configmap.</p>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - image: nginx
+          name: nginx
+          volumeMounts:
+            - name: configmap
+              mountPath: &quot;/configmap&quot;
+      volumes:
+        - name: configmap
+          configMap:
+            name: my-config
+</code></pre>
+<p>Creating a propagation policy to propagate the deployment to specific clusters. To enable auto-propagating dependencies, we need to set <code>propagateDeps</code> as <code>ture</code>.</p>
+<pre><code class="language-yaml">apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: myapp-propagation
+spec:
+  propagateDeps: true
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: myapp
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+        - member2
+    replicaScheduling:
+      replicaSchedulingType: Duplicated
+</code></pre>
+<p>Then creating the reference configmap.</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+data:
+  nginx.properties: |
+    proxy-connect-timeout: &quot;10s&quot;
+    proxy-read-timeout: &quot;10s&quot;
+    client-max-body-size: &quot;2m&quot;
+</code></pre>
+<p>The resource binding of <code>my-config</code> will be created by <code>dependencies distributor</code>. And the <code>spec</code> field will be:</p>
+<pre><code class="language-yaml">spec:
+  requiredBy:
+    - clusters:
+        - name: member1
+          replicas: 1
+        - name: member2
+          replicas: 1
+      name: myapp-deployment
+      namespace: default
+  resource:
+    apiVersion: v1
+    kind: ConfigMap
+    name: my-config
+    namespace: default
+    resourceVersion: &quot;757297&quot;
+</code></pre>
+<h3 id="test-plan">Test Plan</h3>
+<ul>
+<li>Propose E2E test cases according to user stories above:</li>
+<li>Test if the dependent resources propagated to needed clusters.</li>
+</ul>
+<h2 id="alternatives">Alternatives</h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

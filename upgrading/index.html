@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Index - Karmada.io</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#upgrading-instruction" class="nav-link">Upgrading Instruction</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#regular-upgrading-process" class="nav-link">Regular Upgrading Process</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#details-upgrading-instruction" class="nav-link">Details Upgrading Instruction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#upgrading-instruction">Upgrading Instruction</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#regular-upgrading-process">Regular Upgrading Process</a><ul>
+<li><a href="#upgrading-apis">Upgrading APIs</a></li>
+<li><a href="#manual-upgrade-api">Manual Upgrade API</a></li>
+<li><a href="#upgrading-components">Upgrading Components</a></li>
+</ul>
+</li>
+<li><a href="#details-upgrading-instruction">Details Upgrading Instruction</a><ul>
+<li><a href="#v08-to-v09">v0.8 to v0.9</a></li>
+<li><a href="#v09-to-v010">v0.9 to v0.10</a></li>
+<li><a href="#v010-to-v10">v0.10 to v1.0</a></li>
+<li><a href="#v10-to-v11">v1.0 to v1.1</a></li>
+<li><a href="#v11-to-v12">v1.1 to v1.2</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h1 id="upgrading-instruction">Upgrading Instruction</h1>
+<h2 id="overview">Overview</h2>
+<p>Karmada uses the <a href="https://semver.org/">semver versioning</a> and each version in the format of v<code>MAJOR</code>.<code>MINOR</code>.<code>PATCH</code>:
+- The <code>PATCH</code> release does not introduce breaking changes.
+- The <code>MINOR</code> release might introduce minor breaking changes with a workaround.
+- The <code>Major</code> release might introduce backward-incompatible behavior changes.</p>
+<h2 id="regular-upgrading-process">Regular Upgrading Process</h2>
+<h3 id="upgrading-apis">Upgrading APIs</h3>
+<p>For releases that introduce API changes, the Karmada API(CRD) that Karmada components rely on must upgrade to keep consistent.</p>
+<p>Karmada CRD is composed of two parts:
+- bases: The CRD definition generated via API structs.
+- patches: conversion settings for the CRD.</p>
+<p>In order to support multiple versions of custom resources, the <code>patches</code> should be injected into <code>bases</code>.
+To achieve this we introduced a <code>kustomization.yaml</code> configuration then use <code>kubectl kustomize</code> to build the final CRD.</p>
+<p>The <code>bases</code>,<code>patches</code>and <code>kustomization.yaml</code> now located at <code>charts/_crds</code> directory of the repo.</p>
+<h4 id="manual-upgrade-api">Manual Upgrade API</h4>
+<p><strong>Step 1: Get the Webhook CA certificate</strong></p>
+<p>The CA certificate will be injected into <code>patches</code> before building the final CRD.
+We can retrieve it from the <code>MutatingWebhookConfiguration</code> or <code>ValidatingWebhookConfiguration</code> configurations, e.g:</p>
+<pre><code class="language-bash">kubectl get mutatingwebhookconfigurations.admissionregistration.k8s.io mutating-config
+</code></pre>
+<p>Copy the <code>ca_string</code> from the yaml path <code>webhooks.name[x].clientConfig.caBundle</code>, then replace the <code>{{caBundle}}</code> from
+the yaml files in <code>patches</code>. e.g:</p>
+<pre><code class="language-bash">sed -i'' -e &quot;s/{{caBundle}}/${ca_string}/g&quot; ./&quot;charts/_crds/patches/webhook_in_resourcebindings.yaml&quot;
+sed -i'' -e &quot;s/{{caBundle}}/${ca_string}/g&quot; ./&quot;charts/_crds/patches/webhook_in_clusterresourcebindings.yaml&quot;
+</code></pre>
+<p><strong>Step2: Build final CRD</strong></p>
+<p>Generate the final CRD by <code>kubectl kustomize</code> command, e.g:</p>
+<pre><code class="language-bash">kubectl kustomize ./charts/_crds 
+</code></pre>
+<p>Or, you can apply to <code>karmada-apiserver</code> by:</p>
+<pre><code class="language-bash">kubectl kustomize ./charts/_crds | kubectl apply -f -
+</code></pre>
+<h3 id="upgrading-components">Upgrading Components</h3>
+<p>Components upgrading is composed of image version update and possible command args changes.</p>
+<blockquote>
+<p>For the argument changes please refer to <code>Details Upgrading Instruction</code> below.</p>
+</blockquote>
+<h2 id="details-upgrading-instruction">Details Upgrading Instruction</h2>
+<p>The following instructions are for minor version upgrades. Cross-version upgrades are not recommended.
+And it is recommended to use the latest patch version when upgrading, for example, if you are upgrading from 
+v1.1.x to v1.2.x and the available patch versions are v1.2.0, v1.2.1 and v1.2.2, then select v1.2.2.</p>
+<h3 id="v08-to-v09"><a href="v0.8-v0.9/">v0.8 to v0.9</a></h3>
+<h3 id="v09-to-v010"><a href="v0.9-v0.10/">v0.9 to v0.10</a></h3>
+<h3 id="v010-to-v10"><a href="v0.10-v1.0/">v0.10 to v1.0</a></h3>
+<h3 id="v10-to-v11"><a href="v1.0-v1.1/">v1.0 to v1.1</a></h3>
+<h3 id="v11-to-v12"><a href="v1.1-v1.2/">v1.1 to v1.2</a></h3></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

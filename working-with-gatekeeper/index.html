@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Working with Gatekeeper(OPA) - Karmada.io</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../working-with-flux/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../working-with-kyverno/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#working-with-gatekeeperopa" class="nav-link">Working with Gatekeeper(OPA)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gatekeeper-installations" class="nav-link">Gatekeeper Installations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#run-demo" class="nav-link">Run demo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reference" class="nav-link">Reference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="working-with-gatekeeperopa">Working with Gatekeeper(OPA)</h1>
+<p><a href="https://github.com/open-policy-agent/gatekeeper">Gatekeeper</a> , is a customizable admission webhook for Kubernetes that enforces policies executed by the Open Policy Agent (OPA), a policy engine for Cloud Native environments hosted by <a href="https://cncf.io/">Cloud Native Computing Foundation </a>.</p>
+<p>This document gives an example to demonstrate how to use the <code>Gatekeeper</code> to manage OPA policy. </p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="start-up-karmada-clusters">Start up Karmada clusters</h3>
+<p>You just need to clone Karmada repo, and run the following script in Karmada directory. </p>
+<pre><code>hack/local-up-karmada.sh
+</code></pre>
+<h2 id="gatekeeper-installations">Gatekeeper Installations</h2>
+<p>In this case, you will use Gatekeeper v3.7.2. Related deployment files are from <a href="https://github.com/open-policy-agent/gatekeeper/blob/release-3.7/deploy/gatekeeper.yaml">here</a>.</p>
+<h3 id="install-gatekeeper-apis-on-karmada">Install Gatekeeper APIs on Karmada</h3>
+<ol>
+<li>Create resource objects of Gatekeeper in karmada controller plane, the content is as follows. </li>
+</ol>
+<p><code>console
+   kubectl config use-context karmada-apiserver</code></p>
+<p>Deploy namespace: https://github.com/open-policy-agent/gatekeeper/blob/0d239574f8e71908325391d49cb8dd8e4ed6f6fa/deploy/gatekeeper.yaml#L1-L9</p>
+<p>Deploy Gatekeeper CRDs: https://github.com/open-policy-agent/gatekeeper/blob/0d239574f8e71908325391d49cb8dd8e4ed6f6fa/deploy/gatekeeper.yaml#L27-L1999</p>
+<p>Deploy Gatekeeper secrets: https://github.com/open-policy-agent/gatekeeper/blob/0d239574f8e71908325391d49cb8dd8e4ed6f6fa/deploy/gatekeeper.yaml#L2261-L2267</p>
+<p>Deploy webhook config:
+   ```yaml
+   apiVersion: admissionregistration.k8s.io/v1
+   kind: MutatingWebhookConfiguration
+   metadata:
+     labels:
+       gatekeeper.sh/system: "yes"
+     name: gatekeeper-mutating-webhook-configuration
+   webhooks:
+     - admissionReviewVersions:
+         - v1
+         - v1beta1
+       clientConfig:
+         #Change the clientconfig from service type to url type cause webhook config and service are not in the same cluster.
+         url: https://gatekeeper-webhook-service.gatekeeper-system.svc:443/v1/mutate
+       failurePolicy: Ignore
+       matchPolicy: Exact
+       name: mutation.gatekeeper.sh
+       namespaceSelector:
+         matchExpressions:
+           - key: admission.gatekeeper.sh/ignore
+             operator: DoesNotExist
+       rules:
+         - apiGroups:
+             - '<em>'
+           apiVersions:
+             - '</em>'
+           operations:
+             - CREATE
+             - UPDATE
+           resources:
+             - '*'
+       sideEffects: None
+       timeoutSeconds: 1</p>
+<hr />
+<p>apiVersion: admissionregistration.k8s.io/v1
+   kind: ValidatingWebhookConfiguration
+   metadata:
+     labels:
+       gatekeeper.sh/system: "yes"
+     name: gatekeeper-validating-webhook-configuration
+   webhooks:
+     - admissionReviewVersions:
+         - v1
+         - v1beta1
+       clientConfig:
+         #Change the clientconfig from service type to url type cause webhook config and service are not in the same cluster.
+         url: https://gatekeeper-webhook-service.gatekeeper-system.svc:443/v1/admit
+       failurePolicy: Ignore
+       matchPolicy: Exact
+       name: validation.gatekeeper.sh
+       namespaceSelector:
+         matchExpressions:
+           - key: admission.gatekeeper.sh/ignore
+             operator: DoesNotExist
+       rules:
+         - apiGroups:
+             - '<em>'
+           apiVersions:
+             - '</em>'
+           operations:
+             - CREATE
+             - UPDATE
+           resources:
+             - '<em>'
+       sideEffects: None
+       timeoutSeconds: 3
+     - admissionReviewVersions:
+         - v1
+         - v1beta1
+       clientConfig:
+         #Change the clientconfig from service type to url type cause webhook config and service are not in the same cluster.
+         url: https://gatekeeper-webhook-service.gatekeeper-system.svc:443/v1/admitlabel
+       failurePolicy: Fail
+       matchPolicy: Exact
+       name: check-ignore-label.gatekeeper.sh
+       rules:
+         - apiGroups:
+             - ""
+           apiVersions:
+             - '</em>'
+           operations:
+             - CREATE
+             - UPDATE
+           resources:
+             - namespaces
+       sideEffects: None
+       timeoutSeconds: 3
+   ```
+   You need to change the clientconfig from service type to url type for multi-cluster deployment.</p>
+<p>Also, you need to deploy a dummy pod in gatekeeper-system namespace in karmada-apiserver context because when Gatekeeper generates a policy template CRD, a status object is generated to monitor the status of the policy template, and the status object is bound by the controller Pod through the OwnerReference. Therefore, when the CRD and the controller are not in the same cluster, a dummy Pod needs to be used instead of the controller. The Pod enables the status object to be successfully generated. </p>
+<p>For example: 
+   <code>yaml
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: dummpy-pod
+     namespace: gatekeeper-system
+   spec:
+     containers:
+     - name: dummpy-pod
+       image: nginx:latest
+       imagePullPolicy: Always</code></p>
+<h3 id="install-gatekeeper-components-on-host-cluster">Install GateKeeper components on host cluster</h3>
+<p><code>console
+   kubectl config use-context karmada-host</code></p>
+<p>Deploy namespace: https://github.com/open-policy-agent/gatekeeper/blob/0d239574f8e71908325391d49cb8dd8e4ed6f6fa/deploy/gatekeeper.yaml#L1-L9</p>
+<p>Deploy RBAC resources for deployment: https://github.com/open-policy-agent/gatekeeper/blob/0d239574f8e71908325391d49cb8dd8e4ed6f6fa/deploy/gatekeeper.yaml#L1999-L2375</p>
+<p>Deploy Gatekeeper controllers and secret as kubeconfig:
+   ```yaml 
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     labels:
+       control-plane: audit-controller
+       gatekeeper.sh/operation: audit
+       gatekeeper.sh/system: "yes"
+     name: gatekeeper-audit
+     namespace: gatekeeper-system
+   spec:
+     replicas: 1
+     selector:
+       matchLabels:
+         control-plane: audit-controller
+         gatekeeper.sh/operation: audit
+         gatekeeper.sh/system: "yes"
+     template:
+       metadata:
+         annotations:
+           container.seccomp.security.alpha.kubernetes.io/manager: runtime/default
+         labels:
+           control-plane: audit-controller
+           gatekeeper.sh/operation: audit
+           gatekeeper.sh/system: "yes"
+       spec:
+         automountServiceAccountToken: true
+         containers:
+           - args:
+               - --operation=audit
+               - --operation=status
+               - --operation=mutation-status
+               - --logtostderr
+               - --disable-opa-builtin={http.send}
+               - --kubeconfig=/etc/kubeconfig
+             command:
+               - /manager
+             env:
+               - name: POD_NAMESPACE
+                 valueFrom:
+                   fieldRef:
+                     apiVersion: v1
+                     fieldPath: metadata.namespace
+               - name: POD_NAME
+                 value: {{POD_NAME}}
+             image: openpolicyagent/gatekeeper:v3.7.2
+             imagePullPolicy: Always
+             livenessProbe:
+               httpGet:
+                 path: /healthz
+                 port: 9090
+             name: manager
+             ports:
+               - containerPort: 8888
+                 name: metrics
+                 protocol: TCP
+               - containerPort: 9090
+                 name: healthz
+                 protocol: TCP
+             readinessProbe:
+               httpGet:
+                 path: /readyz
+                 port: 9090
+             resources:
+               limits:
+                 cpu: 1000m
+                 memory: 512Mi
+               requests:
+                 cpu: 100m
+                 memory: 256Mi
+             securityContext:
+               allowPrivilegeEscalation: false
+               capabilities:
+                 drop:
+                   - all
+               readOnlyRootFilesystem: true
+               runAsGroup: 999
+               runAsNonRoot: true
+               runAsUser: 1000
+             volumeMounts:
+               - mountPath: /tmp/audit
+                 name: tmp-volume
+               - mountPath: /etc/kubeconfig
+                 name: kubeconfig
+                 subPath: kubeconfig
+         nodeSelector:
+           kubernetes.io/os: linux
+         priorityClassName: system-cluster-critical
+         serviceAccountName: gatekeeper-admin
+         terminationGracePeriodSeconds: 60
+         volumes:
+           - emptyDir: {}
+             name: tmp-volume
+           - name: kubeconfig
+             secret:
+               defaultMode: 420
+               secretName: kubeconfig</p>
+<hr />
+<p>apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     labels:
+       control-plane: controller-manager
+       gatekeeper.sh/operation: webhook
+       gatekeeper.sh/system: "yes"
+     name: gatekeeper-controller-manager
+     namespace: gatekeeper-system
+   spec:
+     replicas: 3
+     selector:
+       matchLabels:
+         control-plane: controller-manager
+         gatekeeper.sh/operation: webhook
+         gatekeeper.sh/system: "yes"
+     template:
+       metadata:
+         annotations:
+           container.seccomp.security.alpha.kubernetes.io/manager: runtime/default
+         labels:
+           control-plane: controller-manager
+           gatekeeper.sh/operation: webhook
+           gatekeeper.sh/system: "yes"
+       spec:
+         affinity:
+           podAntiAffinity:
+             preferredDuringSchedulingIgnoredDuringExecution:
+               - podAffinityTerm:
+                   labelSelector:
+                     matchExpressions:
+                       - key: gatekeeper.sh/operation
+                         operator: In
+                         values:
+                           - webhook
+                   topologyKey: kubernetes.io/hostname
+                 weight: 100
+         automountServiceAccountToken: true
+         containers:
+           - args:
+               - --port=8443
+               - --logtostderr
+               - --exempt-namespace=gatekeeper-system
+               - --operation=webhook
+               - --operation=mutation-webhook
+               - --disable-opa-builtin={http.send}
+               - --kubeconfig=/etc/kubeconfig
+             command:
+               - /manager
+             env:
+               - name: POD_NAMESPACE
+                 valueFrom:
+                   fieldRef:
+                     apiVersion: v1
+                     fieldPath: metadata.namespace
+               - name: POD_NAME
+                 value: {{POD_NAME}}
+             image: openpolicyagent/gatekeeper:v3.7.2
+             imagePullPolicy: Always
+             livenessProbe:
+               httpGet:
+                 path: /healthz
+                 port: 9090
+             name: manager
+             ports:
+               - containerPort: 8443
+                 name: webhook-server
+                 protocol: TCP
+               - containerPort: 8888
+                 name: metrics
+                 protocol: TCP
+               - containerPort: 9090
+                 name: healthz
+                 protocol: TCP
+             readinessProbe:
+               httpGet:
+                 path: /readyz
+                 port: 9090
+             resources:
+               limits:
+                 cpu: 1000m
+                 memory: 512Mi
+               requests:
+                 cpu: 100m
+                 memory: 256Mi
+             securityContext:
+               allowPrivilegeEscalation: false
+               capabilities:
+                 drop:
+                   - all
+               readOnlyRootFilesystem: true
+               runAsGroup: 999
+               runAsNonRoot: true
+               runAsUser: 1000
+             volumeMounts:
+               - mountPath: /certs
+                 name: cert
+                 readOnly: true
+               - mountPath: /etc/kubeconfig
+                 name: kubeconfig
+                 subPath: kubeconfig
+         nodeSelector:
+           kubernetes.io/os: linux
+         priorityClassName: system-cluster-critical
+         serviceAccountName: gatekeeper-admin
+         terminationGracePeriodSeconds: 60
+         volumes:
+           - name: cert
+             secret:
+               defaultMode: 420
+               secretName: gatekeeper-webhook-server-cert
+           - name: kubeconfig
+             secret:
+               defaultMode: 420
+               secretName: kubeconfig</p>
+<hr />
+<p>apiVersion: policy/v1beta1
+   kind: PodDisruptionBudget
+   metadata:
+     labels:
+       gatekeeper.sh/system: "yes"
+     name: gatekeeper-controller-manager
+     namespace: gatekeeper-system
+   spec:
+     minAvailable: 1
+     selector:
+       matchLabels:
+         control-plane: controller-manager
+         gatekeeper.sh/operation: webhook
+         gatekeeper.sh/system: "yes"</p>
+<hr />
+<p>apiVersion: v1
+   stringData:
+     kubeconfig: |-
+       apiVersion: v1
+       clusters:
+       - cluster:
+           certificate-authority-data: {{ca_crt}}
+           server: https://karmada-apiserver.karmada-system.svc.cluster.local:5443
+         name: kind-karmada
+       contexts:
+       - context:
+           cluster: kind-karmada
+           user: kind-karmada
+         name: karmada
+       current-context: karmada
+       kind: Config
+       preferences: {}
+       users:
+       - name: kind-karmada
+         user:
+           client-certificate-data: {{client_cer}}
+           client-key-data: {{client_key}}
+   kind: Secret
+   metadata:
+     name: kubeconfig
+     namespace: gatekeeper-system
+   ``` 
+   You need to fill in the dummy pod created in step 1 to {{ POD_NAME }} and fill in the secret which represents kubeconfig pointing to karmada-apiserver.</p>
+<p>Deploy resourcequota: https://github.com/open-policy-agent/gatekeeper/blob/0d239574f8e71908325391d49cb8dd8e4ed6f6fa/deploy/gatekeeper.yaml#L10-L26</p>
+<h3 id="extra-steps">Extra steps</h3>
+<p>After all, we need to copy the secret <code>gatekeeper-webhook-server-cert</code> in karmada-apiserver context to that in karmada-host context to keep secrets stored in <code>etcd</code> and volumes mounted in controller the same.</p>
+<h2 id="run-demo">Run demo</h2>
+<h3 id="create-k8srequiredlabels-template">Create k8srequiredlabels template</h3>
+<p>```yaml
+   apiVersion: templates.gatekeeper.sh/v1
+   kind: ConstraintTemplate
+   metadata:
+     name: k8srequiredlabels
+   spec:
+     crd:
+       spec:
+         names:
+           kind: K8sRequiredLabels
+         validation:
+           openAPIV3Schema:<br />
+             type: object
+             description: Describe K8sRequiredLabels crd parameters
+             properties:
+               labels:
+                 type: array
+                 items:
+                   type: string
+                   description: A label string
+     targets:
+       - target: admission.k8s.gatekeeper.sh
+         rego: |
+           package k8srequiredlabels</p>
+<pre><code>       violation[{"msg": msg, "details": {"missing_labels": missing}}] {
+         provided := {label | input.review.object.metadata.labels[label]}
+         required := {label | label := input.parameters.labels[_]}
+         missing := required - provided
+         count(missing) &gt; 0
+         msg := sprintf("you must provide labels: %v", [missing])
+       }
+</code></pre>
+<p>```</p>
+<h3 id="create-k8srequiredlabels-constraint">Create k8srequiredlabels constraint</h3>
+<p><code>yaml
+   apiVersion: constraints.gatekeeper.sh/v1beta1
+   kind: K8sRequiredLabels
+   metadata:
+     name: ns-must-have-gk
+   spec:
+     match:
+       kinds:
+         - apiGroups: [""]
+           kinds: ["Namespace"]  
+     parameters:
+       labels: ["gatekeepers"]</code></p>
+<h3 id="create-a-bad-namespace">Create a bad namespace</h3>
+<p><code>console
+   kubectl create ns test
+   Error from server ([ns-must-have-gk] you must provide labels: {"gatekeepers"}): admission webhook "validation.gatekeeper.sh" denied the request: [ns-must-have-gk] you must provide labels: {"gatekeepers"}</code></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>https://github.com/open-policy-agent/gatekeeper</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

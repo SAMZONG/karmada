@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Deploy apiserver-network-proxy (ANP) - Karmada.io</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../userguide/aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../userguide/resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../installation/install-kubectl-karmada/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../working-with-argocd/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#deploy-apiserver-network-proxy-anp" class="nav-link">Deploy apiserver-network-proxy (ANP)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#purpose" class="nav-link">Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#environment" class="nav-link">Environment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#actions" class="nav-link">Actions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="deploy-apiserver-network-proxy-anp">Deploy apiserver-network-proxy (ANP)</h1>
+<h2 id="purpose">Purpose</h2>
+<p>For a member cluster that joins karmada in pull mode, we need to provide a method to connect the network between the karmada control plane and the member cluster, so that karmada-aggregated-apiserver can access this member cluster.</p>
+<p>Deploying ANP to achieve appeal is one of the methods. This article describes how to deploy ANP in karmada.</p>
+<h2 id="environment">Environment</h2>
+<p>Karmada deployed using the kind tool.</p>
+<p>We can directly <code>hack/local-up-karmada.sh</code> to deploy karmada.</p>
+<h2 id="actions">Actions</h2>
+<h3 id="step-1-download-code">Step 1: Download code</h3>
+<p>To facilitate demonstration, the code is modified based on ANP v0.0.24 to support access to the front server through HTTP. Here is the code base address: https://github.com/mrlihanbo/apiserver-network-proxy/tree/v0.0.24/dev.</p>
+<pre><code>git clone -b v0.0.24/dev https://github.com/mrlihanbo/apiserver-network-proxy.git
+cd apiserver-network-proxy/
+</code></pre>
+<h3 id="step-2-compile-images">Step 2: Compile images</h3>
+<p>Compile the proxy-server and proxy-agent images.</p>
+<pre><code>docker build . --build-arg ARCH=amd64 -f artifacts/images/agent-build.Dockerfile -t swr.ap-southeast-1.myhuaweicloud.com/karmada/proxy-agent:0.0.24
+
+docker build . --build-arg ARCH=amd64 -f artifacts/images/server-build.Dockerfile -t swr.ap-southeast-1.myhuaweicloud.com/karmada/proxy-server:0.0.24
+</code></pre>
+<h3 id="step-3-generate-certificate">Step 3: Generate certificate</h3>
+<p>Run the command to check the IP address of karmada-host-control-plane:</p>
+<pre><code>docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' karmada-host-control-plane
+</code></pre>
+<p>Run the make certs command to generate a certificate and specify PROXY_SERVER_IP as the IP address obtained in the preceding command.</p>
+<pre><code>make certs PROXY_SERVER_IP=x.x.x.x
+</code></pre>
+<p>The generated certificate is in the <code>certs</code> folder.</p>
+<h3 id="step-4-deploy-proxy-server">Step 4: Deploy proxy-server</h3>
+<p>Save the <code>proxy-server.yaml</code> file in the root directory of the ANP code.</p>
+<details>
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml"># proxy-server.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy-server
+  namespace: karmada-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxy-server
+  template:
+    metadata:
+      labels:
+        app: proxy-server
+    spec:
+      containers:
+      - command:
+        - /proxy-server
+        args:
+          - --health-port=8092
+          - --cluster-ca-cert=/var/certs/server/cluster-ca-cert.crt
+          - --cluster-cert=/var/certs/server/cluster-cert.crt 
+          - --cluster-key=/var/certs/server/cluster-key.key
+          - --mode=http-connect 
+          - --proxy-strategies=destHost 
+          - --server-ca-cert=/var/certs/server/server-ca-cert.crt
+          - --server-cert=/var/certs/server/server-cert.crt 
+          - --server-key=/var/certs/server/server-key.key
+        image: swr.ap-southeast-1.myhuaweicloud.com/karmada/proxy-server:0.0.24
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 8092
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 60
+        name: proxy-server
+        volumeMounts:
+        - mountPath: /var/certs/server
+          name: cert
+      restartPolicy: Always
+      hostNetwork: true
+      volumes:
+      - name: cert
+        secret:
+          secretName: proxy-server-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: proxy-server-cert
+  namespace: karmada-system
+type: Opaque
+data:
+  server-ca-cert.crt: |
+    {{server_ca_cert}}
+  server-cert.crt: |
+    {{server_cert}}
+  server-key.key: |
+    {{server_key}}
+  cluster-ca-cert.crt: |
+    {{cluster_ca_cert}}
+  cluster-cert.crt: |
+    {{cluster_cert}}
+  cluster-key.key: |
+    {{cluster_key}}
+</code></pre>
+
+
+</details>
+
+<p>Save the <code>replace-proxy-server.sh</code> file in the root directory of the ANP code.</p>
+<details>
+<summary>unfold me to see the shell</summary>
+
+
+<pre><code class="language-shell">#!/bin/bash
+
+cert_yaml=proxy-server.yaml
+
+SERVER_CA_CERT=$(cat certs/frontend/issued/ca.crt | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{server_ca_cert}}/${SERVER_CA_CERT}/g&quot; ${cert_yaml}
+
+SERVER_CERT=$(cat certs/frontend/issued/proxy-frontend.crt | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{server_cert}}/${SERVER_CERT}/g&quot; ${cert_yaml}
+
+SERVER_KEY=$(cat certs/frontend/private/proxy-frontend.key | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{server_key}}/${SERVER_KEY}/g&quot; ${cert_yaml}
+
+CLUSTER_CA_CERT=$(cat certs/agent/issued/ca.crt | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{cluster_ca_cert}}/${CLUSTER_CA_CERT}/g&quot; ${cert_yaml}
+
+CLUSTER_CERT=$(cat certs/agent/issued/proxy-frontend.crt | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{cluster_cert}}/${CLUSTER_CERT}/g&quot; ${cert_yaml}
+
+
+CLUSTER_KEY=$(cat certs/agent/private/proxy-frontend.key | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{cluster_key}}/${CLUSTER_KEY}/g&quot; ${cert_yaml}
+</code></pre>
+
+
+</details>
+
+<p>Run the following command to run the script:</p>
+<pre><code>chmod +x replace-proxy-server.sh
+bash replace-proxy-server.sh
+</code></pre>
+<p>Deploying the proxy-server on the karmada control plane:</p>
+<pre><code>kind load docker-image swr.ap-southeast-1.myhuaweicloud.com/karmada/proxy-server:0.0.24 --name karmada-host
+export KUBECONFIG=/root/.kube/karmada.config
+kubectl --context=karmada-host apply -f proxy-server.yaml
+</code></pre>
+<h3 id="step-5-deploy-proxy-agent">Step 5: Deploy proxy-agent</h3>
+<p>Save the <code>proxy-agent.yaml</code> file in the root directory of the ANP code.</p>
+<details>
+<summary>unfold me to see the yaml</summary>
+
+
+<pre><code class="language-yaml"># proxy-agent.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: proxy-agent
+  name: proxy-agent
+  namespace: karmada-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxy-agent
+  template:
+    metadata:
+      labels:
+        app: proxy-agent
+    spec:
+      containers:
+        - command:
+            - /proxy-agent
+          args:
+            - '--ca-cert=/var/certs/agent/ca.crt'
+            - '--agent-cert=/var/certs/agent/proxy-agent.crt'
+            - '--agent-key=/var/certs/agent/proxy-agent.key'
+            - '--proxy-server-host={{proxy_server_addr}}'
+            - '--proxy-server-port=8091'
+            - '--agent-identifiers=host={{identifiers}}'
+          image: swr.ap-southeast-1.myhuaweicloud.com/karmada/proxy-agent:0.0.24
+          imagePullPolicy: IfNotPresent
+          name: proxy-agent
+          livenessProbe:
+            httpGet:
+              scheme: HTTP
+              port: 8093
+              path: /healthz
+            initialDelaySeconds: 15
+            timeoutSeconds: 60
+          volumeMounts:
+            - mountPath: /var/certs/agent
+              name: cert
+      volumes:
+        - name: cert
+          secret:
+            secretName: proxy-agent-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: proxy-agent-cert
+  namespace: karmada-system
+type: Opaque
+data:
+  ca.crt: |
+    {{proxy_agent_ca_crt}}
+  proxy-agent.crt: |
+    {{proxy_agent_crt}}
+  proxy-agent.key: |
+    {{proxy_agent_key}}
+</code></pre>
+
+
+</details>
+
+<p>Save the <code>replace-proxy-agent.sh</code> file in the root directory of the ANP code.</p>
+<details>
+<summary>unfold me to see the shell</summary>
+
+
+<pre><code class="language-shell">#!/bin/bash
+
+cert_yaml=proxy-agent.yaml
+
+karmada_controlplan_addr=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' karmada-host-control-plane)
+member3_cluster_addr=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' member3-control-plane)
+sed -i'' -e &quot;s/{{proxy_server_addr}}/${karmada_controlplan_addr}/g&quot; ${cert_yaml}
+sed -i'' -e &quot;s/{{identifiers}}/${member3_cluster_addr}/g&quot; ${cert_yaml}
+
+PROXY_AGENT_CA_CRT=$(cat certs/agent/issued/ca.crt | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{proxy_agent_ca_crt}}/${PROXY_AGENT_CA_CRT}/g&quot; ${cert_yaml}
+
+PROXY_AGENT_CRT=$(cat certs/agent/issued/proxy-agent.crt | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{proxy_agent_crt}}/${PROXY_AGENT_CRT}/g&quot; ${cert_yaml}
+
+PROXY_AGENT_KEY=$(cat certs/agent/private/proxy-agent.key | base64 | tr &quot;\n&quot; &quot; &quot;|sed s/[[:space:]]//g)
+sed -i'' -e &quot;s/{{proxy_agent_key}}/${PROXY_AGENT_KEY}/g&quot; ${cert_yaml}
+</code></pre>
+
+
+</details>
+
+<p>Run the following command to run the script:</p>
+<pre><code>chmod +x replace-proxy-agent.sh
+bash replace-proxy-agent.sh
+</code></pre>
+<p>Deploying the proxy-agent in the pull mode member cluster (in this example, cluster member3 cluster is in pull mode.):</p>
+<pre><code>kind load docker-image swr.ap-southeast-1.myhuaweicloud.com/karmada/proxy-agent:0.0.24 --name member3
+kubectl --kubeconfig=/root/.kube/members.config --context=member3 apply -f proxy-agent.yaml
+</code></pre>
+<p><strong>The ANP deployment is complete.</strong></p>
+<h3 id="step-6-add-command-flags-for-karmada-agent-deployment">Step 6: Add command flags for karmada-agent deployment</h3>
+<p>After deploying the ANP deployment, we need to add extra command flags <code>--cluster-api-endpoint</code> and <code>--proxy-server-address</code> for <code>karmada-agent</code> deployment in <code>member3</code> cluster.</p>
+<p>Where <code>--cluster-api-endpoint</code> is the APIEndpoint of the cluster. You can obtain it from the KubeConfig file of the <code>member3</code> cluster.</p>
+<p>Where <code>--proxy-server-address</code> is the address of the proxy server that is used to proxy the cluster. In current case, we can set <code>--proxy-server-address</code> to <code>http://&lt;karmada_controlplan_addr&gt;:8088</code>. Get <code>karmada_controlplan_addr</code> value through the following command:</p>
+<pre><code class="language-shell">docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' karmada-host-control-plane
+</code></pre>
+<p>Port <code>8088</code> is set by our code modification in ANP: https://github.com/mrlihanbo/apiserver-network-proxy/blob/v0.0.24/dev/cmd/server/app/server.go#L267. You can also modify it to a different value.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

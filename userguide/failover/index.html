@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Failover Overview - Karmada.io</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Karmada.io</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">What's Karmada <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/" class="dropdown-item">Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../istio-on-karmada/" class="dropdown-item">Use Istio on Karmada</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-ingress/" class="dropdown-item">Multi-cluster Ingress</a>
+</li>
+                                    
+<li>
+    <a href="../../multi-cluster-service/" class="dropdown-item">Multi-cluster Service Discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../frequently-asked-questions/" class="dropdown-item">FAQ(Frequently Asked Questions)</a>
+</li>
+                                    
+<li>
+    <a href="../../reserved-namespaces/" class="dropdown-item">Reserved Namespaces</a>
+</li>
+                                    
+<li>
+    <a href="../../object-association-map/" class="dropdown-item">Karmada Object association mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../bash-auto-completion-on-linux/" class="dropdown-item">bash auto-completion on Linux</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../aggregated-api-endpoint/" class="dropdown-item">aggregated-api-endpoint</a>
+</li>
+                                    
+<li>
+    <a href="../cluster-registration/" class="dropdown-item">cluster-registration</a>
+</li>
+                                    
+<li>
+    <a href="../configure-controllers/" class="dropdown-item">configure-controllers</a>
+</li>
+                                    
+<li>
+    <a href="../customizing-resource-interpreter/" class="dropdown-item">customizing-resource-interpreter</a>
+</li>
+                                    
+<li>
+    <a href="../override-policy/" class="dropdown-item">override-policy</a>
+</li>
+                                    
+<li>
+    <a href="../promote-legacy-workload/" class="dropdown-item">promote-legacy-workload</a>
+</li>
+                                    
+<li>
+    <a href="../propagate-dependencies/" class="dropdown-item">propagate-dependencies</a>
+</li>
+                                    
+<li>
+    <a href="../resource-propagating/" class="dropdown-item">resource-propagating</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../installation/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../installation/install-kubectl-karmada/" class="dropdown-item">Install kubectl Karmada</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Upgrading <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../upgrading/" class="dropdown-item">upgrading</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working With <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../working-with-anp/" class="dropdown-item">Deploy apiserver-network-proxy (ANP)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-argocd/" class="dropdown-item">Working with Argo CD</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-filebeat/" class="dropdown-item">Use Filebeat to collect logs of Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-flux/" class="dropdown-item">Use Flux to support Helm chart propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-gatekeeper/" class="dropdown-item">Working with Gatekeeper(OPA)</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-kyverno/" class="dropdown-item">Working with Kyverno</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-prometheus/" class="dropdown-item">Use Prometheus to monitor Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-submariner/" class="dropdown-item">Use Submariner to connect the network between Karmada member clusters</a>
+</li>
+                                    
+<li>
+    <a href="../../working-with-velero/" class="dropdown-item">Integrate Velero to back up and restore Karmada resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../troubleshooting/" class="nav-link">troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#failover-overview" class="nav-link">Failover Overview</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#monitor-the-cluster-health-status" class="nav-link">Monitor the cluster health status</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#failover-feature-of-karmada" class="nav-link">Failover feature of Karmada</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="failover-overview">Failover Overview</h1>
+<h2 id="monitor-the-cluster-health-status">Monitor the cluster health status</h2>
+<p>Karmada supports both <code>Push</code> and <code>Pull</code> modes to manage member clusters.</p>
+<p>More details about cluster registration please refer to <a href="../cluster-registration/#cluster-registration">Cluster Registration</a>.</p>
+<h3 id="determining-failures">Determining failures</h3>
+<p>For clusters there are two forms of heartbeats:
+- updates to the <code>.status</code> of a Cluster.
+- <code>Lease</code> objects within the <code>karmada-cluster</code> namespace in karmada control plane. Each cluster has an associated <code>Lease</code> object.</p>
+<h4 id="cluster-status-collection">Cluster status collection</h4>
+<p>For <code>Push</code> mode clusters, the cluster status controller in karmada control plane will continually collect cluster's status for a configured interval.</p>
+<p>For <code>Pull</code> mode clusters, the <code>karmada-agent</code> is responsible for creating and updating the <code>.status</code> of clusters with configured interval.</p>
+<p>The interval for <code>.status</code> updates to <code>Cluster</code> can be configured via <code>--cluster-status-update-frequency</code> flag(default is 10 seconds).</p>
+<p>Cluster might be set to the <code>NotReady</code> state with following conditions:
+- cluster is unreachable(retry 4 times within 2 seconds).
+- cluster's health endpoint responded without ok.
+- failed to collect cluster status including the kubernetes’ version, installed APIs, resources usages, etc.</p>
+<h4 id="lease-updates">Lease updates</h4>
+<p>Karmada will create a <code>Lease</code> object and a lease controller for each cluster when clusters are joined.</p>
+<p>Each lease controller is responsible for updating the related Leases. The lease renewing time can be configured via <code>--cluster-lease-duration</code> and <code>--cluster-lease-renew-interval-fraction</code> flags(default is 10 seconds).</p>
+<p>Lease’s updating process is independent with cluster’s status updating process, since cluster’s <code>.status</code> field is maintained by cluster status controller.</p>
+<p>The cluster controller in Karmada control plane would check the state of each cluster every <code>--cluster-monitor-period</code> period(default is 5 seconds).</p>
+<p>The cluster's <code>Ready</code> condition would be changed to <code>Unknown</code> when cluster controller has not heard from the cluster in the last <code>--cluster-monitor-grace-period</code>(default is 40 seconds).</p>
+<h3 id="check-cluster-status">Check cluster status</h3>
+<p>You can use <code>kubectl</code> to check a Cluster's status and other details:</p>
+<pre><code>kubectl describe cluster &lt;cluster-name&gt;
+</code></pre>
+<p>The <code>Ready</code> condition in <code>Status</code> field indicates the cluster is healthy and ready to accept workloads.
+It will be set to <code>False</code> if the cluster is not healthy and is not accepting workloads, and <code>Unknown</code> if the cluster controller has not heard from the cluster in the last <code>cluster-monitor-grace-period</code>.</p>
+<p>The following example describes an unhealthy cluster:</p>
+<pre><code>kubectl describe cluster member1
+
+Name:         member1
+Namespace:    
+Labels:       &lt;none&gt;
+Annotations:  &lt;none&gt;
+API Version:  cluster.karmada.io/v1alpha1
+Kind:         Cluster
+Metadata:
+  Creation Timestamp:  2021-12-29T08:49:35Z
+  Finalizers:
+    karmada.io/cluster-controller
+  Resource Version:  152047
+  UID:               53c133ab-264e-4e8e-ab63-a21611f7fae8
+Spec:
+  API Endpoint:  https://172.23.0.7:6443
+  Impersonator Secret Ref:
+    Name:       member1-impersonator
+    Namespace:  karmada-cluster
+  Secret Ref:
+    Name:       member1
+    Namespace:  karmada-cluster
+  Sync Mode:    Push
+Status:
+  Conditions:
+    Last Transition Time:  2021-12-31T03:36:08Z
+    Message:               cluster is not reachable
+    Reason:                ClusterNotReachable
+    Status:                False
+    Type:                  Ready
+Events:                    &lt;none&gt;
+</code></pre>
+<h2 id="failover-feature-of-karmada">Failover feature of Karmada</h2>
+<p>The failover feature is controlled by the <code>Failover</code> feature gate, users need to enable the <code>Failover</code> feature gate of karmada scheduler:</p>
+<pre><code>--feature-gates=Failover=true
+</code></pre>
+<h3 id="concept">Concept</h3>
+<p>When it is determined that member clusters becoming unhealthy, the karmada scheduler will reschedule the reference application.
+There are several constraints:
+- For each rescheduled application, it still needs to meet the restrictions of PropagationPolicy, such as ClusterAffinity or SpreadConstraints.
+- The application distributed on the ready clusters after the initial scheduling will remain when failover schedule.</p>
+<h4 id="duplicated-schedule-type">Duplicated schedule type</h4>
+<p>For <code>Duplicated</code> schedule policy, when the number of candidate clusters that meet the PropagationPolicy restriction is not less than the number of failed clusters,
+it will be rescheduled to candidate clusters according to the number of failed clusters. Otherwise, no rescheduling.</p>
+<p>Take <code>Deployment</code> as example:</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: nginx-propagation
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: nginx
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+        - member2
+        - member3
+        - member5
+    spreadConstraints:
+      - maxGroups: 2
+        minGroups: 2
+    replicaScheduling:
+      replicaSchedulingType: Duplicated
+</code></pre>
+<p>Suppose there are 5 member clusters, and the initial scheduling result is in member1 and member2. When member2 fails, it triggers rescheduling.</p>
+<p>It should be noted that rescheduling will not delete the application on the ready cluster member1. In the remaining 3 clusters, only member3 and member5 match the <code>clusterAffinity</code> policy.</p>
+<p>Due to the limitations of spreadConstraints, the final result can be [member1, member3] or [member1, member5].</p>
+<h4 id="divided-schedule-type">Divided schedule type</h4>
+<p>For <code>Divided</code> schedule policy, karmada scheduler will try to migrate replicas to the other health clusters.</p>
+<p>Take <code>Deployment</code> as example:</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: nginx-propagation
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: nginx
+  placement:
+    clusterAffinity:
+      clusterNames:
+        - member1
+        - member2
+    replicaScheduling:
+      replicaDivisionPreference: Weighted
+      replicaSchedulingType: Divided
+      weightPreference:
+        staticWeightList:
+          - targetCluster:
+              clusterNames:
+                - member1
+            weight: 1
+          - targetCluster:
+              clusterNames:
+                - member2
+            weight: 2
+</code></pre>
+<p>Karmada scheduler will divide the replicas according the <code>weightPreference</code>. The initial schedule result is member1 with 1 replica and member2 with 2 replicas.</p>
+<p>When member1 fails, it triggers rescheduling. Karmada scheduler will try to migrate replicas to the other health clusters. The final result will be member2 with 3 replicas.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
